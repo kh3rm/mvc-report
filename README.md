@@ -9,7 +9,7 @@ revision:
 ---
 -->
 
-![Symfony image](.img/symfony.png)
+![Symfony image](.img/symfony.svg)
 
 Get going with Symfony
 ====================
@@ -94,7 +94,7 @@ Install the project skeleton
 
 We shall install and set up a skeleton for a Symfony web application using composer.
 
-This part of the exercise comes from the article "[Installing & Setting up the Symfony Framework](https://symfony.com/doc/current/setup.html)". 
+This part of the exercise comes from the article "[Installing & Setting up the Symfony Framework](https://symfony.com/doc/current/setup.html)".
 
 Ok, let's start to install a project skeleton using `composer create-project` into the directory `app`.
 
@@ -161,7 +161,7 @@ Start by copying the `.htaccess` file to the `public` directory.
 cp ../.htaccess public
 ```
 
-The file `.htaccess` will now be in the root of your public web directory and it will set up the paths so the application will work on the student server. This [file can be used to configure the Apache web server](https://httpd.apache.org/docs/2.4/howto/htaccess.html). 
+The file `.htaccess` will now be in the root of your public web directory and it will set up the paths so the application will work on the student server. This [file can be used to configure the Apache web server](https://httpd.apache.org/docs/2.4/howto/htaccess.html).
 
 Edit the file `.htaccess` and change 'mosstud' to your acronym. Do also review that the path seems to be correct. Your images, stylesheets and the routing will not work if the acronym or path is incorrect.
 
@@ -241,7 +241,7 @@ You will see an entry like this, together with all other routes supported in the
 ```
  -------------------------- -------- -------- ------ ---------------
   Name                       Method   Scheme   Host   Path
- -------------------------- -------- -------- ------ --------------- 
+ -------------------------- -------- -------- ------ ---------------
   app_lucky_number           ANY      ANY      ANY    /lucky/number
  -------------------------- -------- -------- ------ ---------------
 ```
