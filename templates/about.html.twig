@@ -1,0 +1,72 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1>About</h1>
+
+    <div class="about-two-col-container">
+
+    <div class="about-left-container">
+        <a href="{{ asset('img/php-ball.svg') }}">
+            <img class="logo-trio" src="{{ asset('img/php-ball.svg') }}" alt="">
+        </a>
+
+         <a href="{{ asset('img/symfony.svg') }}">
+            <img class="logo-trio" src="{{ asset('img/symfony.svg') }}" alt="">
+        </a>
+
+         <a href="{{ asset('img/sql.svg') }}">
+            <img class="logo-trio" src="{{ asset('img/sql.svg') }}" alt="">
+        </a>
+    </div>
+
+    <div class="about-right-container">
+    <p>
+        Den här sidan konstrueras och växer fram i arbetet i kursen <a href="https://dbwebb.se/kurser/mvc-v2">mvc (v2).</a>
+    </p>
+
+    <p>
+        I den ligger det konceptuella huvudfokuset på objektorienterad programmering i PHP.
+    </p>
+
+    <p>
+        Webbutvecklingen sker i ett PHP-ramverk, <a href="https://symfony.com/">Symfony</a>, utifrån <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC-principen/arkitekturmönstret.</a>
+    </p>
+
+    <p>
+        Därtill tillkommer lite annat smått och gott
+        i form utav bl a enhetstester och fortsatt arbete med och mot databaser.
+    </p>
+
+    <p>
+        <a href="https://github.com/dbwebb-se/mvc/tree/main">Kursens GIT-repo.</a>
+    </p
+
+    <p>
+        Utdrag ur kursintroduktionen:
+    </p>
+
+
+<blockquote class="about-block">
+...Kursen omfattar följande områden:
+<ul>
+<li>Programmering i webbmiljö, syntax, semantik, koppling mot databaser, datastrukturer och inbyggda funktioner.</li>
+
+<li>Objektorienterad programmering i PHP med språkkonstruktioner och begrepp. Objektorientering som sätt att strukturera och återanvända kod. Enkla designmönster.</li>
+
+<li>SQL med en databas tillsammans med PHP Data Objects.</li>
+
+<li>Utveckling av webbapplikationer i ett ramverk där tekniker såsom webbserver (Apache), PHP, HTML, CSS, och SQL integreras tillsammans med ett webbaserat ramverk.</li>
+
+<li>Användning av verktyg och tekniker som lämpar sig för utveckling av webbapplikationer, tex UNIX/Linux, installation på extern webbserver, ssh, ftp/sftp, databasklienter såsom PHPMyAdmin, MySQL Workbench och kommandoklienter.</li>
+</ul>
+<img class="pushing-one" src="{{ asset('img/pushing-one.svg') }}" alt="Pushing One">
+<img class="pushing-two" src="{{ asset('img/pushing-two.svg') }}" alt="Pushing Two">
+</blockquote>
+
+    </div>
+
+    </div>
+
+{% endblock %}

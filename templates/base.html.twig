@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/php-elephant.svg') }}">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&family=Bungee+Spice&family=Doto:wght@100..900&family=Genos:ital,wght@0,100..900;1,100..900&family=Gugi&family=Italiana&family=Kaisei+Decol&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kumar+One&family=Monofett&family=Monoton&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&family=Raleway+Dots&family=Revalia&family=Rubik+Dirt&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Turret+Road:wght@200;300;400;500;700;800&family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body style="background-image: url({{ asset('img/background-three.jpg') }})">
+    <header>
+    <div class="title">
+    MVC
+    <img class="title-bird" src="{{ asset('img/title-bird.svg') }}" alt="Title Bird">
+    </div>
+    <nav>
+        <a class="navlink" href="{{ path('home') }}">✧Home</a>
+        <a class="navlink" href="{{ path('about') }}">✧About</a>
+        <a class="navlink" href="{{ path('report') }}">✧Report</a>
+        <a class="navlink" href="{{ path('lucky') }}">✧Lucky</a>
+    </nav>
+    </header>
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+    </body>
+</html>

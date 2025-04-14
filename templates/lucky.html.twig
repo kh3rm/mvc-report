@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Lucky{% endblock %}
+
+{% block body %}
+    <h1>Lucky?</h1>
+    <div class="lucky-container">
+        <a href="{{ asset('img/dirty-harry.jpg') }}">
+            <img class="dirtyharrypic" src="{{ asset('img/dirty-harry.jpg') }}" alt="Dirty Harry Picture">
+        </a>
+
+        <p>Nevermind Harry, he's just hangry, per usual.</p>
+        <p>We'll give him some random fruit, and he'll calm down:</p>
+
+        <p class="random-fruit">{{ randomFruit }}</p>.
+
+        <p>Anyhow, without further ado, you can now unveil your drawn lucky number (click):</p>
+
+        <p class="unveiled-number">{{ number }}</p>
+
+        <p>To your satisfaction? </p>
+
+        <p>If not, why not reload the site and give it another go? </p>
+
+        <p>(A word of caution though: you will probably be forced to deal with
+        Harry's histrionics all over again.).</p>
+    </div>
+{% endblock %}

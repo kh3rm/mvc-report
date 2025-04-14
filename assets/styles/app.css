@@ -1,0 +1,347 @@
+body {
+    /* background-color: skyblue; */
+
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+    font-family: Titillium Web, Quicksand, Ubuntu;
+    font-weight: 400;
+}
+
+body {
+    margin: 0 auto;
+}
+
+body *::selection {
+    background-color:#d57ec3;
+}
+
+
+main {
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 1000px;
+    min-height: 1000px;
+    text-align: center;
+    align-items: center;
+    background-color: bisque;
+    opacity: 0.88;
+    border-radius: 2px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+header {
+    position: relative;
+    height: 160px;
+    width: 100%;
+    opacity: 0.9;
+    /* background-color: rgb(37, 107, 84); */
+}
+
+nav {
+    padding-top: 2rem;
+    padding-right: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    font-size: 25px;
+}
+
+nav a {
+    margin-left: 1rem;
+    text-decoration: none;
+    text-decoration-thickness: 0.12rem;
+    text-transform: none;
+    color: black;
+}
+
+nav a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+
+p {
+    font-size: 18px;
+}
+
+
+h1 {
+    border-bottom: 4px double #ccc;
+    font-weight: 400;
+}
+
+.title {
+    position: absolute;
+    top: 0px;
+    left: 400px;
+    font-size: 110px;
+}
+
+.title-bird {
+    width: 30px;
+    height: auto;
+    position: absolute;
+    top: 22px;
+    left: 59px;
+}
+
+
+.blinking-star-one {
+    animation: blink 3s infinite;
+}
+
+
+nav a:hover,
+.title:hover {
+/*     text-decoration: underline; */
+    animation: blink 4s infinite;
+    filter: brightness(1.8);
+    transform: scale(1.02);
+    transition: ease 0.4s;
+}
+
+
+@keyframes blink {
+    0%,
+    100% {
+        opacity: 0.9;
+        text-shadow: 4px 3px 30px rgb(251, 236, 18);
+    }
+
+    50% {
+        opacity: 1;
+        text-shadow: 10px 9px 47px rgb(130, 53, 126);
+    }
+}
+
+.dirtyharrypic {
+    width: 700px;
+    height: auto;
+    border-radius: 3px;
+    transform: scale(0.01);
+    animation: scalePictureFull 3.5s forwards;
+}
+
+@keyframes scalePictureFull {
+    to {
+        transform: scale(1);
+    }
+}
+
+
+.unveiled-number {
+    font-size: 35px;
+    background-color: rgb(140, 47, 164);
+    color: rgb(140, 47, 164);
+    border-radius: 4px;
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.unveiled-number:active {
+    background-color: transparent;
+    color: black;
+}
+
+.random-fruit {
+    font-size: 30px;
+}
+
+.lucky-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.mepic {
+    width: 820px;
+    height: auto;
+    border-radius: 5px;
+    overflow: hidden;
+    opacity: 0.97 !important;
+}
+
+.mepic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(110, 5, 5, 0.5);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+.me-text {
+    font-size: 18px;
+    margin: 0 auto;
+    width: 800px;
+    text-align: left;
+}
+
+.report-rubric {
+    margin-top: 2rem;
+    padding: 2rem;
+    border-top: 3px double #ccc;
+}
+
+
+
+.report-nav {
+    display: flex;
+    flex-direction: row;
+    font-size: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0.2rem;
+    margin: 0 auto;
+    justify-content: space-around;
+
+}
+
+.report-nav a {
+    color: #333;
+    max-width: 100%;
+}
+
+.report-navlink {
+    color: #333;
+    transition: transform ease 0.5s;
+    writing-mode:vertical-lr;
+    text-orientation: upright;
+    margin-right: 1.4rem;
+    text-decoration: none;
+    padding-top: 2rem;
+    font-size: 24px;
+}
+
+
+.report-navlink-project {
+    color: #333;
+    transition: transform ease 0.5s;
+    writing-mode:vertical-lr;
+    text-orientation: upright;
+/*     font-family:"monoton", sans-serif; */
+    margin-left: 3.4rem;
+    text-decoration: none;
+    font-size: 34px;
+    padding-top: 2rem;
+}
+
+.report-navlink:hover {
+    transform: scale(1.05);
+    animation: navlinkShuffle 1.15s infinite, navlinkColorChange 1.15s infinite;
+}
+
+.report-navlink-project:hover {
+    transform: scale(1.05);
+    animation: navlinkShuffle 1.15s infinite, navlinkColorChangeProject 1.15s infinite;
+}
+
+
+@keyframes navlinkShuffle {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, -1px); }
+    40% { transform: translate(3px, 3px); }
+    60% { transform: translate(-4px, -2px); }
+    80% { transform: translate(2px, 5px); }
+    100% { transform: translate(0); }
+}
+
+
+@keyframes navlinkColorChange {
+    0%, 100% { color: #000; color: #e99b9b; }
+    50% { color: #fff; color: #7d338a; }
+}
+
+@keyframes navlinkColorChangeProject {
+    0%, 100% { color: #000; color: #e99b9b; }
+    50% { color: #fff; color: hsl(54, 82%, 51%); }
+}
+
+
+.about-two-col-container {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    width: 100%;
+    gap: 20px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.about-left-container {
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+}
+
+.about-right-container {
+    padding: 1rem;
+}
+
+
+
+.report-two-col-container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    width: 100%;
+    gap: 20px;
+    margin: 0 auto;
+}
+
+.report-left-container {
+    padding: 1rem;
+}
+
+.report-right-container {
+    padding: 1rem;
+}
+
+li {
+    margin-bottom: 0.6rem;
+}
+
+.about-block {
+    position: relative;
+    padding: 1rem;
+    border: double 2px plum;
+    background-color:#e2bcbc;
+    border-radius: 6px;
+    animation: blockquotePush 12.15s infinite;
+
+}
+
+@keyframes blockquotePush {
+    0% { transform: translate(0); }
+    20% { transform: translate(-13px, 0); }
+    40% { transform: translate(13px, 0x); }
+    60% { transform: translate(-8px, 0); }
+    80% { transform: translate(8px, 0); }
+    100% { transform: translate(0); }
+}
+
+.pushing-one {
+    position: absolute;
+    bottom: 0;
+    left: -57px;
+}
+
+.pushing-two {
+    position: absolute;
+    bottom: 0;
+    right: -57px;
+}
+
+.logo-trio {
+    width: 200px;
+    height: auto;
+    margin-bottom: 2rem;
+}
