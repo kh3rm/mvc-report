@@ -9,7 +9,7 @@ revision:
 ---
 -->
 
-![Symfony image](.img/symfony.svg)
+![Symfony image](public/img/symfony.svg)
 
 Get going with Symfony
 ====================
