@@ -1,18 +1,57 @@
 <!--
 ---
-author: mos
+author: hekr23
 revision:
-    "2025-03-31": "(D, mos) Updated to Symfony version 7.2."
-    "2024-03-26": "(C, mos) Upgraded to Symfony version 7.0."
-    "2023-03-28": "(B, mos) Work through and very updated."
-    "2022-03-27": "(A, mos) First release."
+    "2025-04-15": "(A, hekr23) First release."
 ---
 -->
 
 ![Symfony image](public/img/symfony.svg)
 
-Get going with Symfony
+MVC - REPORT SYMFONY BUILD.
 ====================
+
+Greetings!
+
+
+Welcome to this repo that contains my, Herman Karlsson, hekr23, mvc-report-build, established in and for
+the course mvc.
+
+Now, before outlining how you would go about and cloning and setting up this repo locally to be able to peruse it in detail, I'd advice you to first of all considering building your own site from scratch: much more fun, much more rewarding.
+
+If you would like to do this, please consult this thorough guide:
+
+
+...in relation to this course-repo:
+
+...or, for a more general Symfony-setup, consult: [Create your first page in Symfony](https://symfony.com/doc/current/page_creation.html).
+
+
+Alas, perhaps you are already familiar with all of this, or, for whatever reason, are only interested in taking a look at this specific build. Granted. I'm honored!
+
+What you need to do:
+
+Fist: Clone the repo.
+
+Second: In the resulting cloned project's root folder, run 'composer install' in your terminal of choice.
+
+Third: In the project's root folder, run 'symfony server:start' to get the site running on a local development server. The projects root "/"-destination should now (with default-settings) be accessible at: https://127.0.0.1:8000.
+
+If you for any reason are encountering pesky https/handshake-problems, an alternative approach is to start a php-server instead, by executing the terminal command 'php -S localhost:8888 -t public' (again, of course, to be redundant, in the root project's folder).
+
+
+
+Second: With your terminal of choice, , head to the root folder of the repo /report.
+
+
+
+
+
+
+
+
+
+
 
 This exercise will help you create a web application/service using a Symfony installation.
 
