@@ -32,7 +32,7 @@ If you would like to do this, please consult this thorough guide, composed by mo
 
 ...there is also a video of Mikael (mos) walking through all the steps of the exercise, if that is preferred:
 
-[Get going with Symfony](https://img.youtube.com/vi/1QVvLGNqTxw/0.jpg)](https://www.youtube.com/watch?v=1QVvLGNqTxw)
+[![Get going with Symfony](https://img.youtube.com/vi/1QVvLGNqTxw/0.jpg)](https://www.youtube.com/watch?v=1QVvLGNqTxw)
 
 ...or, for a more general, generic Symfony-setup, consult: [Create your first page in Symfony](https://symfony.com/doc/current/page_creation.html).
 
