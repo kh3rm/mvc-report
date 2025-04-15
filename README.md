@@ -32,7 +32,18 @@ If you would like to do this, please consult this thorough guide:
 
 Alas, perhaps you are already familiar with all of this, or, for whatever reason, are only interested in taking a look at this specific build. Granted. I'm honored!
 
+
+
+Prerequisites
+----------------------------
+
+You have installed PHP in the terminal.
+
+You have installed Composer, the PHP package manager.
+
+
 What you need to do:
+----------------------------
 
 Fist: Clone the repo.
 
