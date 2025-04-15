@@ -82,9 +82,10 @@ Further Reading
 Intrigued? Want to learn more about Symfony, Twig and all these other marvellous creations?
 
 Here are some links to satisfy your appetite:
-
-* [Controller](https://symfony.com/doc/current/controller.html)
-* [Routing](https://symfony.com/doc/current/routing.html)
+* [Symfony 6 Introductory Book - The Fast Track (English)](https://symfony.com/doc/6.4/the-fast-track/en/index.html)
+* [Symfony - Doc Index](https://symfony.com/doc/current/index.html)
+* [Symfony - Controller](https://symfony.com/doc/current/controller.html)
+* [Symfony - Routing](https://symfony.com/doc/current/routing.html)
 * [Twig for Template Designers](https://twig.symfony.com/doc/3.x/templates.html)
 
 
