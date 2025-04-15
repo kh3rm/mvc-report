@@ -38,6 +38,7 @@ If you would like to do this, please consult this thorough guide, composed by mo
 
 Alas, perhaps you are already familiar with all of this, or, for whatever reason, are only interested in taking a look at this specific build. Granted. I'm honored!
 
+Let's then outline how to get the build up and running:
 
 
 Prerequisites
