@@ -8,14 +8,17 @@ revision:
 
 ![Symfony image](public/img/symfony.svg)
 
-MVC - REPORT SYMFONY BUILD.
+MVC REPORT - A SYMFONY BUILD.
 ====================
+
+
+![MVC-Bird image](public/img/bird.svg)
 
 Greetings!
 
 
 Welcome to this repo that contains my, Herman Karlsson, hekr23, mvc-report-build, established in and for
-the course mvc.
+the course mvc v2.
 
 Now, before outlining how you would go about and cloning and setting up this repo locally to be able to peruse it in detail, I'd advice you to first of all considering building your own site from scratch: much more fun, much more rewarding.
 
@@ -35,16 +38,24 @@ Fist: Clone the repo.
 
 Second: In the resulting cloned project's root folder, run 'composer install' in your terminal of choice.
 
-Third: In the project's root folder, run 'symfony server:start' to get the site running on a local development server. The projects root "/"-destination should now (with default-settings) be accessible at: https://127.0.0.1:8000.
+```bash
+# You are in the root report/ directory
+composer install
+```
 
-If you for any reason are encountering pesky https/handshake-problems, an alternative approach is to start a php-server instead, by executing the terminal command 'php -S localhost:8888 -t public' (again, of course, to be redundant, in the root project's folder).
+Third: In the project's root folder, run 'symfony server:start' to get the site running on a local development server. The project's root "/"-destination should now (with default-settings) be accessible at: https://127.0.0.1:8000.
 
+```bash
+# You are in the root report/ directory
+symfony server:start
+```
 
+If you for any reason are encountering any problems, maybe https/handshake-related, and can not for the moment be bothered with troubleshooting, an alternative approach is to start a php-server instead, by executing the terminal command 'php -S localhost:8888 -t public' (again, of course, to be redundant, in the root project's folder).
 
-Second: With your terminal of choice, , head to the root folder of the repo /report.
-
-
-
+```bash
+# You are in the root report/ directory
+php -S localhost:8888 -t public
+```
 
 
 
