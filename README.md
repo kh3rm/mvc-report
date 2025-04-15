@@ -17,8 +17,8 @@ MVC REPORT - A SYMFONY BUILD.
 Greetings!
 
 
-Welcome to this repo that contains my, Herman Karlsson, hekr23, mvc-report-build, established in and for
-the course mvc v2.
+
+Welcome to this repo that contains my, [Herman Karlsson, hekr23](https://www.student.bth.se/~hekr23/dbwebb-kurser/mvc/me/report/public/), mvc-report-build, established in and for the course [mvc v2](https://dbwebb.se/kurser/mvc-v2).
 
 Now, before outlining how you would go about and cloning and setting up this repo locally to be able to peruse it in detail, I'd advice you to first of all considering building your own Symfony-project from scratch: much more fun, much more rewarding.
 
@@ -81,7 +81,7 @@ Up and running
 
 You should now be able to examine the build in all its glory.
 
-If you are nevertheless still encountering problems, I'd advice you to read through the previously mentioned thorough guide for clues as to what might be going wrong.
+If you are nevertheless still encountering problems, I'd advice you to read through the previously mentioned [thorough guide](https://github.com/dbwebb-se/mvc/tree/main/example/symfony) for clues as to what might be going wrong.
 
 Further Reading
 ----------------------------
