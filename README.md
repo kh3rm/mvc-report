@@ -20,14 +20,21 @@ Greetings!
 Welcome to this repo that contains my, Herman Karlsson, hekr23, mvc-report-build, established in and for
 the course mvc v2.
 
-Now, before outlining how you would go about and cloning and setting up this repo locally to be able to peruse it in detail, I'd advice you to first of all considering building your own site from scratch: much more fun, much more rewarding.
+Now, before outlining how you would go about and cloning and setting up this repo locally to be able to peruse it in detail, I'd advice you to first of all considering building your own Symfony-project from scratch: much more fun, much more rewarding.
 
-If you would like to do this, please consult this thorough guide:
+If you would like to do this, please consult this thorough guide, composed by mos:
+
+[Get going with Symfony](https://github.com/dbwebb-se/mvc/tree/main/example/symfony)
 
 
 ...in relation to this course-repo:
+[MVC-course-repo](https://github.com/dbwebb-se/mvc/)
 
-...or, for a more general Symfony-setup, consult: [Create your first page in Symfony](https://symfony.com/doc/current/page_creation.html).
+...there is also a video of Mikael (mos) walking through all the steps of the exercise, if that is preferred:
+
+[Get going with Symfony](https://img.youtube.com/vi/1QVvLGNqTxw/0.jpg)](https://www.youtube.com/watch?v=1QVvLGNqTxw)
+
+...or, for a more general, generic Symfony-setup, consult: [Create your first page in Symfony](https://symfony.com/doc/current/page_creation.html).
 
 
 Alas, perhaps you are already familiar with all of this, or, for whatever reason, are only interested in taking a look at this specific build. Granted. I'm honored!
