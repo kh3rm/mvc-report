@@ -12,7 +12,7 @@ MVC REPORT - A SYMFONY BUILD.
 ====================
 
 
-![MVC-Bird image](public/img/bird.svg)
+![MVC-Bird image](public/img/title-bird.svg)
 
 Greetings!
 
