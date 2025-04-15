@@ -104,6 +104,6 @@ Final words
 
 I hope that you will find all of this intriguing and rewarding.
 
-Need a quick pick me up, and you are finding the cups of coffee wanting? Go grab some [Groucho Marx quotes at the api/quote-route](https://www.student.bth.se/~hekr23/dbwebb-kurser/mvc/me/report/public/api/quote), from this very build, conveniently already published on the student server.
+In need of a pick me up, and you are finding the additional cups of coffee wanting? Go grab some [Groucho Marx quotes at the api/quote-route](https://www.student.bth.se/~hekr23/dbwebb-kurser/mvc/me/report/public/api/quote), from this very build, conveniently already published on the student server.
 
 / Best regards, Herman
