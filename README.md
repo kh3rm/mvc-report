@@ -24,10 +24,10 @@ Now, before outlining how you would go about and cloning and setting up this rep
 
 If you would like to do this, please consult this thorough guide, composed by mos:
 
-[Get going with Symfony](https://github.com/dbwebb-se/mvc/tree/main/example/symfony)
+[Get going with Symfony](https://github.com/dbwebb-se/mvc/tree/main/example/symfony).
 
 
-...in relation to the [course-repo](https://github.com/dbwebb-se/mvc/)
+...in relation to the [course-repo](https://github.com/dbwebb-se/mvc/).
 
 ...there is also a video of Mikael (mos) walking one through all the steps of the exercise, if that is preferred:
 
@@ -67,7 +67,7 @@ Third: In the project's root folder, run 'symfony server:start' to get the site 
 symfony server:start
 ```
 
-If you for any reason are encountering any problems, maybe https/handshake-related, and can not for the moment be bothered with troubleshooting, an alternative approach is to start a php-server instead, by executing the terminal command 'php -S localhost:8888 -t public' (again, of course, to be redundant, in the root project's folder).
+If you for any reason are encountering any problems, maybe https/handshake-related, and can not for the moment be bothered with troubleshooting, an alternative approach is to start a php-server instead, by executing the terminal command 'php -S localhost:8888 -t public' (again, to be slightly redundant, in the project's root folder).
 
 ```bash
 # You are in the root report/ directory
@@ -85,7 +85,7 @@ If you are nevertheless still encountering problems, I'd advice you to read thro
 
 Further Reading
 ----------------------------
-Intrigued? Want to learn more about Symfony, Twig and all these other marvellous creations?
+Intrigued? Want to learn more about Symfony and Twig?
 
 Here are some links to satisfy your appetite:
 
