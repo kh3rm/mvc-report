@@ -27,8 +27,7 @@ If you would like to do this, please consult this thorough guide, composed by mo
 [Get going with Symfony](https://github.com/dbwebb-se/mvc/tree/main/example/symfony)
 
 
-...in relation to this course-repo:
-[MVC-course-repo](https://github.com/dbwebb-se/mvc/)
+...in relation to the [course-repo](https://github.com/dbwebb-se/mvc/)
 
 ...there is also a video of Mikael (mos) walking through all the steps of the exercise, if that is preferred:
 
