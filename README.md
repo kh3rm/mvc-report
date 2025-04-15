@@ -93,5 +93,9 @@ Here are some links to satisfy your appetite:
 
 [Twig for Template Designers](https://twig.symfony.com/doc/3.x/templates.html)
 
+Final words
+----------------------------
+
+I hope that you will find all of this rewarding.
 
 / Best regards, Herman
