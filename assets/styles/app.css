@@ -6,9 +6,13 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-
+    font-size: 16px;
     font-family: Titillium Web, Quicksand, Ubuntu;
     font-weight: 400;
+}
+
+p {
+    font-size: 18px;
 }
 
 body {
@@ -370,7 +374,7 @@ footer {
 .api-container,
 .report-container {
     text-align: left;
-    margin: 0 2.4rem;
+    margin: 0 4.4rem;
     line-height: 1.5;
 }
 
