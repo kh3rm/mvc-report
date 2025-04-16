@@ -103,6 +103,6 @@ Here are some links to satisfy your appetite:
 Final words
 ----------------------------
 
-I hope that you will find all of this intriguing and rewarding.
+I hope that you will find all of this interesting and rewarding.
 
 / Best regards, Herman

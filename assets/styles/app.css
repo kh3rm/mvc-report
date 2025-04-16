@@ -26,6 +26,7 @@ main {
     max-width: 1000px;
     min-height: 1000px;
     text-align: center;
+    justify-content: center;
     align-items: center;
     background-color: bisque;
     opacity: 0.88;
@@ -171,18 +172,7 @@ nav a:hover,
     border-radius: 5px;
     overflow: hidden;
     opacity: 0.97 !important;
-}
-
-.mepic::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(110, 5, 5, 0.5);
-    mix-blend-mode: multiply;
-    pointer-events: none;
+    margin: 0 auto;
 }
 
 .me-text {
@@ -375,4 +365,18 @@ footer {
     background-color: rgb(231, 153, 153);
     padding: 0.4rem;
     border-radius: 14px;
+}
+
+.api-container,
+.report-container {
+    text-align: left;
+    margin: 0 2.4rem;
+    line-height: 1.5;
+}
+
+.api-link {
+    text-decoration: none;
+    color: rgb(211, 121, 211);
+    font-size: 24px;
+    letter-spacing: 2px;
 }

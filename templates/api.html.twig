@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1>API</h1>
+
+    <h2>Current API-routes:</h2>
+    <div class="api-container">
+
+    <p><a class="api-link" href="{{ path('api') }}">/api</a> - This very summation page, listing all the JSON-related routes. </p>
+
+     <p><a class="api-link" href="{{ path('api/quote') }}">/api/quote</a> - JSON-route offering up a Groucho Marx quote, the current date and the
+    timestamp of the quote-generation. </p>
+</div>
+{% endblock %}
