@@ -105,4 +105,6 @@ Final words
 
 I hope that you will find all of this interesting and rewarding.
 
-/ Best regards, Herman
+Best regards.
+
+/Herman
