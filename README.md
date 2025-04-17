@@ -98,7 +98,9 @@ In the project's root folder, run 'symfony server:start' to get the site revving
 symfony server:start
 ```
 
-The project's "/"-destination should now (with default-settings) be accessible at: https://127.0.0.1:8000.
+The project's "/"-destination should now (with default-settings) be accessible at:
+
+https://127.0.0.1:8000
 
 
 If you for any reason are encountering any problems, maybe https/handshake-related, and the troubleshooting is not yielding any results, an alternative temporary approach is to start a php-server instead, by executing the terminal command 'php -S localhost:8888 -t public' (again, to be slightly redundant, in the project's root folder).
