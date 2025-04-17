@@ -110,7 +110,7 @@ If you for any reason are encountering any problems, maybe https/handshake-relat
 php -S localhost:8888 -t public
 ```
 
-It should now be accessible at localhost:8888 instead.
+It should now be accessible at [localhost:8888](localhost:8888) instead.
 
 Up and running
 ----------------------------
