@@ -91,7 +91,7 @@ Local server setup
 
 What now remains is to get it up and running on a local server.
 
-In the project's root folder, run 'symfony server:start' to get the site revving on a local development server.
+In the project's root folder, run 'symfony server:start' to get the site revving on a Symfony local development server.
 
 ```bash
 # You are in the root mvc-report/ -directory
