@@ -91,7 +91,9 @@ Local server setup
 
 What now remains is to get it up and running on a local server.
 
-In the project's root folder, run 'symfony server:start' to get the site revving on a local development server. The project's "/"-destination should now (with default-settings) be accessible at: https://127.0.0.1:8000.
+In the project's root folder, run 'symfony server:start' to get the site revving on a local development server.
+
+The project's "/"-destination should now (with default-settings) be accessible at: https://127.0.0.1:8000.
 
 ```bash
 # You are in the root mvc-report/ -directory
