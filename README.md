@@ -94,14 +94,14 @@ What now remains is to get it up and running on a local server.
 In the project's root folder, run 'symfony server:start' to get the site revving on a local development server. The project's "/"-destination should now (with default-settings) be accessible at: https://127.0.0.1:8000.
 
 ```bash
-# You are in the root mvc-report/ directory
+# You are in the root mvc-report/ -directory
 symfony server:start
 ```
 
 If you for any reason are encountering any problems, maybe https/handshake-related, and the troubleshooting is not yielding any results, an alternative temporary approach is to start a php-server instead, by executing the terminal command 'php -S localhost:8888 -t public' (again, to be slightly redundant, in the project's root folder).
 
 ```bash
-# You are in the root mvc-report/ directory
+# You are in the root mvc-report/ -directory
 php -S localhost:8888 -t public
 ```
 
