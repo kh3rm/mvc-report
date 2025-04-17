@@ -52,26 +52,56 @@ You have installed Composer, the PHP package manager.
 What you need to do:
 ----------------------------
 
-Fist: Clone the repo.
+First: Clone the repo.
+
+```bash
+# You are in the directory where you want the repo situated
+git clone https://github.com/kh3rm/mvc-report.git
+```
 
 Second: In the resulting cloned project's root folder, run 'composer install' in your terminal of choice.
 
 ```bash
-# You are in the root report/ directory
+# If you havn't already entered the actual repo-directory
+cd mvc-report
+
+#Then:
 composer install
 ```
 
-Third: In the project's root folder, run 'symfony server:start' to get the site running on a local development server. The project's root "/"-destination should now (with default-settings) be accessible at: https://127.0.0.1:8000.
+Third: Install the necessary npm-packages for the build
 
 ```bash
-# You are in the root report/ directory
+# Installs the specific npm-dependencies
+npm install
+```
+
+Fourth: Initiate build.
+
+```bash
+# Builds the site
+npm run build
+```
+
+Almost done! The Symfony build should now lie ready to behold.
+
+
+Local server setup
+----------------------------
+
+What now remains is to get it up and revving on a local server.
+
+In the project's root folder, run 'symfony server:start' to get the site running on a local development server. The project's root "/"-destination should now (with default-settings) be accessible at: https://127.0.0.1:8000.
+
+```bash
+# You are in the root mvc-report/ directory
 symfony server:start
 ```
 
-If you for any reason are encountering any problems, maybe https/handshake-related, and can not for the moment be bothered with troubleshooting, an alternative approach is to start a php-server instead, by executing the terminal command 'php -S localhost:8888 -t public' (again, to be slightly redundant, in the project's root folder).
+If you for any reason are encountering any problems, maybe https/handshake-related, and the troubleshooting is not yielding any results, an alternative temporary approach is to start a php-server instead, by executing the terminal command 'php -S localhost:8888 -t public' (again, to be slightly redundant, in the project's root folder).
 
 ```bash
-# You are in the root report/ directory
+# You are in the root mvc-report/ directory
 php -S localhost:8888 -t public
 ```
 
