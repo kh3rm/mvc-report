@@ -29,7 +29,7 @@ If you would like to do this, please consult this thorough guide, composed by mo
 
 ...in relation to the [course-repo](https://github.com/dbwebb-se/mvc/).
 
-...there is also a video of Mikael (mos) walking one through all the steps of the exercise, if that is preferred:
+There is also a video of Mikael (mos) walking one through all the steps of the exercise, if that is preferred:
 
 [![Get going with Symfony](https://img.youtube.com/vi/1QVvLGNqTxw/0.jpg)](https://www.youtube.com/watch?v=1QVvLGNqTxw)
 
