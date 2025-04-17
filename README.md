@@ -83,7 +83,7 @@ Fourth: Initiate build.
 npm run build
 ```
 
-Almost done! The Symfony build should now lies ready to behold.
+Almost done! The Symfony build should now lie ready to behold.
 
 
 Local server setup
