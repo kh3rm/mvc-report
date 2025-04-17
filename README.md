@@ -72,7 +72,7 @@ composer install
 Third: Install the necessary npm-packages for the build
 
 ```bash
-# Installs the specific npm-dependencies
+# Installs the specific npm-dependencies outlined in package.json
 npm install
 ```
 
