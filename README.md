@@ -18,7 +18,7 @@ Greetings!
 
 ![MVC-Report Screenshot](public/img/mvc-report-screenshot-2.png)
 
-Welcome to this repo that contains my, [Herman Karlsson, hekr23](https://www.student.bth.se/~hekr23/dbwebb-kurser/mvc/me/report/public/), mvc-report-build, established in and for the course [mvc v2](https://dbwebb.se/kurser/mvc-v2).
+Welcome to this repo that contains my, [Herman Karlsson (hekr23)](https://www.student.bth.se/~hekr23/dbwebb-kurser/mvc/me/report/public/), mvc-report-build, established in and for the course [mvc v2](https://dbwebb.se/kurser/mvc-v2).
 
 Now, before outlining how you would go about and cloning and setting up this repo locally to be able to peruse it in detail, I'd advice you to first of all considering building your own Symfony-project from scratch: much more fun, much more rewarding.
 
