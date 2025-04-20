@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class LuckyControllerJson
+class ReportControllerJson
 {
     #[Route("/api/quote", name: "api/quote")]
     public function apiQuote(): Response

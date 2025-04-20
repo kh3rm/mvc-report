@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<h1>Roll dice hand</h1>
+
+<p>You rolled {{ numberOfDices }} dices. Here are the values of the dices.</p>
+
+<ul>
+{% for roll in diceRoll %}
+<div class="tempdiv" style="font-size: 44px; color:purple;">
+{{ roll }}
+<br>
+{% endfor %}
+</div>
+
+<p>Try to roll
+    <a href="{{ path('test_dicehand', {num: 5}) }}">5</a>
+    or
+    <a href="{{ path('test_dicehand', {num: 10}) }}">10</a>
+    dices.
+</p>
+{% endblock %}

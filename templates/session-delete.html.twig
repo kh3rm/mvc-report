@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Delete Session{% endblock %}
+
+{% block body %}
+    <h1>Delete Session</h1>
+
+    <h2>Current Session Content:</h2>
+
+    <pre>
+        {{ dump(session) }}
+    </pre>
+
+    <h2>Are you sure that you want to delete/clear the session?</h2>
+
+
+
+{% endblock %}

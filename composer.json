@@ -79,7 +79,9 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "importmap:install": "symfony-cmd"
+            "importmap:install": "symfony-cmd",
+            "csfix": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src",
+            "csfix:dry": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v"
         },
         "post-install-cmd": [
             "@auto-scripts"

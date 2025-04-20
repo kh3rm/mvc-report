@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1>Card</h1>
+
+    <h2>All Card-Routes:</h2>
+    <div class="api-container">
+
+    <p><a class="card-link" href="{{ path('cardlp') }}">/card</a> - This very page, listing all the Card-related routes built in KMOM02. </p>
+
+     <p><a class="card-link" href="{{ path('api/quote') }}">/api/quote</a> - JSON-route offering up a random Groucho Marx-quote, the current date and the
+    timestamp of the quote-generation. </p>
+</div>
+{% endblock %}

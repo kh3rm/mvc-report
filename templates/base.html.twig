@@ -29,10 +29,27 @@
         <a class="navlink" href="{{ path('report') }}">☁️Report</a>
         <a class="navlink" href="{{ path('lucky') }}">☁️Lucky</a>
         <a class="navlink" href="{{ path('api') }}">☁️API</a>
+        <a class="navlink" href="{{ path('cardlp') }}">☁️Card</a>
     </nav>
+
+    <nav class="session-nav">
+        <a class="session-navlink navlink-b-one" href="{{ path('session') }}">
+        <img class="balloon-one" src="{{ asset('img/balloon1.svg') }}" alt="Balloon One">
+        Session</a>
+
+        <a class="session-navlink navlink-b-two" href="{{ path('session-delete') }}">
+        <img class="balloon-two" src="{{ asset('img/balloon2.svg') }}" alt="Balloon Two">
+        Delete Session</a>
+    </nav>
+
+
+
     </header>
     <main>
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% block main %}
+        {% endblock %}
+        {% endblock %}
     </main>
     <footer>
          <a href="https://github.com/kh3rm/mvc-report/">
