@@ -2,9 +2,11 @@
 
 namespace App\Card;
 
+// Built with the very helpful resource: https://en.wikipedia.org/wiki/Playing_cards_in_Unicode
 class DeckOfCards
 {
     protected $cards = [];
+    protected $drawnCards = [];
 
     public function __construct()
     {
@@ -57,6 +59,14 @@ class DeckOfCards
         return $this->cards;
     }
 
+    public function getDeckAsString(): string
+    {
+        return implode(', ', array_map(function($card) {
+            return $card->getAsString();
+        }, $this->cards));
+    }
+
+
     public function getUnicodeCardsAsString(): string
     {
         return implode('', array_map(fn($card) => $card->getCardAsUnicode(), $this->cards));
@@ -68,8 +78,64 @@ class DeckOfCards
     }
 
 
+    public function getUnicodeStringOfDrawnCards(array $drawnCards): string
+{
+    return implode("", array_map(function ($card) {
+        return $card->getCardAsUnicode();
+    }, $drawnCards));
+}
+
+    public function getDrawnCards(): ?array
+    {
+        return $this->drawnCards;
+    }
+
+
     public function getDeck(): array
     {
         return $this->cards;
+    }
+
+    public function getNumberOfCardsLeft(): int
+    {
+        return count($this->cards);
+    }
+
+
+    public function drawCard(): ?Card
+    {
+        if (empty($this->cards)) {
+            return null;
+        }
+
+        $drawIndex = array_rand($this->cards);
+        $drawnCard = $this->cards[$drawIndex];
+
+        $this->drawnCards[] = $drawnCard;
+
+        unset($this->cards[$drawIndex]);
+
+        $this->cards = array_values($this->cards);
+
+        return $drawnCard;
+    }
+
+
+    public function drawCards(int $amount): ?array
+    {
+        if ($amount < 1) {
+            return null;
+        }
+
+        if (count($this->cards) < $amount) {
+            return null;
+        }
+
+        $drawnCards = [];
+        for ($i = 0; $i < $amount; $i++) {
+            $drawnCards[] = $this->drawCard();
+        }
+
+        return $drawnCards;
     }
 }

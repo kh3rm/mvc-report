@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Deal Players Cards{% endblock %}
+
+{% block body %}
+    <h1>Deal Players Cards</h1>
+
+
+    <div class="api-container">
+
+
+    <pre>
+        {{ dump(players) }}
+    </pre>
+
+
+    {% for player in players %}
+        <div class="player-container">
+            <h2>{{player.getPlayerName()}}</h2>
+            <div class="deck-container" style="font-size: 100px;">
+            {% for card in player.getCardsInHand() %}
+                <span class="card dealt-card {{ card.getColor() }}"> {{ card.getCardAsUnicode() }} </span>
+            {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+
+ <br> <br> <br>
+    <br><br>
+
+    <h1>Remaining Cards:</h1>
+
+    <pre>
+        {{ dump(remainingdeck) }}
+    </pre>
+
+    <div class="deck-container" style="font-size: 100px;">
+    {% for card in remainingdeck.getDeck() %}
+        <span class="card {{ card.getColor() }}"> {{ card.getCardAsUnicode() }} </span>
+    {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

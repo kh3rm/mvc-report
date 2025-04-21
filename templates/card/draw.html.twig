@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Draw Card{% endblock %}
+
+{% block body %}
+    <h1>Draw Card</h1>
+
+
+    <div class="api-container">
+
+    <pre>
+        {{ dump(updateddeck) }}
+
+    </pre>
+
+    {% if drawncard is not null %}
+    <div class="deck-container" style="font-size: 100px;">
+        <span class="card {{ drawncard.getColor() }}"> {{ drawncard.getCardAsUnicode() }} </span>
+    </div>
+
+    {% else %}
+        {{ include('flash.html.twig') }}
+
+    {% endif %}
+
+
+ <br> <br> <br>
+    <br><br>
+
+    <h1>Drawn Cards:</h1>
+
+    <div class="deck-container" style="font-size: 100px;">
+    {% for card in updateddeck.getDrawnCards() %}
+        <span class="card {{ card.getColor() }}"> {{ card.getCardAsUnicode() }} </span>
+    {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

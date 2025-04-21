@@ -567,9 +567,26 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    font-size: 100px;
 }
 
 .card {
     width: calc(100% / 13);
     box-sizing: border-box;
+    transition: transform ease 0.2s;
+}
+
+.drawn-card,
+.dealt-card {
+
+}
+
+.card:hover {
+    transform: scale(1.015)
+}
+
+.player-container {
+/*     border: 3px double rgb(225, 113, 225); */
+    border-radius: 6px;
+    margin-bottom: 2rem;
 }

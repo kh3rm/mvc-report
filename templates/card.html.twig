@@ -15,7 +15,14 @@
 
     <p><a class="card-link" href="{{ path('deckofcards') }}">/card/deck</a> - Displays all the cards sorted in a new deck of cards, including Jokers. (54 = 52 + 2) </p>
 
-    <p><a class="card-link" href="{{ path('deckofcardsshuffle') }}">/card/deck/shuffle</a> - Displays all the legitimate 52 cards in a deck of cards, but shuffled, i.e in randomized order, this time excluding the Jokers. </p>
+    <p><a class="card-link" href="{{ path('deckofcardsshuffle') }}">/card/deck/shuffle</a> - Displays all the valid 52 cards in a deck of cards, but shuffled, i.e in randomized order, this time excluding the Jokers. Also resets and reshuffles the deck used in the draw-routes. </p>
+
+    <p><a class="card-link" href="{{ path('carddraw') }}">/card/deck/draw</a> - Draws and showcases a random card from a playable deck of cards (no jokers), and then saves that updated deck to the session. Also dumps the now diminished remaining DeckOfCards52-object for inspection. </p>
+
+    <p><a class="card-link" href="{{ path('cardsdraw', {number: 2}) }}">/card/deck/draw/{x}</a> - Draws and showcases {x} random cards from the same playable deck of cards (no jokers), and then saves that updated deck to the session. Also dumps the now diminshed remaining DeckOfCards52-object for inspection. Works against the same session DeckOfCards52-object as the /draw-route. (In this given example it draws 2 cards.)</p>
+
+    <p><a class="card-link" href="{{ path('dealplayers', {players: 5, cards: 5}) }}">card/deck/deal/{players}/{cards}</a> - Deals #{players} #{cards} each, and then showcases each player and their hands, as well as the remaining cards in the deck. (In the example in the link provided it deals 5 cards each to 5 players.)</p>
+
 
 </div>
 {% endblock %}
