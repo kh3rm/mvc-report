@@ -5,12 +5,17 @@
 {% block body %}
     <h1>Card</h1>
 
+
+
+
     <h2>All Card-Routes:</h2>
     <div class="api-container">
 
     <p><a class="card-link" href="{{ path('cardlp') }}">/card</a> - This very page, listing all the Card-related routes built in KMOM02. </p>
 
-     <p><a class="card-link" href="{{ path('api/quote') }}">/api/quote</a> - JSON-route offering up a random Groucho Marx-quote, the current date and the
-    timestamp of the quote-generation. </p>
+    <p><a class="card-link" href="{{ path('deckofcards') }}">/card/deck</a> - Displays all the cards sorted in a new deck of cards, including Jokers. (54 = 52 + 2) </p>
+
+    <p><a class="card-link" href="{{ path('deckofcardsshuffle') }}">/card/deck/shuffle</a> - Displays all the legitimate 52 cards in a deck of cards, but shuffled, i.e in randomized order, this time excluding the Jokers. </p>
+
 </div>
 {% endblock %}

@@ -6,6 +6,7 @@ use App\Card\Card;
 use App\Card\CardGraphic;
 use App\Card\CardHand;
 use App\Card\DeckOfCards;
+use App\Card\DeckOfCards52;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,10 +16,76 @@ use Symfony\Component\Routing\Annotation\Route;
 class CardGameController extends AbstractController
 {
     #[Route("/card", name: "cardlp")]
-    public function cardLandingPage(): Response
+    public function cardLandingPage(SessionInterface $session): Response
     {
-        return $this->render('card.html.twig');
+        $card = new Card('[A♥]', 214, '🂱', 'hearts', 'red', 14);
+        $deckOfCards = new DeckOfCards();
+        $deckOfCardsShuffled = new DeckOfCards();
+        $deckOfCardsShuffled->shuffleDeckOfCards();
+        $session->set("card", $card);
+
+        $data = [
+            "card" => $card,
+            "docobj"=> $deckOfCards,
+            "deckofcardsu" => $deckOfCards->getUnicodeCardsAsString(),
+            "backofcard" => $card::BACKOFCARD,
+            "deckofcardshuffledobj" => $deckOfCardsShuffled,
+            "deckofcardshuffledu" => $deckOfCardsShuffled->getUnicodeCardsAsString()
+        ];
+
+        return $this->render('card.html.twig', $data);
     }
+
+
+
+//////////////////////////////////
+
+
+#[Route("/card/deck", name: "deckofcards")]
+public function deckOfCards(SessionInterface $session): Response
+{
+    $deckOfCards = new DeckOfCards();
+    $session->set("deckOfCards", $deckOfCards);
+
+    $data = [
+        "deckofcardsobj"=> $deckOfCards,
+        "deckofcardsu" => $deckOfCards->getUnicodeCardsAsString(),
+        "backofcard" => Card::BACKOFCARD
+    ];
+
+    return $this->render('/card/deck.html.twig', $data);
+}
+
+
+#[Route("/card/deck/shuffle", name: "deckofcardsshuffle")]
+public function deckOfCardsShuffle(SessionInterface $session): Response
+{
+    $deckOfCardsShuffle = new DeckOfCards52();
+    $deckOfCardsShuffle->shuffleDeckOfCards();
+    $session->set("deckOfCardsShuffle", $deckOfCardsShuffle);
+
+    $data = [
+        "deckofcardsobjshuffle"=> $deckOfCardsShuffle,
+        "deckofcardsu" => $deckOfCardsShuffle->getUnicodeCardsAsString(),
+        "backofcard" => Card::BACKOFCARD
+    ];
+
+    return $this->render('/card/deck-shuffle.html.twig', $data);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     #[Route("/game/card", name: "card_start")]

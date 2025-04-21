@@ -550,3 +550,26 @@ footer {
     border: 1px solid #ccc;
     font-size: 30px;
 }
+
+
+.red-card,
+.red {
+    color: red;
+}
+
+.black-card,
+.black {
+    color: black;
+}
+
+
+.deck-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: calc(100% / 13);
+    box-sizing: border-box;
+}

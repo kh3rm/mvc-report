@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block title %}DeckOfCards{% endblock %}
+
+{% block body %}
+    <h1>DeckOfCards</h1>
+
+
+    <div class="api-container">
+
+    <pre>
+        {{ dump(deckofcardsobj) }}
+
+    </pre>
+
+
+    <div class="deck-container" style="font-size: 100px;">
+    {% for card in deckofcardsobj.getDeck() %}
+        <span class="card {{ card.getColor() }}"> {{ card.getCardAsUnicode() }} </span>
+    {% endfor %}
+
+    </div>
+ <br> <br> <br>
+    <br><br>
+
+    <div class="deck-container" style="font-size: 30px;">
+    {% for card in deckofcardsobj.getDeck() %}
+        <span class="card {{ card.getColor() }}"> {{ card.getAsString() }} </span>
+    {% endfor %}
+
+    </div>
+ <br> <br> <br>
+    <br><br>
+
+
+
+    <div style="font-size: 100px;">
+
+    {{ deckofcardsu }}
+    </div>
+
+</div>
+{% endblock %}
