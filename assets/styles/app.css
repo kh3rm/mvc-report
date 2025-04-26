@@ -11,7 +11,8 @@ body {
     font-weight: 400;
 }
 
-p {
+p,
+.post-req-span {
     font-size: 18px;
 }
 
@@ -94,7 +95,7 @@ h1 {
     position: absolute;
     top: 22px;
     left: 59px;
-    transition: transform 0.8s ease;
+    transition: transform 1.2s ease;
 }
 
 .title-bird:hover {
@@ -329,13 +330,13 @@ li {
 
 .pushing-one {
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     left: -57px;
 }
 
 .pushing-two {
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     right: -57px;
 }
 
@@ -384,6 +385,26 @@ footer {
     font-size: 24px;
     letter-spacing: 2px;
 }
+
+
+.api-link2 {
+    text-decoration: none;
+    color: rgb(208, 54, 30);
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.api-link3 {
+    text-decoration: none;
+    font-weight: 400;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgb(235, 197, 29);
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
 
 
 
@@ -452,7 +473,7 @@ footer {
 }
 
 .session-nav {
-    position: fixed;
+    position: absolute;
     left:10px;
     top: 10px;
     font-size: 15px;
@@ -589,4 +610,44 @@ footer {
 /*     border: 3px double rgb(225, 113, 225); */
     border-radius: 6px;
     margin-bottom: 2rem;
+}
+
+.api-post-form {
+    display: inline;
+}
+
+
+.toggle-theme {
+    position: absolute;
+    left: -12px;
+    top:-28px;
+}
+
+.toggle-icon {
+    width: 30px;
+    height:auto;
+    opacity: 0.9;
+    filter:brightness(1.0)
+
+}
+
+.class-uml {
+    width: 100%;
+}
+
+.theme-sun {
+    transition: transform 0.5s ease-out;
+}
+
+.theme-sun:hover {
+    animation: spinSun 3s linear infinite;
+}
+
+@keyframes spinSun {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

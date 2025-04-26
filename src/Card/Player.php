@@ -4,28 +4,18 @@ namespace App\Card;
 
 class Player
 {
+    protected string $playerName;
+    protected CardHand $hand;
 
-    protected string $playerName = "";
-    protected array $cardsInHand = [];
-    protected array $cardsDiscarded = [];
-
-
-    public function __construct(string $playerName,array $cardsDealt)
+    public function __construct(string $playerName, array $cardsDealt)
     {
         $this->playerName = $playerName;
-
-        foreach ($cardsDealt as $card) {
-            if (!$card instanceof Card) {
-                throw new \Exception('All of the supplied elements of the $cardsDealt-array must be instances of a Card-object.');
-            }
-        }
-
-        $this->cardsInHand = $cardsDealt;
+        $this->hand = new CardHand($cardsDealt);
     }
 
-    public function getCardsInHand(): array
+    public function getHand(): CardHand
     {
-        return $this->cardsInHand;
+        return $this->hand;
     }
 
     public function getPlayerName(): string
@@ -33,39 +23,21 @@ class Player
         return $this->playerName;
     }
 
-    public function addCardToHand(Card $card): void
-    {
-        $this->cardsInHand[] = $card;
-    }
-
     public function getCardsInHandAsString(): string
     {
-        $cardsString = [];
-        foreach ($this->cardsInHand as $card) {
-            $cardsString[] = $card->getAsString();
-        }
-        return implode(", ", $cardsString);
+        return $this->hand->getCardsAsString();
     }
-
 
     public function getCardsInHandAsUnicode(): string
     {
-        $cardsUnicode = [];
-        foreach ($this->cardsInHand as $card) {
-            $cardsUnicode[] = $card->getCardAsUnicode();
-        }
-        return implode("", $cardsUnicode);
+        return $this->hand->getCardsAsUnicode();
     }
 
     public function getNameAndHandUnicodeJson(): array
-{
-
-    $playerData = [
-        'playerName' => $this->playerName,
-        'playerHandUnicode' => $this->getCardsInHandAsUnicode(),
-    ];
-
-
-    return $playerData;
-}
+    {
+        return [
+            'playerName' => $this->playerName,
+            'playerHandUnicode' => $this->hand->getCardsAsUnicode(),
+        ];
+    }
 }

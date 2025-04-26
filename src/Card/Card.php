@@ -12,7 +12,7 @@ class Card
 
     protected $cardColor;
 
-    public const BACKOFCARD = '🂠';
+    protected const BACKOFCARD = '🂠';
 
     public function __construct(string $cValue, int $cInt, string $cGraph, string $cSuit, string $cColor, int $cRank)
     {
@@ -46,7 +46,7 @@ class Card
 
     public function getAsString(): string
     {
-        return "{$this->cardValue}";
+        return "{$this->cardValue} ";
     }
 
     public function getCardAsInt(): int
@@ -59,25 +59,8 @@ class Card
         return "{$this->cardUnicode}";
     }
 
-
-    public function toStyledString(): string
+    public static function getBackOfCard(): string
     {
-        $class = $this->getColor() === 'red' ? 'red-card' : 'black-card';
-        return "<span class='$class'>" . htmlspecialchars($this->getAsString()) . "</span>";
-    }
-
-
-    public function toStyledStringUnicode(): string
-    {
-        $class = $this->getColor() === 'red' ? 'red-card' : 'black-card';
-        return "<span class='$class'>" . htmlspecialchars($this->getCardAsUnicode()) . "</span>";
-    }
-
-
-    public function getStyledString(bool $useUnicode = false): string
-    {
-        $class = $this->getColor() === 'red' ? 'red-card' : 'black-card';
-        $content = $useUnicode ? htmlspecialchars($this->cardUnicode) : htmlspecialchars($this->cardValue);
-        return "<span class='$class'>$content</span>";
+        return self::BACKOFCARD;
     }
 }

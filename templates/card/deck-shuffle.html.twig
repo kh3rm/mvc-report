@@ -25,7 +25,7 @@
 
     <div class="deck-container" style="font-size: 30px;">
     {% for card in deckofcardsobjshuffle.getDeck() %}
-        <span class="card {{ card.getColor() }}"> {{ card.getAsString() }} </span>
+        <span class="card {{ card.getColor() }}"> {{ card.getValue() }} </span>
     {% endfor %}
 
     </div>

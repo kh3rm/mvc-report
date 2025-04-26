@@ -1,0 +1,172 @@
+body {
+    color: rgb(218, 237, 236);
+}
+
+main {
+    background-color: rgb(26, 26, 36);
+}
+
+.navlink {
+    color: rgb(218, 237, 236) !important;
+}
+a .navlink{
+    color: rgb(218, 237, 236) !important;
+}
+
+.session-navlink {
+    color: rgb(192, 158, 176) !important;
+}
+
+blockquote {
+    background-color:blueviolet;
+}
+
+.about-block {
+    background-color:rgb(82, 82, 134);
+    border-color: rgb(60, 40, 78);
+}
+
+.red-card,
+.red {
+    color: rgb(226, 80, 80);
+}
+
+.black-card,
+.black {
+    color: rgb(191, 185, 185);
+}
+
+.mepic img {
+    filter: blur(10px) opacity(80%);
+}
+
+a {
+    color: #ffffff;
+}
+
+.about-right-container a:visited {
+    color: #d294b3;
+}
+
+
+nav a:hover,
+.title:hover {
+/*     text-decoration: underline; */
+    animation: blink2 4s infinite;
+    filter: brightness(1.2);
+    transform: scale(1.02);
+    transition: ease 0.4s;
+}
+
+
+.session-navlink:hover {
+/*     text-decoration: underline; */
+    filter: brightness(1.2);
+    transform: scale(1.02);
+    transition: ease 0.4s;
+    background-color: transparent;
+}
+
+
+.navlink-b-one {
+    animation: balloonFlight infinite 45s, blink2 5s infinite;
+    background-color: transparent;
+}
+
+.navlink-b-two {
+    animation: balloonFlight2 infinite 42s, blink2 5s infinite;
+    background-color: transparent;
+}
+
+
+.toggle-icon {
+    width: 28px;
+    height:auto;
+    opacity: 0.9;
+    filter:brightness(1.0)
+
+}
+
+
+.toggle-theme {
+    position: absolute;
+    left: -10px;
+    top:-24px;
+}
+
+
+
+@keyframes blink {
+    0%,
+    100% {
+        opacity: 0.9;
+        text-shadow: 16px 14px 34px rgb(230, 248, 255);
+    }
+
+    50% {
+        opacity: 1;
+        text-shadow: 17px 15px 47px rgb(225, 164, 222);
+    }
+}
+
+@keyframes blink2 {
+    0%,
+    100% {
+        opacity: 0.9;
+        text-shadow: 16px 14px 34px rgb(233, 186, 225);
+    }
+
+    50% {
+        opacity: 1;
+        text-shadow: 17px 15px 47px rgb(235, 173, 232);
+    }
+}
+
+@keyframes blink3 {
+    0%,
+    100% {
+        opacity: 0.9;
+        box-shadow: 16px 14px 34px rgb(202, 245, 255);
+    }
+
+    50% {
+        opacity: 1;
+        box-shadow: 17px 15px 47px rgb(235, 229, 234);
+    }
+}
+
+
+
+@keyframes moonSwirl {
+    0% {
+        transform: rotate(0deg) translateX(0);
+    }
+    60% {
+        transform: rotate(720deg) translateX(-1px) rotateY(180deg);
+    }
+    100% {
+        transform: rotate(720deg) translateX(0) rotateY(360deg);
+    }
+}
+
+.theme-moon {
+    transition: transform 0.4s ease;
+    animation: moonSwirl 12s ease-in-out;
+}
+
+.theme-moon:hover {
+    transform: scale(1.05);
+    animation-play-state: paused;
+}
+
+
+.unveiled-number {
+    background-color: rgb(122, 92, 178);
+    color: rgb(122, 92, 178);
+    transition: background-color 0.3s;
+}
+
+.unveiled-number:active {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+}

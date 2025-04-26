@@ -17,6 +17,7 @@ class DeckOfCards
             '♣' => 'club'
         ];
 
+
         $values = [
             2 => '2', 3 => '3', 4 => '4', 5 => '5',
             6 => '6', 7 => '7', 8 => '8', 9 => '9',
@@ -34,14 +35,14 @@ class DeckOfCards
             $color = ($suitSymbol === '♥' || $suitSymbol === '♦') ? 'red' : 'black';
 
             foreach ($values as $value => $display) {
-                $cardValue = ($suitSymbol === '♠') ? (100 + $value)
+                $cardInt = ($suitSymbol === '♠') ? (100 + $value)
                             : (($suitSymbol === '♥') ? (200 + $value)
                             : (($suitSymbol === '♦') ? (300 + $value)
                             : (400 + $value)));
 
                 $this->cards[] = new Card(
                     "$display$suitSymbol",
-                    $cardValue,
+                    $cardInt,
                     $unicodeCards[$suitSymbol][$value - 2],
                     $suitString,
                     $color,
@@ -59,17 +60,25 @@ class DeckOfCards
         return $this->cards;
     }
 
-    public function getDeckAsString(): string
+    public function getCardsAsString(): string
     {
-        return implode(', ', array_map(function($card) {
+        return implode(', ', array_map(function ($card) {
+            return $card->getAsString();
+        }, $this->cards));
+    }
+
+    public function getDrawnCardsAsString(): string
+    {
+        return implode(', ', array_map(function ($card) {
             return $card->getAsString();
         }, $this->cards));
     }
 
 
+
     public function getUnicodeCardsAsString(): string
     {
-        return implode('', array_map(fn($card) => $card->getCardAsUnicode(), $this->cards));
+        return implode('', array_map(fn ($card) => $card->getCardAsUnicode(), $this->cards));
     }
 
     public function shuffleDeckOfCards(): void
@@ -77,13 +86,37 @@ class DeckOfCards
         shuffle($this->cards);
     }
 
+    public function sortDeck(): void
+    {
+        usort($this->cards, function ($a, $b) {
+            return $a->getCardAsInt() <=> $b->getCardAsInt();
+        });
+    }
+
+    public function sortDeckFirstByRankThenBySuit(): void
+    {
+        $suitsRank = [
+            'spade' => 1,
+            'heart' => 2,
+            'diamond' => 3,
+            'club' => 4
+        ];
+
+        usort($this->cards, function ($a, $b) use ($suitsRank) {
+            if ($a->getRank() === $b->getRank()) {
+                return $suitsRank[$a->getSuit()] <=> $suitsRank[$b->getSuit()];
+            }
+            return $a->getRank() <=> $b->getRank();
+        });
+    }
+
 
     public function getUnicodeStringOfDrawnCards(array $drawnCards): string
-{
-    return implode("", array_map(function ($card) {
-        return $card->getCardAsUnicode();
-    }, $drawnCards));
-}
+    {
+        return implode("", array_map(function ($card) {
+            return $card->getCardAsUnicode();
+        }, $drawnCards));
+    }
 
     public function getDrawnCards(): ?array
     {
@@ -121,18 +154,18 @@ class DeckOfCards
     }
 
 
-    public function drawCards(int $amount): ?array
+    public function drawCards(int $number): ?array
     {
-        if ($amount < 1) {
+        if ($number < 1) {
             return null;
         }
 
-        if (count($this->cards) < $amount) {
+        if (count($this->cards) < $number) {
             return null;
         }
 
         $drawnCards = [];
-        for ($i = 0; $i < $amount; $i++) {
+        for ($i = 0; $i < $number; $i++) {
             $drawnCards[] = $this->drawCard();
         }
 

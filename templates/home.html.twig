@@ -3,8 +3,10 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
+    {% set me_pic_src = app.session.get('theme') == 'dark' ? asset('img/me-dark.jpg') : asset('img/me3.jpg') %}
     <h1>Home</h1>
-    <img class="mepic" src="{{ asset('img/me3.jpg') }}" alt="Me Picture"/>
+
+    <img class="mepic" src="{{ me_pic_src }}" alt="Me Picture"/>
 
     <div class="me-text">
     <p>Hej!</p>

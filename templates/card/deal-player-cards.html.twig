@@ -13,17 +13,16 @@
         {{ dump(players) }}
     </pre>
 
-
-    {% for player in players %}
-        <div class="player-container">
-            <h2>{{player.getPlayerName()}}</h2>
-            <div class="deck-container" style="font-size: 100px;">
-            {% for card in player.getCardsInHand() %}
-                <span class="card dealt-card {{ card.getColor() }}"> {{ card.getCardAsUnicode() }} </span>
-            {% endfor %}
-            </div>
+{% for player in players %}
+    <div class="player-container">
+        <h2>{{ player.getPlayerName() }}</h2>
+        <div class="deck-container" style="font-size: 100px;">
+        {% for card in player.getHand().getCards() %}
+            <span class="card dealt-card {{ card.getColor() }}"> {{ card.getCardAsUnicode() }} </span>
+        {% endfor %}
         </div>
-    {% endfor %}
+    </div>
+{% endfor %}
 
 
  <br> <br> <br>

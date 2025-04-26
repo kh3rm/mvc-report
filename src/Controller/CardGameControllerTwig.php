@@ -16,7 +16,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CardGameControllerTwig extends AbstractController
 {
-
     #[Route("/card", name: "cardlp")]
     public function cardLandingPage(): Response
     {
@@ -27,8 +26,8 @@ class CardGameControllerTwig extends AbstractController
     public function cardDraw(SessionInterface $session): Response
     {
 
-        if ($session->has("deck-drawn")) {
-            $updatedDeckOfCards = $session->get("deck-drawn");
+        if ($session->has("deck_drawn")) {
+            $updatedDeckOfCards = $session->get("deck_drawn");
         } else {
             $updatedDeckOfCards = new DeckOfCards52();
         }
@@ -44,12 +43,12 @@ class CardGameControllerTwig extends AbstractController
             );
         } else {
 
-        $session->set("deck-drawn", $updatedDeckOfCards);
+            $session->set("deck_drawn", $updatedDeckOfCards);
         }
 
         $data = [
             "drawncard" => $drawnCard,
-            "updateddeck"=> $updatedDeckOfCards
+            "updateddeck" => $updatedDeckOfCards
         ];
 
         return $this->render('card/draw.html.twig', $data);
@@ -61,8 +60,8 @@ class CardGameControllerTwig extends AbstractController
     public function cardsDraw(SessionInterface $session, int $number): Response
     {
 
-        if ($session->has("deck-drawn")) {
-            $updatedDeckOfCards = $session->get("deck-drawn");
+        if ($session->has("deck_drawn")) {
+            $updatedDeckOfCards = $session->get("deck_drawn");
         } else {
             $updatedDeckOfCards = new DeckOfCards52();
         }
@@ -78,12 +77,12 @@ class CardGameControllerTwig extends AbstractController
             );
         } else {
 
-        $session->set("deck-drawn", $updatedDeckOfCards);
+            $session->set("deck_drawn", $updatedDeckOfCards);
         }
 
         $data = [
             "drawncards" => $drawnCards,
-            "updateddeck"=> $updatedDeckOfCards
+            "updateddeck" => $updatedDeckOfCards
         ];
 
         return $this->render('card/draw-cards.html.twig', $data);
@@ -96,12 +95,12 @@ class CardGameControllerTwig extends AbstractController
     public function deckOfCards(SessionInterface $session): Response
     {
         $deckOfCards = new DeckOfCards();
-        $session->set("deckOfCards", $deckOfCards);
+        $session->set("deck_of_cards", $deckOfCards);
 
         $data = [
-            "deckofcardsobj"=> $deckOfCards,
+            "deckofcardsobj" => $deckOfCards,
             "deckofcardsu" => $deckOfCards->getUnicodeCardsAsString(),
-            "backofcard" => Card::BACKOFCARD
+            "backofcard" => Card::getBackOfCard()
         ];
 
         return $this->render('/card/deck.html.twig', $data);
@@ -113,12 +112,12 @@ class CardGameControllerTwig extends AbstractController
     {
         $deckOfCardsShuffle = new DeckOfCards52();
         $deckOfCardsShuffle->shuffleDeckOfCards();
-        $session->set("deck-drawn", $deckOfCardsShuffle);
+        $session->set("deck_drawn", $deckOfCardsShuffle);
 
         $data = [
-            "deckofcardsobjshuffle"=> $deckOfCardsShuffle,
+            "deckofcardsobjshuffle" => $deckOfCardsShuffle,
             "deckofcardsu" => $deckOfCardsShuffle->getUnicodeCardsAsString(),
-            "backofcard" => Card::BACKOFCARD
+            "backofcard" => Card::getBackOfCard()
         ];
 
         return $this->render('/card/deck-shuffle.html.twig', $data);
@@ -148,11 +147,12 @@ class CardGameControllerTwig extends AbstractController
         if ($cardsToDeal > 52) {
             $this->addFlash(
                 'warning',
-                'There are only 52 cards in the deck, and your combination of players X cards supercedes it.
+                'There are only 52 cards in the deck, and your combination of players X cards exceeds it.
                 In other words: there are not enough cards in the deck to supply the given number of cards to all the given number of players.
                 Modify the number(s) submitted and try again.'
             );
-        } else {};
+        } else {
+        };
 
         $drawnCards = $dealPlayersDeck->drawCards($cardsToDeal);
         $playersArray = [];
@@ -160,16 +160,16 @@ class CardGameControllerTwig extends AbstractController
         for ($i = 0; $i < $players; $i++) {
             $playerCards = array_slice($drawnCards, $i * $cards, $cards);
             $playerNr = ($i + 1);
-            $playersArray[] = new Player("Player $playerNr",$playerCards);
+            $playersArray[] = new Player("Player $playerNr", $playerCards);
         }
 
-        $session->set("deal-players-deck", $dealPlayersDeck);
+        $session->set("deal_players_deck", $dealPlayersDeck);
 
 
 
         $data = [
             "players" => $playersArray,
-            "remainingdeck"=> $dealPlayersDeck
+            "remainingdeck" => $dealPlayersDeck
         ];
 
         return $this->render('card/deal-player-cards.html.twig', $data);
