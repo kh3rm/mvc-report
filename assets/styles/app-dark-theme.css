@@ -170,3 +170,7 @@ nav a:hover,
     background-color: transparent;
     color: rgb(255, 255, 255);
 }
+
+.code-example {
+    background-color:rgb(52, 34, 80);
+}

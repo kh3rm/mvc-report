@@ -80,6 +80,8 @@ p {
 h1 {
     border-bottom: 4px double #dabce1;
     font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 45px;
 }
 
 .title {
@@ -188,7 +190,8 @@ nav a:hover,
 }
 
 .report-rubric {
-    font-size: 50px;
+    font-size: 40px;
+    font-weight: 400;
     letter-spacing: 2px;
     margin-top: 2rem;
     margin-bottom: 0.2rem;
@@ -668,7 +671,33 @@ footer {
 
 .code-example {
     padding: 2rem;
-    background-color:rgb(52, 34, 80);
+    background-color:#e2bcbc;
     padding-bottom: 0;
     border-radius: 5px;
+}
+
+.unicode-example {
+    font-size: 38px;
+}
+
+.class-green {
+    color: #4EC9B0;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+.variable-blue {
+    color: #0096D6;
+}
+
+.class-rubric,
+.rubric {
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.int {
+    color: #35ae35;
 }

@@ -6,9 +6,7 @@
     <h1>Card</h1>
 
 
-
-
-    <h2>All Card-Routes:</h2>
+    <h2 class="rubric">All Card-Routes</h2>
     <div class="api-container">
 
     <p><a class="card-link" href="{{ path('cardlp') }}">/card</a> - This very page, listing all the Card-related routes built in KMOM02. </p>
@@ -22,6 +20,63 @@
     <p><a class="card-link" href="{{ path('cardsdraw', {number: 2}) }}">/card/deck/draw/{x}</a> - Draws and showcases {x} random cards from the same playable deck of cards (no jokers), and then saves that updated deck to the session. Also dumps the now diminshed remaining DeckOfCards52-object for inspection. Works against the same session DeckOfCards52-object as the /draw-route. (In this given example it draws 2 cards.)</p>
 
     <p><a class="card-link" href="{{ path('dealplayers', {players: 5, cards: 5}) }}">card/deck/deal/{players}/{cards}</a> - Deals #{players} #{cards} each, and then showcases each player and their hands, as well as the remaining cards in the deck (no jokers). (In the example in the link provided it deals 5 cards each to 5 players.)</p>
+
+    <br><br>
+
+    <div class="class-description">
+
+    <h2 class="class-rubric">Classes</h2>
+
+    <p>
+    <span class="class-name class-green">Card</span><br>
+    <span class="variable-blue">$cardValue</span> - Simple string representation of the card value. Example: <span class="red">A♥</span>.<br>
+    <span class="variable-blue">$cardUnicode</span> - Unicode string representation of a given card. Example: <span class="unicode-example red">🂱</span><br>
+    <span class="variable-blue">$cardSuit</span> - A string value of the suit of the given card. "spade", "heart", "diamond" or "club".<br>
+    <span class="variable-blue">$cardRank</span> - The integer rank of the card. Example: <span class="red">A♥</span> = <span class="int">14</span>.<br>
+    <span class="variable-blue">$cardInt</span> - Unique integer value for a given card. 1xx for spades, 2xx for hearts, 3xx for diamonds
+    and 4xx for clubs. Example: <span class="red">A♥</span> = <span class="int">214</span><br>
+    <span class="variable-blue">$cardColor</span> - The color of the card, red or black, for easy style class-application. Example <span class="red">A♥</span> = "red".<br>
+    $BACKOFCARD - Static property, a string Unicode representation of the back of the card:  <span class="unicode-example">🂠</span><br>
+
+    <br>
+
+    <span class="red">
+
+    <p>
+    <span class="class-name class-green">DeckOfCards</span><br>
+    <span class="variable-blue">$cards</span> = An array of 54 Card-objects populated at instantiation: the 52 that makes a classic deck of cards + 2 jokers.<br>
+    <span class="variable-blue">$drawnCards</span> = An array of Card-objects having been drawn/dealt from the given deck.<br>
+
+    </p><br>
+
+    <p>
+    <span class="class-name class-green">DeckOfCards52</span><br>
+    - A subclass that extends DeckOfCards, that simply removes the jokers to constitute a playable 52-card deck.
+
+    </p><br>
+
+    <p>
+    <span class="class-name class-green">CardHand</span><br>
+    <span class="variable-blue">$cards</span> = An array of the Card-objects currently in the hand.<br>
+    <span class="variable-blue">$cardsDiscarded</span> = An array of Card-objects previously belonging to the hand, that has been discarded/exchanged,
+    relevant (arguable) for gaming logic where the player is allowed to exchange cards.
+    </p><br>
+
+    <p>
+    <span class="class-name class-green">Player</span><br>
+    <span class="variable-blue">$playerName</span> = A string of the player name.<br>
+    <span class="variable-blue">$hand</span> = a CardHand-object, containing the cards that the player has in its hand.<br>
+    </p>
+
+    <br>
+
+    <p>Each class's properties are accompanied by corresponding get-methods, and some additional ones, like shuffleDeck(), sortDeck() and drawCard() belonging to DeckOfCards,
+    listed and outlined in the UML-diagram below.</p>
+
+
+    <span class="class-green"></span>
+
+    </div>
 
     <br><br>
 
