@@ -74,10 +74,148 @@ trots att det i relativa termer tillkom relativt sent "på riktigt", med riktigt
 
 
     <h2 class="report-rubric" id="kmom02">KMOM02</h2>
+    <div class="report-container">
 
-    <p>Redovisningstext</p>
+    <p>Ett arv handlar om "är en"/"is a"-förhållande klasser emellan, med en föräldraklass/superklass som
+    barnklasser/subklasser först ärver grund-egenskaperna/metoderna ifrån, och därefter utökas/modifieras/specificeras ytterligare.
+    </p>
 
-    <br><br><br><br><br><br><br><br>
+    <p>
+    I php görs det med nyckelordet extends, och för att illustrera det tar jag in ett exempel från min implementation,
+    där subklassen DeckOfCards52 först ärver sin grundstruktur från superklassen DeckOfCards. Därefter plockas jokrarna bort,
+    för att tillgängliggöra en användbar, spelbar kortlek: </p>
+
+    <blockquote class="code-example">
+    <pre>
+
+        class DeckOfCards52 extends DeckOfCards
+        {
+            public function __construct()
+            {
+                parent::__construct();
+
+                $this->removeJokers();
+            }
+
+        private function removeJokers(): void
+        {
+            $this->cards = array_filter($this->cards, function ($card) {
+                return $card->getCardAsInt() !== 0;
+            });
+
+            $this->cards = array_values($this->cards);
+        }
+        }
+
+
+    </pre>
+    </blockquote>
+
+
+
+
+
+
+    <p>Komposition handlar istället om ett har en/består av-förhållande, där en klass innehåller
+    instanser av en eller flera klasser. Ett DeckOfCards (eller dess subklass DeckOfCards52) i mitt exempel
+    består av 54 (52) Card-instanser.
+    </p>
+
+    <p> Traits är ett smidigt, men lösare, typ utav arv som frångår den vanliga arvhierarkin,
+    som tillåter en klass att "låna" in funktionalitet från flera källor, att anamma flera "traits",
+    vilket inte hade varit möjligt med en vanlig inheritance-syntax då php inte har stöd för
+    multipelt arv.
+    </p>
+
+    <p>
+    Det ger dessutom en flexibilitet
+    och mångsidighet, och är på många sätt att föredra framför klassiskt multipelt arv som det finns stöd för i
+    andra språk, som är bunden och begränsad av en mer rigid klasshierarki.
+    <p>
+
+    <p>Interface är en sinnrik konstruktion, som i någon mening snor på ordningen, och istället definerar och
+    stipulerar vad för funktionalitet (metoder) som ska finnas, och lämnar det upp till
+    utvecklaren själv att lösa det.</p>
+
+    <p>
+    För ett exempel-gränssnitt (interface) som kräver printColor()-funktionalitet, så skulle en klass
+    som implementerar det kunna se ut såhär:
+
+    <blockquote class="code-example">
+    <pre>
+    interface InterfaceColor
+    {
+        public function printColor();
+    }
+
+    class Coffee implements InterfaceColor
+    {
+        const COLOR = "Black";
+        public function printColor()
+        {
+            return self::COLOR;
+        }
+    }
+
+    </p>
+    </pre>
+    </blockquote>
+    </p>
+
+
+    <p>Känner mig tillfreds med den klass-struktur jag fått på plats, och tror att den kommer visa
+    sig någorlunda duglig att bygga fungerande, enklare spellogik kring, vilket stundar i nästa kursmoment.
+    </p>
+
+    <p>Valde att också lägga till en cardInt-property i Card-klassen, som kanske kan sägas vara aningen överflödig,
+    då det den åstadkommer redan borde kunna täckas av cardSuit och cardRank, men tänkte att det eventuellt
+    skulle kunna visa sig vara värdefullt att ha tillgång till en int-property som är unik för varje kort.
+    </p>
+
+    <p>Kombinationen (cardSuit, cardRank) är ju redan unik, för att använda mig av SQL-klingande terminologi,
+    men det är ju ändå bara en litet, modest ytterligare property, så den fick hänga med.</p>
+
+    <p>Hade till en början bara cardHand som en vanlig array-property av Card(s) i min Player-klass, och tänkte
+    att det preliminärt skulle kunna vara tillräckligt, men gjorde det ordentligt och omstrukturerade och konstruerade en ordentlig
+    CardHand-klass istället som en Player istället får inneha.</p>
+
+    <p>Just nu ges ett ess cardRank = 14, vilket inte är helt riktigt, då det också
+    kan vara = 1 i t ex en lägre stege i ett pokerexempel. Ämnar justera det på något bra sätt i
+    nästa kursmoment när jag är igång med spellogiken.</p>
+
+    <p>Huvudspåret är att främst använda mig av kortens Unicode-representation när jag ska visa upp korten
+    i min spelimplementation, men finns även en enklare cardValue-property att tillgå.</p>
+
+    <p>Arbetet med Symfony flyter på fint, när man väl är inne i det och jobbar med den givna
+    controller/route/template-strukturen så går det ju väldigt enkelt och smidigt att skapa nya routes
+    och vyer.</p>
+
+    <p>
+    Etablerade även en enklare ytterligare LightDarkThemeController som fick hantera skiftandet mellan det mörka och det ljusa temat.
+    </p>
+
+    <p>
+    Inte någon exemplarisk modulär struktur på css-koden hittills, men fungerar fint, och jobbar samlat vidare
+    i app.css, och har etablerat en kompletterande app-dark-theme.css som läses in (efter app.css) i det fallet
+    att det mörka temat är applicerat.
+    </p>
+
+    <p>
+    Känns ovant att skriva commits i den form som rekommenderas i den utmärkta artikeln, men ska testa på det ordentligt
+    nästa kursmoment och verkligen försöka anamma den mer enhetliga, tydliga strukturen.
+    </p>
+
+    <p>
+    Ett utav många TIL/*TWIL är hur smidig och tacksam session-hanteringen är med den SessionInterface som
+    Symfony tillhandahåller.
+    </p>
+
+    <p>
+    MVH
+    </p>
+
+
+    </div>
 
 
     <h2 class="report-rubric" id="kmom03">KMOM03</h2>

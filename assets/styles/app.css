@@ -95,7 +95,7 @@ h1 {
     position: absolute;
     top: 22px;
     left: 59px;
-    transition: transform 1.2s ease;
+    transition: transform 1s ease;
 }
 
 .title-bird:hover {
@@ -188,8 +188,12 @@ nav a:hover,
 }
 
 .report-rubric {
+    font-size: 50px;
+    letter-spacing: 2px;
     margin-top: 2rem;
+    margin-bottom: 0.2rem;
     padding: 2rem;
+    padding-bottom: 0.8rem;
     border-top: 3px double #dabce1;
 }
 
@@ -597,6 +601,16 @@ footer {
     transition: transform ease 0.2s;
 }
 
+.card-int {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.cint {
+    font-size: 20px;
+}
+
 .drawn-card,
 .dealt-card {
 
@@ -650,4 +664,11 @@ footer {
     to {
         transform: rotate(360deg);
     }
+}
+
+.code-example {
+    padding: 2rem;
+    background-color:rgb(52, 34, 80);
+    padding-bottom: 0;
+    border-radius: 5px;
 }

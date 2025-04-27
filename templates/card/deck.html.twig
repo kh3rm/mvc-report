@@ -38,5 +38,17 @@
     {{ deckofcardsu }}
     </div>
 
+    <br><br>
+
+    <div class="deck-container"">
+    {% for card in deckofcardsobj.getDeck() %}
+        <div class="card-int">
+        <span class="card {{ card.getColor() }}"> {{ card.getCardAsUnicode() }} </span>
+        <span class="cint"> {{ card.getCardAsInt() }}</span>
+        </div>
+    {% endfor %}
+
+    </div>
+
 </div>
 {% endblock %}
