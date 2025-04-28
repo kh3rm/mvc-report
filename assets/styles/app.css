@@ -700,3 +700,9 @@ footer {
 .int {
     color: #35ae35;
 }
+
+.card-sub-rubric {
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
