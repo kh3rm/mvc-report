@@ -16,6 +16,10 @@ return [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
+    'app-dark-theme' => [  // Adding the new dark theme entry
+        'path' => './assets/app-dark-theme.js',
+        'entrypoint' => true,  // Change to true if you want this to be an entrypoint
+    ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
     ],

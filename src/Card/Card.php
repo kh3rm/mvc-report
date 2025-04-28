@@ -45,8 +45,8 @@ class Card
     }
 
 
-//  getAsString() is slightly superfluous at this juncture, as it mimics getValue(), but I intend to
-//  perhaps later implement a version that is able to instead return "Two of hearts" or the like.
+    //  getAsString() is slightly superfluous at this juncture, as it mimics getValue(), but I intend to
+    //  perhaps later implement a version that is able to instead return "Two of hearts" or the like.
     public function getAsString(): string
     {
         return "{$this->cardValue} ";

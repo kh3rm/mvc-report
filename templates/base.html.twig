@@ -5,19 +5,28 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="{{ asset('img/php-elephant.svg') }}">
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-
-        {% if app.session.get('theme') == 'dark' %}
-            {{ encore_entry_link_tags('app-dark-theme') }}
-        {% endif %}
-
+            {% if app.session.get('theme') == 'dark' %}
+                {{ encore_entry_link_tags('app-dark-theme') }}
+            {% else %}
+                {{ encore_entry_link_tags('app') }}
+            {% endif %}
         {% endblock %}
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
+            {% if app.session.get('theme') == 'dark' %}
+                {{ encore_entry_script_tags('app-dark-theme') }}
+            {% else %}
+                {{ encore_entry_script_tags('app') }}
+            {% endif %}
 
+            {% block importmap %}
+                {% if app.session.get('theme') == 'dark' %}
+                    {{ importmap('app-dark-theme') }}
+                {% else %}
+                    {{ importmap('app') }}
+                {% endif %}
+            {% endblock %}
+        {% endblock %}
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&family=Bungee+Spice&family=Doto:wght@100..900&family=Genos:ital,wght@0,100..900;1,100..900&family=Gugi&family=Italiana&family=Kaisei+Decol&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kumar+One&family=Monofett&family=Monoton&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&family=Raleway+Dots&family=Revalia&family=Rubik+Dirt&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Turret+Road:wght@200;300;400;500;700;800&family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
@@ -82,7 +91,7 @@
 
 
     </header>
-    <main>
+    <main class="main">
         {% block body %}
         {% block main %}
         {% endblock %}
