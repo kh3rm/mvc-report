@@ -4,13 +4,13 @@ namespace App\Card;
 
 class Card
 {
-    protected $cardValue;
-    protected $cardInt;
-    protected $cardUnicode;
-    protected $cardSuit;
-    protected $cardRank;
+    protected string $cardValue;
+    protected int $cardInt;
+    protected string $cardUnicode;
+    protected string $cardSuit;
+    protected int $cardRank;
 
-    protected $cardColor;
+    protected string $cardColor;
 
     protected const BACKOFCARD = '🂠';
 

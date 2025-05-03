@@ -81,19 +81,21 @@ class DeckOfCards
         return implode('', array_map(fn ($card) => $card->getCardAsUnicode(), $this->cards));
     }
 
-    public function shuffleDeckOfCards(): void
+    public function shuffleDeckOfCards(): DeckOfCards
     {
         shuffle($this->cards);
+        return $this;
     }
 
-    public function sortDeck(): void
+    public function sortDeck(): DeckOfCards
     {
-        usort($this->cards, function ($a, $b) {
-            return $a->getCardAsInt() <=> $b->getCardAsInt();
+        usort($this->cards, function ($firstCard, $secondCard) {
+            return $firstCard->getCardAsInt() <=> $secondCard->getCardAsInt();
         });
+        return $this;
     }
 
-    public function sortDeckFirstByRankThenBySuit(): void
+    public function sortDeckFirstByRankThenBySuit(): DeckOfCards
     {
         $suitsRank = [
             'spade' => 1,
@@ -102,12 +104,14 @@ class DeckOfCards
             'club' => 4
         ];
 
-        usort($this->cards, function ($a, $b) use ($suitsRank) {
-            if ($a->getRank() === $b->getRank()) {
-                return $suitsRank[$a->getSuit()] <=> $suitsRank[$b->getSuit()];
+        usort($this->cards, function ($firstCard, $secondCard) use ($suitsRank) {
+            if ($firstCard->getRank() === $secondCard->getRank()) {
+                return $suitsRank[$firstCard->getSuit()] <=> $suitsRank[$secondCard->getSuit()];
             }
-            return $a->getRank() <=> $b->getRank();
+            return $firstCard->getRank() <=> $secondCard->getRank();
         });
+
+        return $this;
     }
 
 

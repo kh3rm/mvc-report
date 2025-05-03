@@ -25,26 +25,18 @@ class CardGameControllerTwig extends AbstractController
     #[Route("/card/deck/draw", name: "carddraw")]
     public function cardDraw(SessionInterface $session): Response
     {
-
-        if ($session->has("deck_drawn")) {
-            $updatedDeckOfCards = $session->get("deck_drawn");
-        } else {
-            $updatedDeckOfCards = new DeckOfCards52();
-        }
-
+        $updatedDeckOfCards = $session->get("deck_drawn") ?? new DeckOfCards52();
 
         $drawnCard = $updatedDeckOfCards->drawCard();
 
         if ($drawnCard === null) {
             $this->addFlash(
                 'warning',
-                'No cards left to draw in the deck, you have drawn all 52.
-                Either clear the session, or reshuffle the deck, to be able to draw cards again.'
+                'No cards left to draw in the deck, you have drawn all 52. Either clear the session, or reshuffle the deck, to be able to draw cards again.'
             );
-        } else {
-
-            $session->set("deck_drawn", $updatedDeckOfCards);
         }
+
+        $session->set("deck_drawn", $updatedDeckOfCards);
 
         $data = [
             "drawncard" => $drawnCard,
@@ -60,12 +52,7 @@ class CardGameControllerTwig extends AbstractController
     public function cardsDraw(SessionInterface $session, int $number): Response
     {
 
-        if ($session->has("deck_drawn")) {
-            $updatedDeckOfCards = $session->get("deck_drawn");
-        } else {
-            $updatedDeckOfCards = new DeckOfCards52();
-        }
-
+        $updatedDeckOfCards = $session->get("deck_drawn") ?? new DeckOfCards52();
 
         $drawnCards = $updatedDeckOfCards->drawCards($number);
 
@@ -75,10 +62,9 @@ class CardGameControllerTwig extends AbstractController
                 'You are trying to draw an amount of cards that is not valid in relation to the current deck.
                 Either modify the number submitted, or try clearing the session/reshuffling the deck, to be able to draw the requested number of cards.'
             );
-        } else {
-
-            $session->set("deck_drawn", $updatedDeckOfCards);
         }
+
+        $session->set("deck_drawn", $updatedDeckOfCards);
 
         $data = [
             "drawncards" => $drawnCards,
@@ -95,12 +81,14 @@ class CardGameControllerTwig extends AbstractController
     public function deckOfCards(SessionInterface $session): Response
     {
         $deckOfCards = new DeckOfCards();
+        $exampleCard = $deckOfCards->drawCard();
+
         $session->set("deck_of_cards", $deckOfCards);
 
         $data = [
             "deckofcardsobj" => $deckOfCards,
             "deckofcardsu" => $deckOfCards->getUnicodeCardsAsString(),
-            "backofcard" => Card::getBackOfCard()
+            "backofcard" => $exampleCard->getBackOfCard()
         ];
 
         return $this->render('/card/deck.html.twig', $data);
@@ -114,10 +102,12 @@ class CardGameControllerTwig extends AbstractController
         $deckOfCardsShuffle->shuffleDeckOfCards();
         $session->set("deck_drawn", $deckOfCardsShuffle);
 
+        $exampleCard = $deckOfCardsShuffle->drawCard();
+
         $data = [
             "deckofcardsobjshuffle" => $deckOfCardsShuffle,
             "deckofcardsu" => $deckOfCardsShuffle->getUnicodeCardsAsString(),
-            "backofcard" => Card::getBackOfCard()
+            "backofcard" => $exampleCard->getBackOfCard()
         ];
 
         return $this->render('/card/deck-shuffle.html.twig', $data);
@@ -151,8 +141,7 @@ class CardGameControllerTwig extends AbstractController
                 In other words: there are not enough cards in the deck to supply the given number of cards to all the given number of players.
                 Modify the number(s) submitted and try again.'
             );
-        } else {
-        };
+        }
 
         $drawnCards = $dealPlayersDeck->drawCards($cardsToDeal);
         $playersArray = [];

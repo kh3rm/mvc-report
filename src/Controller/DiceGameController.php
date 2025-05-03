@@ -51,7 +51,7 @@ class DiceGameController extends AbstractController
             return $this->render('pig/test/rolldices.html.twig', $data);
         }
 
-        if (!is_int($number) || $number < 1) {
+        if ($number < 1) {
             $errorMessage = "Sorry, the number of dices must supplied must be a positive integer. You
             entered the number: $number";
 
@@ -63,8 +63,9 @@ class DiceGameController extends AbstractController
 
             return $this->render('pig/test/rolldices.html.twig', $data);
         }
+        $diceValuesInt = [];
+        $diceValues = [];
 
-        $diceResults = [];
 
         for ($i = 0; $i < $number; $i++) {
             $die = new DiceGraphic();
@@ -93,11 +94,7 @@ class DiceGameController extends AbstractController
 
         $hand = new DiceHand();
         for ($i = 1; $i <= $num; $i++) {
-            if ($i % 2 === 1) {
-                $hand->add(new DiceGraphic());
-            } else {
-                $hand->add(new Dice());
-            }
+            $hand->add($i % 2 === 1 ? new DiceGraphic() : new Dice());
         }
 
         $hand->roll();
