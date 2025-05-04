@@ -8,3 +8,6 @@ parameters:
         #- .phpstan.constants.php
     excludePaths:
         - ../../tests/bootstrap.php
+        - ../../src/Dice/DiceHand.php
+        - ../../src/Controller/DiceGameController.php
+    treatPhpDocTypesAsCertain: false

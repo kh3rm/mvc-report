@@ -45,7 +45,7 @@
     <h1 class="card-sub-rubric">Remaining Cards:</h1>
 
     <div class="deck-container" style="font-size: 100px;">
-    {% for card in updateddeck.getDeck() %}
+    {% for card in updateddeck.getCards() %}
         <span class="card {{ card.getColor() }}"> {{ card.getCardAsUnicode() }} </span>
     {% endfor %}
 

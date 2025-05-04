@@ -27,6 +27,7 @@ class CardGameControllerTwig extends AbstractController
     {
         $updatedDeckOfCards = $session->get("deck_drawn") ?? new DeckOfCards52();
 
+        /** @var DeckOfCards52 $updatedDeckOfCards */
         $drawnCard = $updatedDeckOfCards->drawCard();
 
         if ($drawnCard === null) {
@@ -54,6 +55,7 @@ class CardGameControllerTwig extends AbstractController
 
         $updatedDeckOfCards = $session->get("deck_drawn") ?? new DeckOfCards52();
 
+        /** @var DeckOfCards52 $updatedDeckOfCards */
         $drawnCards = $updatedDeckOfCards->drawCards($number);
 
         if ($drawnCards === null) {
@@ -81,14 +83,12 @@ class CardGameControllerTwig extends AbstractController
     public function deckOfCards(SessionInterface $session): Response
     {
         $deckOfCards = new DeckOfCards();
-        $exampleCard = $deckOfCards->drawCard();
 
         $session->set("deck_of_cards", $deckOfCards);
 
         $data = [
             "deckofcardsobj" => $deckOfCards,
-            "deckofcardsu" => $deckOfCards->getUnicodeCardsAsString(),
-            "backofcard" => $exampleCard->getBackOfCard()
+            "deckofcardsu" => $deckOfCards->getCardsUnicode()
         ];
 
         return $this->render('/card/deck.html.twig', $data);
@@ -102,12 +102,12 @@ class CardGameControllerTwig extends AbstractController
         $deckOfCardsShuffle->shuffleDeckOfCards();
         $session->set("deck_drawn", $deckOfCardsShuffle);
 
-        $exampleCard = $deckOfCardsShuffle->drawCard();
+        /*         $exampleCard = $deckOfCardsShuffle->drawCard(); */
 
         $data = [
             "deckofcardsobjshuffle" => $deckOfCardsShuffle,
-            "deckofcardsu" => $deckOfCardsShuffle->getUnicodeCardsAsString(),
-            "backofcard" => $exampleCard->getBackOfCard()
+            "deckofcardsu" => $deckOfCardsShuffle->getCardsUnicode()
+/*             "backofcard" => $exampleCard->getBackOfCard() */
         ];
 
         return $this->render('/card/deck-shuffle.html.twig', $data);
@@ -146,10 +146,12 @@ class CardGameControllerTwig extends AbstractController
         $drawnCards = $dealPlayersDeck->drawCards($cardsToDeal);
         $playersArray = [];
 
-        for ($i = 0; $i < $players; $i++) {
-            $playerCards = array_slice($drawnCards, $i * $cards, $cards);
-            $playerNr = ($i + 1);
-            $playersArray[] = new Player("Player $playerNr", $playerCards);
+        if ($drawnCards !== null) {
+            for ($i = 0; $i < $players; $i++) {
+                $playerCards = array_slice($drawnCards, $i * $cards, $cards);
+                $playerNr = ($i + 1);
+                $playersArray[] = new Player("Player $playerNr", $playerCards);
+            }
         }
 
         $session->set("deal_players_deck", $dealPlayersDeck);

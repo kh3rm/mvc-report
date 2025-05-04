@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Dice\Dice;
 use App\Dice\DiceGraphic;
 use App\Dice\DiceHand;
+use App\Exception\ExcessiveDiceRollException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -89,7 +90,7 @@ class DiceGameController extends AbstractController
     public function testDiceHand(int $num): Response
     {
         if ($num > 99) {
-            throw new \Exception("Can not roll more than 99 dices!");
+            throw new ExcessiveDiceRollException();
         }
 
         $hand = new DiceHand();

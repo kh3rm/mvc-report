@@ -28,9 +28,9 @@ class CardGameControllerJson extends AbstractController
 
         $data = [
             "Message" => "Please make sure to first check the pretty-print box to be able to see the cards in the deck in their unicode-representation.",
-            "newDeckOfCardsUnicode" => $deckOfCardsNew->getUnicodeCardsAsString(),
+            "newDeckOfCardsUnicode" => $deckOfCardsNew->getCardsUnicode(),
             "newDeckOfCardsSimple" => $deckOfCardsNew->getCardsAsString(),
-            "deckOfCards52Unicode(No-Jokers)" => $deckOfCards52->getUnicodeCardsAsString(),
+            "deckOfCards52Unicode(No-Jokers)" => $deckOfCards52->getCardsUnicode(),
             "deckOfCards52Simple(No-Jokers)" => $deckOfCards52->getCardsAsString()
         ];
 
@@ -57,18 +57,20 @@ class CardGameControllerJson extends AbstractController
 
         $testSort2 = clone $testSort;
 
+        $testSort->sortDeck();
+
         $testSort2->sortDeckFirstByRankThenBySuit();
 
-        $testSort->sortDeck();
+
 
 
 
         $data = [
             "Message" => "Please make sure to first check the pretty-print box to be able to see the cards in the deck in their unicode-representation.",
-            "deckOfCards52UnicodeShuffled(No-Jokers)" => $deck52Shuffled->getUnicodeCardsAsString(),
+            "deckOfCards52UnicodeShuffled(No-Jokers)" => $deck52Shuffled->getCardsUnicode(),
             "deckOfCards52SimpleShuffled(No-Jokers)" => $deck52Shuffled->getCardsAsString(),
-            "deckOfCards52UnicodeSortedAgainTest" => $testSort->getUnicodeCardsAsString(),
-            "deckOfCards52UnicodeSortedAgainTestFirstRankThenSuit" => $testSort2->getUnicodeCardsAsString()
+            "deckOfCards52UnicodeSortedAgainTest" => $testSort->getCardsUnicode(),
+            "deckOfCards52UnicodeSortedAgainTestFirstRankThenSuit" => $testSort2->getCardsUnicode()
         ];
 
         $response = new JsonResponse($data);
@@ -88,6 +90,7 @@ class CardGameControllerJson extends AbstractController
         ? $session->get("api_shuffle_deck")
         : (new DeckOfCards52())->shuffleDeckOfCards();
 
+        /** @var DeckOfCards52 $deck52DrawShuffled */
         $drawnCard = $deck52DrawShuffled->drawCard();
 
         if ($drawnCard === null) {
@@ -98,14 +101,13 @@ class CardGameControllerJson extends AbstractController
 
         $session->set("api_shuffle_deck", $deck52DrawShuffled);
 
-        $drawnCardsOverall = $deck52DrawShuffled->getDrawnCards();
 
         $data = [
             "Message" => "Please make sure to first check the pretty-print box to be able to see the cards in their unicode-representation.",
             "drawnCardThisTimeUnicode" => $drawnCard->getCardAsUnicode(),
-            "drawnCardsOverall" => $deck52DrawShuffled->getUnicodeStringOfDrawnCards($drawnCardsOverall),
+            "drawnCardsOverall" => $deck52DrawShuffled->getCardsDrawnUnicode(),
             "remainingNrOfCardsInDeck" => $deck52DrawShuffled->getNumberOfCardsLeft(),
-            "remainingDeckUnicode" => $deck52DrawShuffled->getUnicodeCardsAsString()
+            "remainingDeckUnicode" => $deck52DrawShuffled->getCardsUnicode()
         ];
 
         $response = new JsonResponse($data);
@@ -127,6 +129,7 @@ class CardGameControllerJson extends AbstractController
         ? $session->get("api_shuffle_deck")
         : (new DeckOfCards52())->shuffleDeckOfCards();
 
+        /** @var DeckOfCards52 $deck52DrawShuffled */
         $cardsLeftInDeck = $deck52DrawShuffled->getNumberOfCardsLeft();
 
 
@@ -139,20 +142,16 @@ class CardGameControllerJson extends AbstractController
 
         $drawnCards = $deck52DrawShuffled->drawCards($number);
 
-        $drawnCardsOverall = $deck52DrawShuffled->getDrawnCards();
-
         $session->set("api_shuffle_deck", $deck52DrawShuffled);
 
-        $unicodeCardsDrawn = "";
-
-        $unicodeCardsDrawn = $deck52DrawShuffled->getUnicodeStringOfDrawnCards($drawnCards);
+        $unicodeRoundDrawn = $drawnCards !== null ? $deck52DrawShuffled->getUnicodeOfRoundCards($drawnCards) : null;
 
         $data = [
             "Message" => "Please make sure to first check the pretty-print box to be able to see the cards in their unicode-representation.",
-            "drawnCardsThisTimeUnicode" => $unicodeCardsDrawn,
-            "drawnCardsOverall" => $deck52DrawShuffled->getUnicodeStringOfDrawnCards($drawnCardsOverall),
+            "drawnCardsThisTimeUnicode" => $unicodeRoundDrawn,
+            "drawnCardsOverall" => $deck52DrawShuffled->getCardsDrawnUnicode(),
             "remainingNrOfCardsInDeck" => $deck52DrawShuffled->getNumberOfCardsLeft(),
-            "remainingDeckUnicode" => $deck52DrawShuffled->getUnicodeCardsAsString()
+            "remainingDeckUnicode" => $deck52DrawShuffled->getCardsUnicode()
         ];
 
         $response = new JsonResponse($data);
@@ -169,7 +168,6 @@ class CardGameControllerJson extends AbstractController
     #[Route("api/deck/deal/{players}/{cards}", name: "api/deck/deal/players/cards", methods: ['POST'])]
     public function apiDealPlayersCards(int $players, int $cards): Response
     {
-
 
         $dealPlayer52Shuffled = new DeckOfCards52();
         $dealPlayer52Shuffled->shuffleDeckOfCards();
@@ -189,10 +187,13 @@ class CardGameControllerJson extends AbstractController
         $drawnCards =  $dealPlayer52Shuffled->drawCards($cardsToDeal);
         $playersArray = [];
 
-        for ($i = 0; $i < $players; $i++) {
-            $playerCards = array_slice($drawnCards, $i * $cards, $cards);
-            $playerNr = ($i + 1);
-            $playersArray[] = new Player("Player $playerNr", $playerCards);
+
+        if ($drawnCards !== null) {
+            for ($i = 0; $i < $players; $i++) {
+                $playerCards = array_slice($drawnCards, $i * $cards, $cards);
+                $playerNr = ($i + 1);
+                $playersArray[] = new Player("Player $playerNr", $playerCards);
+            }
         }
 
         $data = [
@@ -201,7 +202,7 @@ class CardGameControllerJson extends AbstractController
                 return $player->getNameAndHandUnicodeJson();
             }, $playersArray),
             "remainingNrOfCardsInDeck" => $dealPlayer52Shuffled->getNumberOfCardsLeft(),
-            "remainingDeckUnicode" => $dealPlayer52Shuffled->getUnicodeCardsAsString()
+            "remainingDeckUnicode" => $dealPlayer52Shuffled->getCardsUnicode()
         ];
 
 

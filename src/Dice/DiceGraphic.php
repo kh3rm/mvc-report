@@ -4,7 +4,11 @@ namespace App\Dice;
 
 class DiceGraphic extends Dice
 {
-    private $representation = [
+    /**
+     *
+     * @var string[] $representation An array of strings representing the Unicode-dice values.
+     */
+    private array $representation = [
         '⚀',
         '⚁',
         '⚂',
@@ -17,6 +21,7 @@ class DiceGraphic extends Dice
     {
         parent::__construct();
     }
+
 
     public function getAsString(): string
     {

@@ -5,9 +5,24 @@ namespace App\Card;
 // Built with the very helpful resource: https://en.wikipedia.org/wiki/Playing_cards_in_Unicode
 class DeckOfCards
 {
+    /**
+     * An array that holds the Card-instances constituting the deck, including jokers.
+     *
+     * @var Card[]  $cards  An array of Card instances.
+     */
     protected $cards = [];
+
+    /**
+     * An array that holds the Card-instances that has been withdrawn/dealt from the deck.
+     *
+     * @var Card[]  $drawnCards  An array of Card instances.
+     */
     protected $drawnCards = [];
 
+    /**
+     * Constructor that populates the DeckOfCards with the classical 52 cards + 2 jokers,
+     * with all their complete, relevant properties.
+     */
     public function __construct()
     {
         $suits = [
@@ -55,11 +70,34 @@ class DeckOfCards
         $this->cards[] = new Card("🃏︎", 0, "🃏︎", 'joker', 'black', 0);
     }
 
+    /**
+     * Method that returns the $cards-array of all the Card-instances in $cards.
+     *
+     *  @return Card[] An array of Card instances.
+     */
     public function getCards(): array
     {
         return $this->cards;
     }
 
+    /**
+     * Method that returns the $drawnCards-array of all the Card-instances
+     * in $drawnCards.
+     *
+     *  @return Card[] An array of Card instances.
+     */
+    public function getDrawnCards(): ?array
+    {
+        return $this->drawnCards;
+    }
+
+
+    /**
+     * Method that returns all the cards in the $cards as a string,
+     * separated by a comma.
+     *
+     *  @return string A string of all the cards in the deck.
+     */
     public function getCardsAsString(): string
     {
         return implode(', ', array_map(function ($card) {
@@ -67,6 +105,12 @@ class DeckOfCards
         }, $this->cards));
     }
 
+    /**
+     * Method that returns all the cards in the $drawnCards as a string,
+     * separated by a comma.
+     *
+     *  @return string A string of all the drawn/dealt cards in the deck.
+     */
     public function getDrawnCardsAsString(): string
     {
         return implode(', ', array_map(function ($card) {
@@ -75,18 +119,59 @@ class DeckOfCards
     }
 
 
-
-    public function getUnicodeCardsAsString(): string
+    /**
+     * Method that returns all the cards in the $cards as a string,
+     * in Unicode representation.
+     *
+     *  @return string A string of all the cards in the deck in Unicode format.
+     */
+    public function getCardsUnicode(): string
     {
         return implode('', array_map(fn ($card) => $card->getCardAsUnicode(), $this->cards));
     }
 
+    /**
+     * Method that returns all the drawn cards as a string,
+     * in Unicode representation.
+     *
+     * @return string A string of all the drawn/dealt cards in the deck in Unicode format.
+     */
+    public function getCardsDrawnUnicode(): string
+    {
+        return implode('', array_map(fn ($card) => $card->getCardAsUnicode(), $this->drawnCards));
+    }
+
+
+    /**
+     * Method that takes a drawn-card-this-round-array with Card instances and returns
+     * a string of its Unicode representation.
+     *
+     *  @param Card[] $drawnCards  An array of Card instances.
+     *  @return string A string of all the drawn/dealt cards in the deck in Unicode format.
+     */
+    public function getUnicodeOfRoundCards(array $drawnCards): string
+    {
+        return implode("", array_map(function ($card) {
+            return $card->getCardAsUnicode();
+        }, $drawnCards));
+    }
+
+
+
+    /**
+     * Shuffles the array of instances of Card in $cards, resulting in a new random array-index-order,
+     * i.e, a (re)shuffled deck.
+     */
     public function shuffleDeckOfCards(): DeckOfCards
     {
         shuffle($this->cards);
         return $this;
     }
 
+    /**
+     * Sorts the deck using the cards cardInt-property to its initial state, i.e first according to
+     * suits, spades, hearts, diamonds,clubs, and then in ascending rank-order.
+     */
     public function sortDeck(): DeckOfCards
     {
         usort($this->cards, function ($firstCard, $secondCard) {
@@ -95,6 +180,10 @@ class DeckOfCards
         return $this;
     }
 
+    /**
+     * Sorts the deck using the cards rank and suit, this time first according to rank in ascending order,
+     * and within that sorting, according to suits.
+     */
     public function sortDeckFirstByRankThenBySuit(): DeckOfCards
     {
         $suitsRank = [
@@ -115,23 +204,6 @@ class DeckOfCards
     }
 
 
-    public function getUnicodeStringOfDrawnCards(array $drawnCards): string
-    {
-        return implode("", array_map(function ($card) {
-            return $card->getCardAsUnicode();
-        }, $drawnCards));
-    }
-
-    public function getDrawnCards(): ?array
-    {
-        return $this->drawnCards;
-    }
-
-
-    public function getDeck(): array
-    {
-        return $this->cards;
-    }
 
     public function getNumberOfCardsLeft(): int
     {
@@ -158,6 +230,12 @@ class DeckOfCards
     }
 
 
+    /**
+     * Method that draws/deals and returns {$number} of cards at random from $cards (and also
+     * moves over to $drawnCards), using drawCard().
+     *
+     *  @return Card[] An array of the drawn Card-objects.
+     */
     public function drawCards(int $number): ?array
     {
         if ($number < 1) {
@@ -169,10 +247,14 @@ class DeckOfCards
         }
 
         $drawnCards = [];
+
         for ($i = 0; $i < $number; $i++) {
-            $drawnCards[] = $this->drawCard();
+            $drawnCard = $this->drawCard();
+            if ($drawnCard !== null) {
+                $drawnCards[] = $drawnCard;
+            }
         }
 
-        return $drawnCards;
+        return count($drawnCards) > 0 ? $drawnCards : null;
     }
 }
