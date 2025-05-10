@@ -1,0 +1,154 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Blackjack Game{% endblock %}
+
+{% block body %}
+<h1>Blackjack Game</h1>
+
+<div class="blackjack-container">
+<div class="blackjack-table" style="background-image: url({{ asset('img/blackjack-background.jpg') }})">
+<div class="score-container">
+<span class="score-rubric">Chip Count</span>
+<span>{{ dealer.getPlayerName() }}: {{ dealer.getChipCount() }} (+{{ dealer.getChipsInPlayCount() }} in play)</span>
+<span>{{ player.getPlayerName() }}: {{ player.getChipCount() }} (+{{ player.getChipsInPlayCount() }} in play)</span>
+</div>
+
+
+
+
+<div class="d-container">
+    <span class="dealer-name">{{ dealer.getPlayerName() }}</span>
+    <div class="dealer-container">
+        <div class="dealer-container_">
+        <div class="blackjack-hand-container"">
+        {% if dealer.isActiveTurn() %}
+            <span class="hand-points"> {{ dealer.getHands()[0].currentHandValue() }} </span>
+        {% endif %}
+        <div class="blackjack-hand-dealer">
+            {% for card in dealer.getHands()[0].getCards() %}
+                {% if loop.index == 1 and not dealer.isActiveTurn() %}
+                    <span class="blackjack-card dealt-card"> {{ card.getBackOfCard() }} </span>
+                {% else %}
+                    <span class="blackjack-card dealt-additional-card-dealer {{ card.getColor() }}"> {{ card.getCardAsUnicode() }} </span>
+                    {% if dealer.isActiveTurn() %}
+                        {% if dealer.getHands()[0].currentHandValue < 17 %}
+                            <form id="dealer-hit-form" action="dealer-hit" method="POST">
+                            <input type="hidden" name="dealerId">
+                        </form>
+
+
+                        <script>
+                            setTimeout(function() {
+                                document.getElementById('dealer-hit-form').submit();
+                            }, 4000);
+                        </script>
+
+                {% endif %}
+                {% endif %}
+                {% endif %}
+
+            {% endfor %}
+
+            {% if dealer.isActiveTurn() %}
+            {% if dealer.getHands()[0].currentHandValue > 16 %}
+                            {% set bird_message = "Well played!" %}
+                            <form id="round-complete-form" action="round-complete" method="POST">
+                                <input type="hidden" name="roundComplete">
+                                <br>
+                                <button class="blackjack-button" type="submit">Complete Round</button>
+                            </form>
+            {% endif %}
+            {% endif %}
+
+        </div>
+        </div>
+        </div>
+    </div>
+    {% if dealer.isActiveTurn() %}
+    {% set bird_message = "My turn!" %}
+        {% if dealer.getHands()[0].currentHandValue > 16 %}
+            {% set bird_message = "Well played!" %}
+        {% endif %}
+
+
+
+    <div class="bird-dealer-container">
+        <img class="bird-dealer-intro" src="{{ asset('img/title-bird.svg') }}" alt="Blackjack Dealer Bird">
+        <pre class="bird-dealer-speech-bubble">
+
+                           - "{{bird_message}}"
+        </pre>
+    </div>
+    {% endif %}
+</div>
+
+    <div class="all-wagered-chips">
+    {% for hand in player.getHands() %}
+    <div class="chips-container">
+            <img class="blackjack-chip blackjack-dealer-chip" src="{{ asset('img/100-marker.png') }}" alt="Blackjack Chip">
+            <img class="blackjack-chip blackjack-player-chip" src="{{ asset('img/100-marker.png') }}" alt="Blackjack Chip">
+    </div>
+    {% endfor %}
+    </div>
+
+
+<div class="player-container">
+    <div class="blackjack-player-container">
+        <span class="active-hands">
+        Total hands: {{ player.handsCount() }}
+        <br>
+        Active hands: {{ player.activeHandsCount() }}
+        </span>
+
+        {% for handIndex, hand in player.getHands() %}
+            <div class="blackjack-hand-container" data-hand-index="{{ handIndex }}">
+                <span class="hand-points"> {{ hand.currentHandValue() }} </span>
+                <div class="blackjack-hand">
+                    {% set isInactive = hand.isHandInactive() %}
+                    {% for card in hand.getCards() %}
+                        <span class="blackjack-card dealt-card {{ card.getColor() }} {% if isInactive %}disabled{% endif %}">
+                            {{ card.getCardAsUnicode() }}
+                        </span>
+                    {% endfor %}
+                </div>
+
+                <div class="blackjack-button-container">
+                    <form class="blackjack-button-form" action="hit-hand" method="POST">
+                        <input type="hidden" name="handIndex" value="{{ handIndex }}">
+                        <input type="hidden" name="action" value="hit">
+                        <button type="submit" class="blackjack-button" {% if isInactive %}disabled{% endif %}>Hit</button>
+                    </form>
+                    <form class="blackjack-button-form" action="stand-hand" method="POST">
+                        <input type="hidden" name="handIndex" value="{{ handIndex }}">
+                        <input type="hidden" name="action" value="stand">
+                        <button type="submit" class="blackjack-button" {% if isInactive %}disabled{% endif %}>Stand</button>
+                    </form>
+
+                    {% if hand.isSplittable() %}
+                        <form class="blackjack-button-form" action="split-hand" method="POST">
+                            <input type="hidden" name="handIndex" value="{{ handIndex }}">
+                            <input type="hidden" name="action" value="split">
+                            <button type="submit" class="blackjack-button" {% if isInactive or splits_afforded == 0 %}disabled{% endif %}>Split</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <span class="player-name">{{ player.getPlayerName() }}</span>
+</div>
+
+
+</div>
+</div>
+
+
+{{ include('flash.html.twig') }}
+
+
+<p>Player: {{ dump(player) }}</p>
+<p>Dealer:  {{ dump(dealer) }}</p>
+<p>DeckInUse:  {{ dump(deck) }}</p>
+<p>Splits Afforded: {{ splits_afforded }}</p>
+
+{% endblock %}

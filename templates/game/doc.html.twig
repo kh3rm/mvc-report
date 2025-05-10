@@ -1,0 +1,202 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Game Documentation{% endblock %}
+
+{% block body %}
+    <h1>Game Documentation</h1>
+
+
+    <div class="doc-container">
+
+        <h2 class="rubric">Blackjack Game, Flowchart</h2>
+        <br>
+
+        {% if app.session.get('theme') == 'dark' %}
+            <a href="{{ asset('img/flowchart-dark-best.png') }}">
+                <img class="class-uml" src="{{ asset('img/flowchart-dark-best.png') }}" alt="Flowchart UML-Diagram"/>
+            </a>
+        {% else %}
+            <a href="{{ asset('img/flowchart-med.png') }}">
+                <img class="class-uml" src="{{ asset('img/flowchart-med.png') }}" alt="Flowchart UML-Diagram"/>
+            </a>
+    {% endif %}
+
+
+    </div>
+    <br><br>
+
+    <h2 class="rubric">Blackjack Game, Conceptual Pseudo-Code</h2>
+    <pre class="pseudo-code">
+
+    START Game Initiation
+
+        CREATE BEGIN
+            $deck a complete 52 card deck from an instantiation of class New DeckofCards52
+
+            $dealer from an instantiation of class BlackjackDealer
+            $player from an instantiation of class BlackjackPlayer
+
+            $dealerHand with New BlackjackHand with 2 drawn cards from DeckOfCards52
+            $playerHand with New BlackjackHand with 2 drawn cards from DeckOfCards52
+        CREATE END
+
+        ADD HAND TO PARTICIPANT BEGIN
+            ADD $dealerHand to $dealer
+            ADD $playerHand to $player
+        ADD HAND TO PARTICIPANT END
+
+        SAVE TO SESSION BEGIN
+            SAVE $deck to SESSION
+            SAVE $dealer to SESSION
+            SAVE $player to SESSION
+        SAVE TO SESSION END
+
+    FINISH Game Initiation
+
+    START Blackjack Gameplay
+        RENDER Gameplay-Template with SESSION-variables
+
+        MAIN WHILE player has chips left AND dealer has chips left
+            BEGIN Blackjack Round
+
+            SHOW full Player Hand(s) on Blackjack-table backdrop, and 1 of the Dealer's two cards
+                    FOR Hand in PlayerHands
+                        SHOW BUTTON-CHOICE-Options:
+                            Stand, Hit
+                            IF Player hand consists of two face-cards:
+                                Additional Option:
+                                    Split
+
+            WHILE any player Hand is active
+            BEGIN AWAIT PLAYER CHOICE
+                GET Hand-specific choice AS $handChoice
+
+                IF $handChoice IS Stand THEN
+                    BREAK for the specific hand
+
+                ELSE IF $handChoice IS Hit THEN
+                    DRAW 1 card from $deck INTO specific $playerHand
+
+                    IF $playerHand VALUE < 21 THEN
+                        RETURN TO AWAIT PLAYER CHOICE
+                    ELSE IF $playerHand VALUE === 21 THEN
+                        BREAK for the specific hand
+                    IF $playerHand VALUE > 21 THEN
+                        HAND LOST, BREAK for the specific hand
+
+                ELSE IF $handChoice IS Split THEN
+                    CREATE additional $playerHand
+                    MOVE second face-card from SPLIT Hand to the newly created additional $playerHand
+                    SUPPLEMENT the now two 1 card-hands with 1 additional card each from $deck
+                    ADD the now supplemented additional $playerHand to $player
+                    CONTINUE
+            END AWAIT PLAYER CHOICE
+            END WHILE
+
+                WHILE Dealer is ACTIVE
+                    SHOW Dealer's second card
+                    BEGIN DEALER ACTION
+                    IF NOT ALL Player's Hands are BUST
+                        IF $dealerHand < 17
+                            DRAW 1 card from $deck INTO $dealerHand (Hit)
+                            IF $dealerHand VALUE < 21 THEN
+                                CONTINUE
+                            ELSE IF $dealerHand VALUE === 21 THEN
+                                BREAK
+                            ELSE $dealerHand VALUE > 21 THEN
+                                Dealer Hand BUST, BREAK
+                    END IF
+                    END DEALER ACTION
+                END WHILE
+
+
+            BEGIN Blackjack Round Completion
+                Determine the winner of the dealer's hand and the player's hand(s)
+                Redistribute the chips wagered in the round accordingly
+            END Blackjack Round Completion
+
+            END Blackjack Round
+
+        END MAIN WHILE
+
+        // As the MAIN WHILE-loop has been exited, it means either the player or dealer has no chips left
+
+        DISPLAY RESULTS BEGIN
+            IF player has no chips THEN
+                SHOW "Game completed. Dealer has won the game!"
+            ELSE IF dealer has no chips THEN
+                SHOW "Game completed. Player has won the game!"
+            END IF
+        DISPLAY RESULTS END
+
+    FINISH Blackjack Gameplay
+
+    Game completed.
+
+    </pre>
+    <div class="doc-container">
+    <div class="class-description">
+    <h2 class="rubric">Blackjack Game, Preliminary Classes</h2>
+
+    <p>
+    <span class="class-name class-green">Card</span><br>
+    <span class="variable-blue">$cardValue</span> - Simple string representation of the card value. Example: <span class="red">A♥</span><br>
+    <span class="variable-blue">$cardUnicode</span> - Unicode string representation of the given card. Example: <span class="unicode-example red">🂱</span><br>
+    <span class="variable-blue">$cardSuit</span> - A string value of the suit of the given card. Example: <span class="red">A♥</span> = "heart"<br>
+    <span class="variable-blue">$cardRank</span> - The integer rank of the card. Example: <span class="red">A♥</span> = <span class="int">14</span><br>
+    <span class="variable-blue">$cardInt</span> - Unique integer value for the given card. 1xx for spades, 2xx for hearts, 3xx for diamonds
+    and 4xx for clubs. Example: <span class="red">A♥</span> = <span class="int">214</span><br>
+    <span class="variable-blue">$cardColor</span> - The color of the card, red or black, for easy style class-application. Example <span class="red">A♥</span> = "red"<br>
+    $BACKOFCARD - Static property, a string Unicode representation of the back of the card:  <span class="unicode-example">🂠</span><br>
+
+    <br>
+
+    <span class="red">
+
+    <p>
+    <span class="class-name class-green">DeckOfCards</span><br>
+    <span class="variable-blue">$cards</span> = An array of 54 Card-objects populated at instantiation: the 52 that makes a classic deck of cards + 2 jokers.<br>
+    <span class="variable-blue">$drawnCards</span> = An array of Card-objects having been drawn/dealt from the given deck.<br>
+
+    </p>
+
+    <p>
+    <span class="class-name class-green">DeckOfCards52</span><br>
+    - A subclass that extends DeckOfCards, that simply removes the jokers to constitute a playable 52-card deck.
+
+    </p>
+
+    <p>
+    <span class="class-name class-green">BlackjackCardHand</span><br>
+    <span class="variable-blue">$cards</span> = An array of the Card-objects currently in the hand.<br>
+    </p>
+
+    <p>
+    <span class="class-name class-green">BlackjackDealer</span><br>
+    <span class="variable-blue">$dealerName</span> = A string of the dealer name ("Dealer").<br>
+    <span class="variable-blue">$hand</span> = a BlackjackCardHand-object inside an array, containing the cards that the dealer has in its hand.<br>
+    </p>
+
+    <p>
+    <span class="class-name class-green">BlackjackPlayer</span><br>
+    <span class="variable-blue">$playerName</span> = A string of the player name.<br>
+    <span class="variable-blue">$hand</span> = an array of BlackjackCardHand-objects, containing the players hand(s).<br>
+    </p>
+
+    <p>
+    <span class="class-name class-green">BlackjackGameResults</span><br>
+    - A class containing the blackjack-rules-logic necessary to determine the results after each round,
+    and also for when the game has been completed.
+    </p>
+
+    <br>
+
+
+    <span class="class-green"></span>
+
+    </div>
+
+    </div>
+
+
+{% endblock %}

@@ -33,7 +33,7 @@ main {
     justify-content: center;
     align-items: center;
     background-color: #FFE4C4;
-    opacity: 0.88;
+    opacity: 0.94;
     border-radius: 2px;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -379,7 +379,9 @@ footer {
 }
 
 .api-container,
-.report-container {
+.report-container,
+.doc-container,
+.rules-container {
     text-align: left;
     margin: 0 4.4rem;
     line-height: 1.5;
@@ -601,7 +603,11 @@ footer {
     width: calc(100% / 13);
     box-sizing: border-box;
     transition: transform ease 0.2s;
+    height: auto;
 }
+
+
+
 
 .card-int {
     display: flex;
@@ -624,9 +630,19 @@ footer {
 
 .player-container {
 /*     border: 3px double rgb(225, 113, 225); */
+    margin-top: 2rem;
     border-radius: 6px;
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
 }
+
+.d-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
 
 .api-post-form {
     display: inline;
@@ -706,3 +722,311 @@ footer {
     font-weight: 500;
     letter-spacing: 1px;
 }
+
+.game-link {
+    text-decoration: none;
+    color: rgb(117, 104, 219);
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.blackjack-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 1rem;
+    width: 80%;
+    min-height: 40vh;
+    margin: 0 auto;
+}
+.blackjack-table {
+    top: 0;
+    border-radius: 10%;
+    z-index: 10;
+    background-size: cover;
+    opacity: 1;
+    border: 6px solid black;
+    padding-bottom: 50px;
+}
+
+
+.blackjack-card {
+    display: inline-block;
+    transition: transform ease 0.2s;
+    height: auto;
+    font-size: 140px;
+    line-height: 1;
+    padding: 0;
+    margin-left: 0.1rem;
+    background-color:hsl(55, 63%, 89%);
+}
+
+.dealer-container {
+    display:inline-block;
+    margin: 0 auto;
+    background-color:hsl(55, 63%, 89%);
+    text-align: center;
+    border-radius: 40px;
+    padding: 2rem;
+    padding-top: 0.8rem;
+    border: 5px solid black;
+    margin-bottom: 20px;
+}
+
+
+.score-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    min-width: 100px;
+    min-height: 60px;
+    top: 20px;
+    right: 34px;
+    background-color:hsl(0, 38%, 94%);
+    text-align: center;
+    border-radius: 40px;
+    padding: 1rem;
+    padding-top: 0.8rem;
+    border: 3px solid rgb(242, 108, 108);
+    font-size: 15px;
+}
+
+.score-rubric {
+    font-size: 20px;
+}
+
+
+
+
+
+.dealer-name,
+.player-name {
+    margin: 0 auto;
+    font-size: 24px;
+    color:#212121;
+    background-color: rgb(213, 233, 65);
+    min-width: 100px;
+    max-width: 300px;
+    border-radius: 5px;
+    padding: 0.2rem 0.6rem;
+}
+
+
+.blackjack-player-container {
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color:hsl(55, 63%, 89%);
+    height: auto;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    padding-top: 1rem;
+}
+
+.blackjack-hand {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blackjack-hand-dealer {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 200px;
+}
+
+.blackjack-button-container {
+    margin-top: 0.6rem;
+}
+
+.blackjack-hand-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-left: 1rem;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.blackjack-button {
+    font-size: 20px;
+    padding: 0.4rem 0.8rem;
+    letter-spacing: 1px;
+    margin-left: 0.3rem;
+
+}
+
+.blackjack-chip {
+    width: 44px;
+    height: auto;
+    margin-top: 16px;
+    margin-right: 9px;
+    border: 3px solid rgb(213, 233, 65);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding:0.6rem;
+    background-color: rgb(81, 147, 69);
+}
+
+.all-wagered-chips {
+    margin: 0 auto;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.chips-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.blackjack-player-chip {
+    top: -87px;
+}
+
+.blackjack-dealer-chip {
+    top: -187px;
+}
+
+.pseudo-code {
+    text-align: left;
+    background-color:#e2bcbc;
+    margin: 2rem 2rem;
+}
+
+.class-description {
+    text-align: left;
+}
+
+.game-form {
+    padding: 0.4rem;
+    font-size: 16px;
+    min-width: 195px;
+}
+
+.blackjack-button-form {
+    display: inline-block;
+}
+.game-bet-size-form {
+
+}
+
+.game-starting-chips-form {
+
+}
+
+.game-player-name-form {
+
+}
+
+.hand-points {
+    font-size: 14px;
+}
+
+.active-hands {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 14px;
+}
+
+.init-button {
+    margin-top: 0.8rem;
+}
+
+.bird-blackjack-intro-container {
+    margin: 0 auto;
+    position: relative;
+}
+
+.bird-blackjack-intro {
+    margin: 0 auto;
+    width: 170px;
+    height:auto;
+}
+
+.bird-blackjack-speech-bubble {
+    padding: 1rem;
+    position: absolute;
+    top: -45px;
+    left: 305px;
+}
+
+
+
+.bird-dealer-container {
+    position:absolute;
+    margin: 0 auto;
+    position: relative;
+}
+
+.bird-dealer {
+    margin: 0 auto;
+    width: 100px;
+    height:auto;
+}
+
+.bird-dealer-speech-bubble {
+    padding: 1rem;
+    position: absolute;
+    top: -40px;
+    left: -170px;
+}
+
+.blackboard-container {
+    position: relative;
+}
+
+.blackboard {
+    margin-top: -200px;
+    z-index:10;
+    width: 770px;
+    height: auto;
+    margin: 1rem;
+}
+
+.blackboard-rules {
+    position: absolute;
+    top: 105px;
+    left: -20px;
+}
+
+.blackboard-rubric {
+    letter-spacing: 1px;
+    font-size: 28px;
+}
+
+.blackboard-bird {
+    width: 120px;
+    height: auto;
+    top: -29px;
+    right: 67px;
+    position: absolute;
+    transform: scaleX(-1);
+}
+
+/* .dealer-chip {
+    margin-top: -30px;
+}
+
+.player-chip {
+    margin-bottom: -5px;
+} */
+
+
+/* .deck-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 100px;
+}
+ */

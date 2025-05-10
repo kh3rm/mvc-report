@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1>Game</h1>
+
+
+    <h2 class="rubric">All Game-Routes</h2>
+    <div class="api-container">
+
+    <p><a class="game-link" href="{{ path('gamelp') }}">/game</a> - This very page, listing all the Game-related routes built in KMOM03. </p>
+
+    <p><a class="game-link" href="{{ path('gamedoc') }}">/game/doc</a> - All the documentation pertaining to the game implementation. </p>
+
+    <p><a class="game-link" href="{{ path('gamerules') }}">/game/rules</a> - Study the (Bird-authored) custom Blackjack-rules in effect. </p>
+
+    <p><a class="game-link" href="{{ path('game_init_get') }}">/game/init</a> - Initiate a game of Blackjack. </p>
+{% endblock %}

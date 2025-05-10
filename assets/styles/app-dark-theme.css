@@ -186,3 +186,26 @@ nav a:hover,
     font-weight: 500;
     letter-spacing: 1px;
 }
+
+
+
+.blackjack-card {
+    background-color:hsl(255, 23%, 20%);
+}
+
+.dealer-container {
+    background-color:hsl(255, 23%, 20%);
+}
+
+.blackjack-player-container {
+    background-color:hsl(255, 23%, 20%);
+}
+
+.pseudo-code {
+    background-color:rgb(52, 34, 80);
+}
+
+.score-container {
+    background-color:rgb(52, 34, 80);
+    border: 3px solid black;
+}

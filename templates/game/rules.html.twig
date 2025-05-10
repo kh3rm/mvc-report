@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Game Documentation{% endblock %}
+
+{% block body %}
+    <h1>Blackjack Game Rules</h1>
+
+
+    <div class="doc-container">
+
+        <div class="blackboard-container"
+
+            {% if app.session.get('theme') == 'dark' %}
+                <a href="{{ asset('img/blackboard-dark.svg') }}">
+                    <img class="blackboard" src="{{ asset('img/blackboard5.svg') }}" alt="Blackboard SVG Dark Theme"/>
+                </a>
+            {% else %}
+
+                     <a href="{{ asset('img/blackboard-dark.svg') }}">
+                    <img class="blackboard" src="{{ asset('img/blackboard5.svg') }}" alt="Blackboard SVG Dark Theme"/>
+                </a>
+
+        {% endif %}
+
+        <img class="blackboard-bird" src="{{ asset('img/title-bird.svg') }}" alt="Blackboard SVG Dark Theme"/>
+
+        <div class="blackboard-rules">
+            <pre>
+            <span class="blackboard-rubric">BIRD-BLACKJACK-RULES</span>
+            100 chips wagered each by dealer and player per hand, no ifs and buts
+            Dealer must hit if hand is less than 17
+            Dealer must stop if hand is greater than or equal to 17
+            Dealer's and player's hands are evaluated equally
+            Dealer's and player's hands interact equally with aces
+            No bonuses for a clean Blackjack-hands (A + Facecard) and the like:
+            it's a beautiful hand, but it's treated and rewarded normally,
+            for dealer and player alike
+            200 for won hand, 100 for drawn, 0 for lost (redundant)
+            Game is concluded when dealer or player has won all the chips
+
+            Otherwise normal <a href="https://en.wikipedia.org/wiki/Blackjack">Blackjack-Rules</a> apply.
+            </pre>
+        </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

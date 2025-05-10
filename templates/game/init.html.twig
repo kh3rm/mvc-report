@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Blackjack Game{% endblock %}
+
+{% block body %}
+<h1>Blackjack Game</h1>
+
+<div class="bird-blackjack-intro-container">
+    <img class="bird-blackjack-intro" src="{{ asset('img/title-bird.svg') }}" alt="Blackjack Intro Bird">
+    <pre class="bird-blackjack-speech-bubble">
+                             "Up for a game of Blackjack, aye? I'll deal."
+
+  ⎽⎼⎻⎺
+    </pre>
+</div>
+
+<form method="post" action="">
+    <p>What is your name?</p>
+    <p><input class="game-form game-player-name-form" type="text" name="player_name"></p>
+    <p>How many starting chips?</p>
+    <p><input class="game-form game-starting-chips-form" type="number" name="starting_chips" id="starting_chips" value="1000" min="100" max="10000" step="100"></p>
+    <p>How many hands?</p>
+    <p><input class="game-form game-number_of_hands" type="number" name="number_of_hands" id="number_of_hands" value="3" min="1" max="10" step="1"></p>
+    <p>Bet size:</p>
+    <p><input class="game-form game-bet-size-form" type="number" name="bet_size" id="bet_size" value="100" readonly disabled></p>
+    <p><input class="blackjack-button init-button" type="submit" name="do_it" value="Start Game"></p>
+</form>
+
+{{ include('flash.html.twig') }}
+
+{% endblock %}

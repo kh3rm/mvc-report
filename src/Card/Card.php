@@ -66,4 +66,9 @@ class Card
     {
         return self::BACKOFCARD;
     }
+
+    public function isFaceCard(): bool
+    {
+        return in_array($this->cardRank, ['11', '12', '13']);
+    }
 }

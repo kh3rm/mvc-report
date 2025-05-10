@@ -1,0 +1,65 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Blackjack Game{% endblock %}
+
+{% block body %}
+
+
+{% if game_decided %}
+
+<h1>Blackjack Game Results</h1>
+
+{% else %}
+
+<h1>Blackjack Round Results</h1>
+
+{% endif %}
+
+
+
+
+
+
+
+<div class="bird-blackjack-intro-container">
+    <img class="bird-blackjack-intro" src="{{ asset('img/title-bird.svg') }}" alt="Blackjack Intro Bird">
+    <pre class="bird-blackjack-speech-bubble">
+                                        "Stimulating!"
+
+                    ⎽⎼⎻⎺
+    </pre>
+</div>
+
+{% if game_decided %}
+    <h2> Game completed. Congratulations to the winner. </h2>
+{% endif %}
+
+<h2> {{roundmsg}} </h2>
+
+<h2>Chip Count:</h2>
+<h2>Player: {{ player.getChipCount() }} </h2>
+<h2>Dealer:  {{ dealer.getChipCount() }} </h2>
+
+{% if game_decided %}
+
+<form action="{{ path('game_init_get') }}" method="GET">
+    <button class="blackjack-button" type="submit">New Game</button>
+</form>
+
+{% else %}
+
+<form id="next-round" action="next-round" method="POST">
+    <input type="hidden" name="nextRound">
+    <br>
+    <button class="blackjack-button" type="submit">Next Round</button>
+</form>
+
+{% endif %}
+
+
+
+<p>Player: {{ dump(player) }}</p>
+<p>Dealer:  {{ dump(dealer) }}</p>
+
+
+{% endblock %}
