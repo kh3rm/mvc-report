@@ -78,7 +78,7 @@
                     DRAW 1 card from $deck INTO specific $playerHand
 
                     IF $playerHand VALUE < 21 THEN
-                        RETURN TO AWAIT PLAYER CHOICE
+                        CONTINUE
                     ELSE IF $playerHand VALUE === 21 THEN
                         BREAK for the specific hand
                     IF $playerHand VALUE > 21 THEN
@@ -186,7 +186,7 @@
     <p>
     <span class="class-name class-green">BlackjackGameResults</span><br>
     - A class containing the blackjack-rules-logic necessary to determine the results after each round,
-    and also for when the game has been completed.
+    and also for determining and managing game completion.
     </p>
 
     <br>

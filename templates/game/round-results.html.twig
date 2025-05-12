@@ -43,7 +43,7 @@
 {% if game_decided %}
 
 <form action="{{ path('game_init_get') }}" method="GET">
-    <button class="blackjack-button" type="submit">New Game</button>
+    <button class="blackjack-button blackjack-button2" type="submit">New Game</button>
 </form>
 
 {% else %}
@@ -51,7 +51,7 @@
 <form id="next-round" action="next-round" method="POST">
     <input type="hidden" name="nextRound">
     <br>
-    <button class="blackjack-button" type="submit">Next Round</button>
+    <button class="blackjack-button blackjack-button2" type="submit">Next Round</button>
 </form>
 
 {% endif %}

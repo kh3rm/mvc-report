@@ -209,3 +209,22 @@ nav a:hover,
     background-color:rgb(52, 34, 80);
     border: 3px solid black;
 }
+
+.blackboard-rules {
+    color:rgb(52, 34, 80);
+}
+
+.bird-message-play {
+    background-color: hsl(258, 40%, 34%);
+    border: 2px solid rgb(24, 23, 23);
+}
+
+.blackjack-button2,
+.blackjack-button {
+    background-color: hsl(258, 40%, 34%);
+    color: whitesmoke;
+}
+
+.blackjack-button:hover {
+    color: rgba(242, 236, 236, 0.85);
+  }

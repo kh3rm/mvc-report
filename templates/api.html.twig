@@ -14,6 +14,8 @@
     timestamp of the quote-generation. </p>
     <br>
 
+    <p><a class="api-link4" href="{{ path('api/game') }}">/api/game</a> - JSON-GET-route showing the current score in the blackjack-game (if active).</p>
+    <br>
     <p><a class="api-link2" href="{{ path('api/deck') }}">/api/deck</a> - JSON-GET-route showcasing new, ordered decks, including and excluding jokers, and misc details.</p>
     <br>
 
@@ -45,7 +47,6 @@
             </button>
         </form>
         <span class="post-req-span"> - JSON-POST-route where a given #{players} are given #{cards} each, and then returns each player and their hands, as well as the remaining cards in the deck. (In the example-POST-request-pseudo-link provided it deals 5 cards each to 5 players.)</span><br><br>
-</span>
 
 </div>
 {% endblock %}

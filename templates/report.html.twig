@@ -162,7 +162,6 @@ trots att det i relativa termer tillkom relativt sent "på riktigt", med riktigt
     </blockquote>
     </p>
 
-
     <p>Känner mig tillfreds med den klass-struktur jag fått på plats, och tror att den kommer visa
     sig någorlunda duglig att bygga fungerande, enklare spellogik kring, vilket stundar i nästa kursmoment.
     </p>
@@ -218,11 +217,69 @@ trots att det i relativa termer tillkom relativt sent "på riktigt", med riktigt
     </div>
 
 
-    <h2 class="report-rubric" id="kmom03">KMOM03</h2>
+    <h2 class="report-rubric" id="kmom03">Kmom03</h2>
+    <div class="report-container">
 
-    <p>Redovisningstext</p>
+    <p>Är väl i ärlighetens namn kanske inte det mest exalterande att sätta sig ned med flödesdiagram
+    och pseudokod, men det är väldigt bra och värdefulla konceptulla verktyg, inte minst som bryggor
+    för att bättre kunna kommunicera med och visualisera för ickeprogrammerare på ett mer lättillgängligt sätt.
+    </p>
 
-    <br><br><br><br><br><br><br><br>
+    <p>Det tvingar en dessutom att skärpa sinnena gällande hur man faktiskt i grova drag tänker sig att
+    man ska ta sig an och lösa den givna uppgiften, och i vilka steg det kan tänkas vara rimligt
+    att jobba.
+    Bra att ha med sig i verktygslådan. (Klingar misstänkt som en generisk boilerplate-kommentar, och metaforen är utsliten,
+    men menar det faktiskt genuint.) </p>
+
+    <p>Roligt och stimulerande miniprojekt, som jag tyckte artade sig bra, i form av ett enklare
+    Blackjack-spel, med aningen modifierade regler, som fungerar fint, och som jag tycker är ett nöje att
+    interagera med.</p>
+
+    <p>Valde att lägga en hel del tid på att vrida och vända och experimentera för att få till det på ett
+    för mig snyggt och tillfredställande sätt, och ansåg att det var värt den tidsinvesteringen.
+    Tänker att jag nog kommer kunna ha nytta av den etablerade gedigna grova strukturen och stylingen
+    också senare när det vankas projektarbete.</p>
+
+    <p>La phpstan-ribban på lvl8, vilket jag upplevde var en strikt men ändå fullt rimligt
+    nivå, där synpunkterna var av den arten att man nästan alltid motvilligt fick nicka
+    medgvivande och tillstå att verktyget ändå har rätt.
+
+    Kan väl säkert sägas om lvl9 också, med bättre insikt, och i vissa kontext, men där kändes spontant
+    de ytterligare synpunkterna mer småsinta och petitessartade, så fick bli lvl8, åtminstone tillsvidare.
+
+    </p>
+
+    <p>Nöjd med hur klasstrukturen, mina Controllers och applikationen i stort artade sig.</p>
+
+    <p>
+    Valde också att flytta över den handrelaterade-logiken som hörde till BlackjackPlayer-klassen in
+    i ett trait som får inkluderas, för en aningen bättre organiserad och separarerad struktur.
+    Får kanske möjlighet att också jobba med interface ordentligt i projektet vad det lider.</p>
+
+    <p>Hade kunnat baka in hela det pågående spel-statet i ett eget objekt, och byggt en mer
+    ren klass utifrån den utgångspunkten, och sedan endast sparat undan det i sessionen mellan routerna,
+    för ett riktigt cleant och minimalistiskt session-flöde, men landade i den här varianten istället,
+    där huvudsakligen dealer- och player-objekten konkar på all data. Routerna och antalet
+    session-variabler får ändå betraktas (hoppas jag) som relativt sparsmakade och "lean".</p>
+
+    <p>Använder mig nu istället en BlackjackGameResults-klass
+    när en runda avslutas för att rätta händerna enligt de givna premisserna, korrekt omfördela markerna,
+    resetta properties etc., samt för att att kontrollera om den avslutade rundan också innebär ett
+    avslutat spel.  </p>
+
+    <p>Arbetet i och med Symfony flyter vidare på alldeles utmärkt, och tycker fortsatt att ramverket
+    känns lättarbetat och intuitivt.</p>
+
+    <p>Mitt TIL/*TWIL i detta kursmoment, för att denna gång nämna någonting php-specifikt: vilken smidig
+    konstruktion referens-parametrar är (dock med sina fördelar och nackdelar, man ska som alltid
+    vara väl medveten om var och varför man använder den), som tillåter en att uppdatera inskickade
+    argument-variabler dynamiskt utan att explicit returnera någonting från funktionen, lämpliga i t ex
+    enklare funktioner där man vill inkrementera värden.</p>
+
+    <p>MVH</p>
+
+    </div>
+
 
 
     <h2 class="report-rubric" id="kmom04">KMOM04</h2>

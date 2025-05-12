@@ -402,6 +402,13 @@ footer {
     letter-spacing: 2px;
 }
 
+.api-link4 {
+    text-decoration: none;
+    color: rgb(61, 50, 175);
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
 .api-link3 {
     text-decoration: none;
     font-weight: 400;
@@ -782,8 +789,8 @@ footer {
     min-width: 100px;
     min-height: 60px;
     top: 20px;
-    right: 34px;
-    background-color:hsl(0, 38%, 94%);
+    right: 25px;
+    background-color:hsl(55, 63%, 99%);
     text-align: center;
     border-radius: 40px;
     padding: 1rem;
@@ -1014,6 +1021,14 @@ footer {
     transform: scaleX(-1);
 }
 
+.bird-message-play {
+    padding: 0.7rem;
+    border: 2x solid;
+    border-radius: 10px;
+    background-color: hsl(55, 63%, 74%);
+    font-size: 16px;
+}
+
 /* .dealer-chip {
     margin-top: -30px;
 }
@@ -1030,3 +1045,58 @@ footer {
     font-size: 100px;
 }
  */
+
+
+
+/* CSS */
+
+.blackjack-button {
+    font-size: 20px;
+    padding: 0.4rem 0.8rem;
+    letter-spacing: 1px;
+    margin-left: 0.3rem;
+
+}
+
+
+
+.blackjack-button {
+    background-color: #f0e8e8;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.45rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    min-height: 3rem;
+    padding: 0.8rem 1.1rem;
+    padding-top: 1rem;
+    transition: all 250ms;
+    font-size: 18px;
+  }
+
+  .blackjack-button2 {
+    background-color: #fee0e0;
+  }
+
+  .blackjack-button:hover {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+  }
+
+  .blackjack-button:disabled {
+    background-color: #f0f0f0;
+    color: rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 0, 0, 0.1);
+    cursor: default;
+    opacity: 0.6;
+}
+
+.blackjack-button:disabled:hover {
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+    color: rgba(0, 0, 0, 0.3);
+    transform: none;
+}

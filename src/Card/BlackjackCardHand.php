@@ -6,8 +6,6 @@ use App\Card\Card;
 use App\Exception\InvalidCardException;
 use App\Exception\HandNotSplittableException;
 
-
-
 class BlackjackCardHand
 {
     /**
@@ -109,11 +107,19 @@ class BlackjackCardHand
         return true;
     }
 
-
+    /**
+     * Method that splits a 2 facecard hand into 2 hands, and then
+     * adds supplementary second cards from a given deck to each,
+     * and returns the hands in an array.
+     *
+     * @param DeckOfCards52 $deck The DeckOfCards object for the deck in use.
+     *
+     * @return BlackjackCardHand[] An array with the two hands.
+     */
     public function splitHand($deck): array
     {
         if (!$this->isSplittable()) {
-            throw new HandNotSplittableException;
+            throw new HandNotSplittableException();
         }
 
         $firstCard = $this->cards[0];
@@ -122,48 +128,54 @@ class BlackjackCardHand
         $firstSplittedHand = new BlackjackCardHand([$firstCard]);
         $secondSplittedHand = new BlackjackCardHand([$secondCard]);
 
-        $firstSplittedHand->addCard($deck->drawCard());
-        $secondSplittedHand->addCard($deck->drawCard());
+        $firstCard = $deck->drawCard();
+        $secondCard = $deck->drawCard();
+
+        if ($firstCard && $secondCard) {
+            $firstSplittedHand->addCard($firstCard);
+            $secondSplittedHand->addCard($secondCard);
+        };
 
         return [$firstSplittedHand, $secondSplittedHand];
     }
 
 
 
-/**
- * Method that calculates the current value of the blackjack hand, according to blackjack-specific
- * logic.
- *
- * @return int The total value of the cards in hand.
- */
-public function currentHandValue(): int
-{
-    $totalValue = 0;
-    $aceCount = 0;
+    /**
+     * Method that calculates the current value of the blackjack hand, according to blackjack-specific
+     * logic.
+     *
+     * @return int The total value of the cards in hand.
+     */
+    public function currentHandValue(): int
+    {
+        $totalValue = 0;
+        $aceCount = 0;
 
-    foreach ($this->cards as $card) {
-        $rank = $card->getRank();
+        foreach ($this->cards as $card) {
+            $rank = $card->getRank();
 
-        if ($rank == 11 || $rank == 12 || $rank == 13) {
-            $totalValue += 10;
-        } elseif ($rank === 14) {
-            $totalValue += 11;
-            $aceCount++;
-        } else {
-            $totalValue += $rank;
+            if ($rank == 11 || $rank == 12 || $rank == 13) {
+                $totalValue += 10;
+            }
+
+            if ($rank === 14) {
+                $totalValue += 11;
+                $aceCount++;
+            }
+
+            if ($rank < 11) {
+                $totalValue += $rank;
+            }
         }
+
+        while ($totalValue > 21 && $aceCount > 0) {
+            $totalValue -= 10;
+            $aceCount--;
+        }
+
+        return $totalValue;
     }
-
-    while ($totalValue > 21 && $aceCount > 0) {
-        $totalValue -= 10;
-        $aceCount--;
-    }
-
-    return $totalValue;
-}
-
-
-
 
 
     /**
@@ -197,13 +209,16 @@ public function currentHandValue(): int
     /**
      * Method that adds to the $card-array attribute the instance of Card supplied.
      *
-     *  @param Card $card An instance of Card.
+     *  @param DeckOfCards52 $deck An instance of DeckOfCards52.
      */
     public function drawCardFromDeck(DeckOfCards52 $deck): void
     {
-        $this->cards[] = $deck->drawCard();
-    }
+        $card = $deck->drawCard();
 
+        if ($card !== null) {
+            $this->cards[] = $card;
+        }
+    }
 
 
 

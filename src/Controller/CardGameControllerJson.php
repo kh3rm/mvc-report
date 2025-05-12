@@ -19,20 +19,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CardGameControllerJson extends AbstractController
 {
-    #[Route("/api/deck", name: "api/deck")]
-    public function apiDeck(): Response
+    #[Route("/api/game", name: "api/game")]
+    public function apiGame(SessionInterface $session): Response
     {
 
-        $deckOfCardsNew = new DeckOfCards();
-        $deckOfCards52 = new DeckOfCards52();
+        $currentChipCountJson = $session->get("current_chip_count_json");
 
-        $data = [
-            "Message" => "Please make sure to first check the pretty-print box to be able to see the cards in the deck in their unicode-representation.",
-            "newDeckOfCardsUnicode" => $deckOfCardsNew->getCardsUnicode(),
-            "newDeckOfCardsSimple" => $deckOfCardsNew->getCardsAsString(),
-            "deckOfCards52Unicode(No-Jokers)" => $deckOfCards52->getCardsUnicode(),
-            "deckOfCards52Simple(No-Jokers)" => $deckOfCards52->getCardsAsString()
-        ];
+
+        $data = $currentChipCountJson
+        ? ["currentChipCountBlackJack" => $currentChipCountJson]
+        : ["message" => "Currently no registered blackjack-game in progress."];
 
         $response = new JsonResponse($data);
         $response->setEncodingOptions(

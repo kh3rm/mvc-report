@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Card;
+
 use App\Exception\NotEnoughChipsException;
 
 class BlackjackDealer extends BlackjackPlayer
@@ -25,7 +26,7 @@ class BlackjackDealer extends BlackjackPlayer
      *
      * @throws NotEnoughChipsException If the dealer does not have enough chips to wager.
      */
-    public function dealerWagerChips($wagerAmount): void
+    public function dealerWagerChips(int $wagerAmount): void
     {
 
         if ($this->chips < $wagerAmount) {
