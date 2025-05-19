@@ -49,7 +49,7 @@ class Card
     //  perhaps later implement a version that is able to instead return "Two of hearts" or the like.
     public function getAsString(): string
     {
-        return "{$this->cardValue} ";
+        return "{$this->cardValue}";
     }
 
     public function getCardAsInt(): int

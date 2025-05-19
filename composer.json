@@ -82,6 +82,8 @@
         "phpstan": "tools/phpstan/vendor/bin/phpstan analyse -c tools/phpstan/phpstan.neon || true",
         "csfix": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src",
         "csfix:dry": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v",
+        "phpdoc": "tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml",
+        "phpunit": "XDEBUG_MODE=coverage bin/phpunit --coverage-text tests",
         "lint": [
             "@csfix",
             "@phpmd",
@@ -90,9 +92,7 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "importmap:install": "symfony-cmd",
-            "csfix": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src",
-            "csfix:dry": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v"
+            "importmap:install": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
