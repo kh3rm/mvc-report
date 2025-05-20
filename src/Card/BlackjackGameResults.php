@@ -76,6 +76,14 @@ class BlackjackGameResults
         $this->sessionState = $session;
     }
 
+    /**
+     * Get the object's sessionState.
+     */
+    public function getSessionState(): ?SessionInterface
+    {
+        return $this->sessionState;
+    }
+
 
 
     public function clearBlackjackGameSession(): void

@@ -60,9 +60,6 @@ class BlackjackCardHand
 
 
 
-
-
-
     /**
      * Sets the handActive-attribute to false.
      *
@@ -243,5 +240,6 @@ class BlackjackCardHand
     {
         return implode("", array_map(fn ($card) => $card->getCardAsUnicode(), $this->cards));
     }
+
 
 }

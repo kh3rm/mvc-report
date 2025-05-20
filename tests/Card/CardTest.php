@@ -17,7 +17,7 @@ class CardTest extends TestCase
     public function testCreateCardNoArguments()
     {
         $this->expectException(\ArgumentCountError::class);
-        $card = new Card();
+        new Card();
     }
 
     /**
@@ -26,7 +26,7 @@ class CardTest extends TestCase
     public function testCreateCardInvalidArguments()
     {
         $this->expectException(\TypeError::class);
-        $card = new Card(1, "faulty", "arguments", 99,
+        new Card(1, "faulty", "arguments", 99,
          "supplied", "typerror");
     }
 
@@ -36,7 +36,7 @@ class CardTest extends TestCase
     public function testCreateCardInsufficientArguments()
     {
         $this->expectException(\TypeError::class);
-        $card = new Card("none", 99);
+        new Card("none", 99);
     }
 
     /**
@@ -195,12 +195,9 @@ class CardTest extends TestCase
 
         $retrievedCSV = $card->getAsString();
 
-        $this->assertEquals($cardStringValue, $cardStringValue);
+        $this->assertEquals($cardStringValue, $retrievedCSV);
 
     }
-
-
-
 
 
 }

@@ -24,6 +24,7 @@
         <exclude name="ShortMethodName" />
     </rule>
 
+
     <rule ref="rulesets/naming.xml/ShortVariable">
         <properties>
             <property name="exceptions" value="db,id,di" />

@@ -8,14 +8,14 @@ class Dice
 {
     protected int $value;
 
-    public function __construct(int $nr = -1)
+    public function __construct(int $number = -1)
     {
-        if ($nr === -1) {
+        if ($number === -1) {
             $this->value = random_int(1, 6);
             return;
         };
 
-        if ($nr < 1 || $nr > 6) {
+        if ($number < 1 || $number > 6) {
             throw new ExcessiveDiceValueException();
         };
     }

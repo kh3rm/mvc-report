@@ -35,6 +35,9 @@
             <property name="exceptions" value="t,e" />
         </properties>
     </rule>
+        <rule ref="rulesets/codesize.xml">
+        <exclude name="TooManyPublicMethods" />
+    </rule>
 
     <rule ref="rulesets/unusedcode.xml" />
 

@@ -64,7 +64,6 @@ class CardGameControllerJson extends AbstractController
         $data = [
             "Message" => "Please make sure to first check the pretty-print box to be able to see the cards in the deck in their unicode-representation.",
             "deckOfCards52UnicodeShuffled(No-Jokers)" => $deck52Shuffled->getCardsUnicode(),
-            "deckOfCards52SimpleShuffled(No-Jokers)" => $deck52Shuffled->getCardsAsString(),
             "deckOfCards52UnicodeSortedAgainTest" => $testSort->getCardsUnicode(),
             "deckOfCards52UnicodeSortedAgainTestFirstRankThenSuit" => $testSort2->getCardsUnicode()
         ];

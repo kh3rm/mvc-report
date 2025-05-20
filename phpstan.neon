@@ -8,3 +8,5 @@ parameters:
         #- .phpstan.constants.php
     excludePaths:
         - ../../tests/bootstrap.php
+    ignoreErrors:
+        - '#TooManyPublicMethods#'

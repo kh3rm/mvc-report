@@ -30,7 +30,7 @@ class DiceTest extends TestCase
     public function testEDRException()
     {
         $this->expectException(ExcessiveDiceValueException::class);
-        $die = new Dice(7);
+        new Dice(7);
 
     }
 

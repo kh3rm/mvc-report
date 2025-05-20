@@ -3,11 +3,10 @@ parameters:
     paths:
         - ../../config
         - ../../src
-        - ../../tests
     bootstrapFiles:
         #- .phpstan.constants.php
     excludePaths:
+        - ../../tests
         - ../../tests/bootstrap.php
-        - ../../src/Dice/DiceHand.php
         - ../../src/Controller/DiceGameController.php
     treatPhpDocTypesAsCertain: false

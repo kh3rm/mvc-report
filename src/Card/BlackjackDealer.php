@@ -20,21 +20,4 @@ class BlackjackDealer extends BlackjackPlayer
     }
 
 
-    /**
-     * Wager the given amount, based on the player's corresponding figure, and move that amount
-     * from chips to chipsInPlay (in limbo, awaiting round resolution).
-     *
-     * @throws NotEnoughChipsException If the dealer does not have enough chips to wager.
-     */
-    public function dealerWagerChips(int $wagerAmount): void
-    {
-
-        if ($this->chips < $wagerAmount) {
-            throw new NotEnoughChipsException();
-        }
-
-        $this->chips -= $wagerAmount;
-        $this->chipsInPlay += $wagerAmount;
-    }
-
 }

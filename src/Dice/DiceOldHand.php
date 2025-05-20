@@ -7,7 +7,12 @@ use App\Dice\DiceGraphic;
 
 class DiceOldHand
 {
-    private $hand = [];
+    /**
+     * A property to hold mixed items.
+     *
+     * @var array<mixed>
+     */
+    private array $hand = [];
 
     public function add(Dice $die): void
     {
@@ -26,6 +31,9 @@ class DiceOldHand
         return count($this->hand);
     }
 
+    /**
+     * @return array<mixed>
+     */
     public function getValues(): array
     {
         $values = [];
@@ -35,6 +43,9 @@ class DiceOldHand
         return $values;
     }
 
+    /**
+     * @return array<string>
+     */
     public function getString(): array
     {
         $values = [];

@@ -18,63 +18,59 @@ class DeckOfCards
      * @var Card[]  $drawnCards  An array of Card instances.
      */
     protected $drawnCards = [];
-
-
     /**
-     * Constructor that by default populates the DeckOfCards with the classical 52 cards + 2 jokers,
-     * if left empty. Takes a bool value, and if it is set to false, it insteads instantiates an
-     * empty deck.
-     *
-     * @param bool $populate (optional) If true, populates the deck with cards. The default is true.
+     * Constructor that by default populates the DeckOfCards with the
+     * classical 52 cards + 2 jokers.
      */
-    public function __construct(bool $populate = true)
+    public function __construct()
     {
-        if ($populate) {
-            $suits = [
-                '♠' => 'spade',
-                '♥' => 'heart',
-                '♦' => 'diamond',
-                '♣' => 'club'
-            ];
+        $suits = [
+            '♠' => 'spade',
+            '♥' => 'heart',
+            '♦' => 'diamond',
+            '♣' => 'club'
+        ];
+
+        $values = [
+            2 => '2', 3 => '3', 4 => '4', 5 => '5',
+            6 => '6', 7 => '7', 8 => '8', 9 => '9',
+            10 => '10', 11 => 'J', 12 => 'Q', 13 => 'K', 14 => 'A'
+        ];
+
+        $unicodeCards = [
+            '♠' => ['🂢', '🂣', '🂤', '🂥', '🂦', '🂧', '🂨', '🂩', '🂪', '🂫', '🂭', '🂮', '🂡'],
+            '♥' => ['🂲', '🂳', '🂴', '🂵', '🂶', '🂷', '🂸', '🂹', '🂺', '🂻', '🂽', '🂾', '🂱'],
+            '♦' => ['🃂', '🃃', '🃄', '🃅', '🃆', '🃇', '🃈', '🃉', '🃊', '🃋', '🃍', '🃎', '🃁'],
+            '♣' => ['🃒', '🃓', '🃔', '🃕', '🃖', '🃗', '🃘', '🃙', '🃚', '🃛', '🃝', '🃞', '🃑']
+        ];
 
 
-            $values = [
-                2 => '2', 3 => '3', 4 => '4', 5 => '5',
-                6 => '6', 7 => '7', 8 => '8', 9 => '9',
-                10 => '10', 11 => 'J', 12 => 'Q', 13 => 'K', 14 => 'A'
-            ];
+        foreach ($suits as $suitSymbol => $suitString) {
+            $color = ($suitSymbol === '♥' || $suitSymbol === '♦') ? 'red' : 'black';
 
-            $unicodeCards = [
-                '♠' => ['🂢', '🂣', '🂤', '🂥', '🂦', '🂧', '🂨', '🂩', '🂪', '🂫', '🂭', '🂮', '🂡'],
-                '♥' => ['🂲', '🂳', '🂴', '🂵', '🂶', '🂷', '🂸', '🂹', '🂺', '🂻', '🂽', '🂾', '🂱'],
-                '♦' => ['🃂', '🃃', '🃄', '🃅', '🃆', '🃇', '🃈', '🃉', '🃊', '🃋', '🃍', '🃎', '🃁'],
-                '♣' => ['🃒', '🃓', '🃔', '🃕', '🃖', '🃗', '🃘', '🃙', '🃚', '🃛', '🃝', '🃞', '🃑']
-            ];
+            foreach ($values as $value => $display) {
+                $cardInt = ($suitSymbol === '♠') ? (100 + $value)
+                            : (($suitSymbol === '♥') ? (200 + $value)
+                            : (($suitSymbol === '♦') ? (300 + $value)
+                            : (400 + $value)));
 
-            foreach ($suits as $suitSymbol => $suitString) {
-                $color = ($suitSymbol === '♥' || $suitSymbol === '♦') ? 'red' : 'black';
-
-                foreach ($values as $value => $display) {
-                    $cardInt = ($suitSymbol === '♠') ? (100 + $value)
-                                : (($suitSymbol === '♥') ? (200 + $value)
-                                : (($suitSymbol === '♦') ? (300 + $value)
-                                : (400 + $value)));
-
-                    $this->cards[] = new Card(
-                        "$display$suitSymbol",
-                        $cardInt,
-                        $unicodeCards[$suitSymbol][$value - 2],
-                        $suitString,
-                        $color,
-                        $value
-                    );
-                }
+                $this->cards[] = new Card(
+                    "$display$suitSymbol",
+                    $cardInt,
+                    $unicodeCards[$suitSymbol][$value - 2],
+                    $suitString,
+                    $color,
+                    $value
+                );
             }
-
-            $this->cards[] = new Card("🂿", 0, "🂿", 'joker', 'black', 0);
-            $this->cards[] = new Card("🃏︎", 0, "🃏︎", 'joker', 'black', 0);
         }
+
+
+        $this->cards[] = new Card("🂿", 0, "🂿", 'joker', 'black', 0);
+        $this->cards[] = new Card("🃏︎", 0, "🃏︎", 'joker', 'black', 0);
     }
+
+
     /**
      * Method that returns the $cards-array of all the Card-instances in $cards.
      *
@@ -83,6 +79,15 @@ class DeckOfCards
     public function getCards(): array
     {
         return $this->cards;
+    }
+
+    /**
+     * Method that empties the deck of all its cards.
+     */
+    public function emptyDeck(): void
+    {
+        $this->cards = [];
+        $this->drawnCards = [];
     }
 
     /**

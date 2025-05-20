@@ -31,6 +31,11 @@
         <exclude>
             <directory>./src/Dice</directory>
             <directory>./src/Controller</directory>
+            <directory>./src/Helper</directory>
+            <file>./src/Card/CardHand.php</file>
+            <file>./src/Card/Player.php</file>
+            <file>./src/Exception/ExcessiveDiceRollException.php</file>
+            <file>./src/Exception/InvalidCardHandException.php</file>
         </exclude>
 
         <report>

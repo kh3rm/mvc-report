@@ -3,11 +3,13 @@
 namespace App\Card;
 
 use App\Exception\HandOutOfBoundsException;
+use App\Exception\NoHandToRetrieveCardsException;
+use App\Exception\HandNotSplittableException;
 
 trait BlackjackCardHandling
 {
     /** @var BlackjackCardHand[] An array that holds BlackjackCardHand objects. */
-    protected array $hands;
+    protected array $hands = [];
 
     /** @var int The count of hands. */
     protected int $handCount = 0;
@@ -73,7 +75,14 @@ trait BlackjackCardHandling
             throw new HandOutOfBoundsException();
         }
 
+
         $handToSplit = $this->hands[$handIndex];
+
+        if (!$handToSplit->isHandActive()) {
+            throw new HandNotSplittableException("Sorry, cannot split an inactive hand.");
+        }
+
+
         $splittedHands = $handToSplit->splitHand($deck);
 
         array_splice($this->hands, $handIndex, 1, $splittedHands);
@@ -163,16 +172,20 @@ trait BlackjackCardHandling
     }
 
     /**
-     * Gets the card in hand in Unicode-representation, separated by a comma.
+     * Returns the cards in Hand as Unicode-representation.
      */
     public function getCardsInHandAsUnicode(): string
     {
-        $unicodeHands = [];
-
-        foreach ($this->hands as $hand) {
-            $unicodeHands[] = $hand->getCardsAsUnicode();
+        if (empty($this->hands)) {
+            throw new NoHandToRetrieveCardsException();
         }
 
-        return implode(", ", $unicodeHands);
+        $unicodeRepr = '';
+
+        foreach ($this->hands as $hand) {
+            $unicodeRepr .= $hand->getCardsAsUnicode();
+        }
+
+        return $unicodeRepr;
     }
 }

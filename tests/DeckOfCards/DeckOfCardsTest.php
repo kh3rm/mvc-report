@@ -25,7 +25,7 @@ class DeckOfCardsTest extends TestCase
     }
 
     /**
-     * Construct object and verify that the object's retrieved cards only containes
+     * Construct object and verify that the object's retrieved cards only contains
      * instances of Card, also confirming that the getCards() is functioning properly.
      *
      */
@@ -36,20 +36,6 @@ class DeckOfCardsTest extends TestCase
         $cardsInDeck = $deck->getCards();
         $this->assertContainsOnlyInstancesOf(Card::class, $cardsInDeck);
         $this->assertCount(54, $cardsInDeck);
-    }
-
-
-    /**
-     * Construct an empty deck (by feeding the constructor a false boolean) and verify
-     * that the object's retrieved cards is empty.
-     *
-     */
-    public function testCreateDeckOfCardsEmpty()
-    {
-        $deck = new DeckOfCards(false);
-        $this->assertInstanceOf("\App\Card\DeckOfCards", $deck);
-        $cardsInDeck = $deck->getCards();
-        $this->assertCount(0, $cardsInDeck);
     }
 
 
@@ -86,6 +72,24 @@ class DeckOfCardsTest extends TestCase
         $this->assertEquals(13, $suitCounts['diamond']);
         $this->assertEquals(13, $suitCounts['club']);
         $this->assertEquals(2, $suitCounts['joker']);
+    }
+
+
+    /**
+     * Construct object and verify that the deck's cards are emptied
+     * with the help of the method emptyDeck()-method.
+     *
+     */
+    public function testEmptyDeck()
+    {
+        $deck = new DeckOfCards();
+
+        $cardsInDeck = $deck->getCards();
+        $this->assertCount(54, $cardsInDeck);
+
+        $deck->emptyDeck();
+        $cardsInDeck = $deck->getCards();
+        $this->assertCount(0, $cardsInDeck);
     }
 
 
@@ -291,6 +295,7 @@ class DeckOfCardsTest extends TestCase
     public function testAddCardSingle()
     {
         $deck = new DeckOfCards(false);
+        $deck->emptyDeck();
         $card = new Card("5♦", 305, "🃅", "diamond", "red", 5);
 
         $deck->addCard($card);
@@ -307,7 +312,8 @@ class DeckOfCardsTest extends TestCase
      */
     public function testAddCardMultiple()
     {
-        $deck = new DeckOfCards(false);
+        $deck = new DeckOfCards();
+        $deck->emptyDeck();
         $cardOne = new Card("5♦", 305, "🃅", "diamond", "red", 5);
         $cardTwo = new Card("A♠", 114, "🂡", "spade", "black", 14);
         $cardThree = new Card("10♣", 410, "🃚", "club", "black", 10);
@@ -336,7 +342,8 @@ class DeckOfCardsTest extends TestCase
      */
     public function testSortDeck()
     {
-        $deck = new DeckOfCards(false);
+        $deck = new DeckOfCards();
+        $deck->emptyDeck();
 
         $deck->addCard(new Card("5♦", 305, "🃅", "diamond", "red", 5));
         $deck->addCard(new Card("8♣", 408, "🃘", "club", "black", 8));
@@ -381,7 +388,8 @@ class DeckOfCardsTest extends TestCase
      */
     public function testSortDeckFirstByRankThenBySuit()
     {
-        $deck = new DeckOfCards(false);
+        $deck = new DeckOfCards();
+        $deck->emptyDeck();
 
         $deck->addCard(new Card("5♣", 405, "🃕", "club", "black", 5));
         $deck->addCard(new Card("A♠", 114, "🂡", "spade", "black", 14));
@@ -416,7 +424,8 @@ class DeckOfCardsTest extends TestCase
 
     public function testShuffleDeck()
     {
-        $deck = new DeckOfCards(false);
+        $deck = new DeckOfCards();
+        $deck->emptyDeck();
 
         $deck->addCard(new Card("5♦", 305, "🃅", "diamond", "red", 5));
         $deck->addCard(new Card("8♣", 408, "🃘", "club", "black", 8));
@@ -464,6 +473,7 @@ class DeckOfCardsTest extends TestCase
     public function testGetUnicodeOfRoundCards()
     {
         $deck = new DeckOfCards();
+        $deck->emptyDeck();
 
         $cardOne = new Card("5♦", 305, "🃌", "diamond", "red", 5);
         $cardTwo = new Card("A♠", 114, "🂡", "spade", "black", 14);
@@ -472,13 +482,14 @@ class DeckOfCardsTest extends TestCase
         $drawnCards = [$cardOne, $cardTwo, $cardThree];
 
         $deck = new DeckOfCards();
+        $deck->emptyDeck();
 
-        $unicodeRepresentation = $deck->getUnicodeOfRoundCards($drawnCards);
+        $unicodeRepr = $deck->getUnicodeOfRoundCards($drawnCards);
 
 
-        $expectedUnicodeRepresentation = "🃌🂡🂴";
+        $expectedUnicodeRepr = "🃌🂡🂴";
 
-        $this->assertEquals($expectedUnicodeRepresentation, $unicodeRepresentation);
+        $this->assertEquals($expectedUnicodeRepr, $unicodeRepr);
     }
 
 
@@ -489,7 +500,9 @@ class DeckOfCardsTest extends TestCase
      */
     public function testGetCardsUnicode()
     {
-        $deck = new DeckOfCards(false);
+        $deck = new DeckOfCards();
+        $deck->emptyDeck();
+
         $cardOne = new Card("5♦", 305, "🃅", "diamond", "red", 5);
         $cardTwo = new Card("A♠", 114, "🂡", "spade", "black", 14);
         $cardThree = new Card("10♥", 410, "🂺", "heart", "red", 10);
@@ -520,7 +533,9 @@ class DeckOfCardsTest extends TestCase
      */
     public function testGetCardsDrawnUnicode()
     {
-        $deck = new DeckOfCards(false);
+        $deck = new DeckOfCards();
+        $deck->emptyDeck();
+
         $cardOne = new Card("5♦", 305, "🃅", "diamond", "red", 5);
         $cardTwo = new Card("A♠", 114, "🂡", "spade", "black", 14);
         $cardThree = new Card("10♥", 410, "🂺", "heart", "red", 10);
@@ -572,8 +587,3 @@ class DeckOfCardsTest extends TestCase
 
 
 }
-
-
-
-
-/* $this->expectException(ExcessiveDiceValueException::class); */

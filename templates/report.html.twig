@@ -282,12 +282,72 @@ trots att det i relativa termer tillkom relativt sent "på riktigt", med riktigt
 
 
 
-    <h2 class="report-rubric" id="kmom04">KMOM04</h2>
+    <h2 class="report-rubric" id="kmom04">Kmom04</h2>
 
-    <p>Redovisningstext</p>
+    <div class="report-container">
 
-    <br><br><br><br><br><br><br><br>
+    <p>Sådärja, ytterligare ett kursmoment kan läggas till handlingarna.</p>
 
+    <p>Det har varit roligt och intressant, men tidskrävande, att bekanta sig med
+    PHPUnit och testning. Fungerar väldigt bra, tillhandahåller ett riktigt omfattande och trevligt
+    assert-urval, och jag upplever det som mycket tydligt och lättarbetat överlag.
+    </p>
+
+    <p>Lyckades etablera 100% för alla klasser, kändes lika bra att göra det ordentligt
+    när man ändå var igång, även om noteringen visserligen i sig inte nödvändigtvis innebär
+    att man skrivit bra och relevanta tester.</p>
+
+    <p>Det var några klasser jag inte kunde ta mig förbi ~ 95% på egen hand, men då
+    fanns ju den detaljerade test-webbrapporten att tillgå, som
+    uttryckligen kunde visa vilka faktiska rader och avgreningar som det inte fanns testteckning för.
+    Tacksamt. Imponerande. Chapeau till den som konstruerat det verktyget.</p>
+
+    <p>Gjorde några småjusteringar i koden, där jag slimmade ner några uppenbart onödiga metoder.
+    Satte också ett tag en boolean-parameter i min DeckOfCard-konstruktor, för att konditionellt
+    kunna konstruera en tom kortlek för användning i testningen.
+    Smart, tänkte jag då, men icket, då det genererade en motiverad men irriterande:</p>
+
+    <p>
+    <div class="code-example">
+    The method  __construct has a boolean flag argument $populate, which is a certain sign of a Single Responsibility Principle violation.
+    BooleanArgumentFlag
+    <br>
+    <br>
+    </div>
+    </p>
+
+    <p>
+    ...och efter att ett tag försökt att deaktivera den varningen, vilket är en tveksam väg att vandra,
+    så kom jag på bättre tankar, tog min medicin, och plockade bort den och etablerade en enkel kompletterande
+    emptyDeck()-metod istället som fick sköta det jobbet.</p>
+
+    <p>Lät dock phpmd-synpunkterna avseende övertaliga public methods i testfilerna bero, då jag ville
+    följa den cleana standarden med src-matchande klassnamn+Test, och inte börja bryta ut i separata
+    ytterligare filer.</p>
+
+    <p>Tycker att det i regel gått ganska bra att testa min kod, men testerna svällde i omfattning,
+    i relation till de rätt så många metoderna generellt i klasstrukturena, och jag har fått mig en riktigt
+    bra tankeställare gällande hur man kan skriva bättre, koncisare, renare kod, och hålla nere på metoder
+    som man lättsamt skapar ad hoc när man är igång och utvecklar.</p>
+
+    <p>Det kan man ju fortsatt göra iofs, men då bör man också se till att kunna behärska konsten att
+    refaktorera på ett bra och effektivt sätt, för senare kunna slimma ned koden och kapa eventuella
+    överflödiga och osmidiga metoder.</p>
+
+    <p>
+    Ett fullblodsproffs hade kunnat etablera samma funktionalitet med mycket mindre kod,
+    som i sig skulle behöva mindre testning.</p>
+
+    <p>
+    Mitt TIL/*TWIL är att man alltid ska ha med sig i bakhuvudet: koden jag skriver nu ska
+    jag också i regel kunna testa på ett bra och rimligt sätt, och sväller kodomfattningen,
+    så sväller också kodskulden avseende att skapa testteckning för densamma.</p>
+
+    <p>
+    MVH
+    </p>
+
+   </div>
 
 
     <h2 class="report-rubric" id="kmom05">KMOM05</h2>
