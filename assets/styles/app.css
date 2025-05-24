@@ -421,6 +421,17 @@ footer {
 }
 
 
+.library-link,
+.api-link5 {
+    text-decoration: none;
+    color: rgb(126, 94, 62);
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.api-link5 {
+    color: rgb(168, 86, 4);
+}
 
 
 
@@ -789,7 +800,7 @@ footer {
     min-width: 100px;
     min-height: 60px;
     top: 20px;
-    right: 25px;
+    right: 27px;
     background-color:hsl(55, 63%, 99%);
     text-align: center;
     border-radius: 40px;
@@ -964,7 +975,7 @@ footer {
 .bird-blackjack-speech-bubble {
     padding: 1rem;
     position: absolute;
-    top: -45px;
+    top: -35px;
     left: 305px;
 }
 
@@ -1099,4 +1110,83 @@ footer {
     box-shadow: none;
     color: rgba(0, 0, 0, 0.3);
     transform: none;
+}
+
+.lib-container {
+    position: relative;
+}
+
+
+
+.library {
+    width: 560px;
+    height: auto;
+    margin-top: 2rem;
+}
+
+.library-container {
+    text-align: left;
+    margin: 0 14rem;
+    line-height: 1.5;
+}
+
+.library-bird {
+    position: absolute;
+    width: 70px;
+    height: auto;
+    top: -30px;
+    left: 240px;
+}
+
+.library-bird2 {
+    position: absolute;
+    width: 50px;
+    height: auto;
+    top: -44px;
+    right: 270px;
+    transform: scaleX(-1);
+}
+
+
+
+.library-table {
+    width: 100%;
+    margin: 20px auto;
+    margin-top: 3rem;
+    border: 22px solid #854c47;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.library-table th,
+.library-table td {
+    border: 2px solid #854c47;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.library-table th {
+    background-color: #D9CBA0;
+    color: #854c47;
+}
+
+.library-table tr:nth-child(3n) {
+    background-color: #F2F2F2;
+}
+
+.library-table tr:nth-child(3n + 1) {
+    background-color: #E0E0E0;
+}
+
+.library-table tr:nth-child(3n + 2) {
+    background-color: #FFFFFF;
+}
+
+.library-table tr:hover {
+    background-color: #E0A19E;
+}
+
+.library-table tr:hover {
+    background-color: #E0A19E;
+    transform: scale(1.01);
 }

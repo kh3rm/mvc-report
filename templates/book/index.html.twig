@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BookController!{% endblock %}
+
+{% block body %}
+<style>
+    .title-bird {
+        display: none;
+    }
+</style>
+
+
+
+<h1>Library</h1>
+
+<div class="lib-container">
+
+    <img class="library" src="{{ asset('img/library.svg') }}" alt="Library Svg">
+    <img class="library-bird" src="{{ asset('img/title-bird.svg') }}" alt="Blackboard Bird Svg"/>
+
+    <div class="library-container">
+        <br>
+
+        <p><a class="library-link" href="{{ path('book_view_all') }}">/library/books</a> - Enter the library. </p>
+
+        <p><a class="library-link" href="{{ path('api/game') }}">/api/game</a> - Add new book.</p>
+
+        <p><a class="library-link" href="{{ path('api/deck') }}">/api/deck</a> - Update book.</p>
+
+        <p><a class="library-link" href="{{ path('api/deck') }}">/api/deck</a> - Delete book.</p>
+
+
+        <p><a class="library-link" href="{{ path('librarylp') }}">/library</a> - This very page, listing all the Library-related routes. </p>
+
+
+
+
+
+
+        <br><br>
+
+
+        <table class="library-table">
+        <thead>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1, Col 1</td>
+                <td>Row 1, Col 2</td>
+                <td>Row 1, Col 3</td>
+            </tr>
+            <tr>
+                <td>Row 2, Col 1</td>
+                <td>Row 2, Col 2</td>
+                <td>Row 2, Col 3</td>
+            </tr>
+            <tr>
+                <td>Row 3, Col 1</td>
+                <td>Row 3, Col 2</td>
+                <td>Row 3, Col 3</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        This friendly message is coming from:
+        <ul>
+            <li>Your controller at <code>/home/h3rmano/dbwebb-kurser/mvc/me/report/src/Controller/BookController.php</code></li>
+            <li>Your template at <code>/home/h3rmano/dbwebb-kurser/mvc/me/report/templates/book/index.html.twig</code></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

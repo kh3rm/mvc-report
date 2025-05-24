@@ -3,6 +3,12 @@
 {% block title %}Game Documentation{% endblock %}
 
 {% block body %}
+    <style>
+    .title-bird {
+        display: none;
+    }
+    </style>
+
     <h1>Blackjack Game Rules</h1>
     <br>
 
@@ -23,7 +29,7 @@
 
         {% endif %}
 
-        <img class="blackboard-bird" src="{{ asset('img/title-bird.svg') }}" alt="Blackboard SVG Dark Theme"/>
+        <img class="blackboard-bird" src="{{ asset('img/title-bird.svg') }}" alt="Blackboard Bird Svg"/>
 
         <div class="blackboard-rules">
             <pre>

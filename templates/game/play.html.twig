@@ -36,6 +36,12 @@
                             <input type="hidden" name="dealerId">
                         </form>
 
+                        <style>
+                            .title-bird {
+                                display: none;
+                            }
+                        </style>
+
 
                         <script>
                             setTimeout(function() {
@@ -50,6 +56,11 @@
             {% endfor %}
 
             {% if dealer.isActiveTurn() %}
+                 <style>
+                    .title-bird {
+                        display: none;
+                    }
+                </style>
             {% if dealer.getHands()[0].currentHandValue > 16 %}
                             {% set bird_message = "Well played!" %}
                             <form id="round-complete-form" action="round-complete" method="POST">

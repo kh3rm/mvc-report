@@ -289,20 +289,25 @@ trots att det i relativa termer tillkom relativt sent "på riktigt", med riktigt
     <p>Sådärja, ytterligare ett kursmoment kan läggas till handlingarna.</p>
 
     <p>Det har varit roligt och intressant, men tidskrävande, att bekanta sig med
-    PHPUnit och testning. Fungerar väldigt bra, tillhandahåller ett riktigt omfattande och trevligt
-    assert-urval, och jag upplever det som mycket tydligt och lättarbetat överlag.
+    testning även när det gäller objektorienterad php.</p>
+
+    <p>PHPUnit var ett nöje att introduceras till. Det tillhandahåller ett riktigt omfattande
+    och trevligt assert-urval, och fann det tydligt och lättarbetat överlag.
     </p>
 
     <p>Lyckades etablera 100% för alla klasser, kändes lika bra att göra det ordentligt
-    när man ändå var igång, även om noteringen visserligen i sig inte nödvändigtvis innebär
-    att man skrivit bra och relevanta tester.</p>
+    när man ändå var igång, även om de noteringarna i sig inte nödvändigtvis innebär
+    att man konstruerat riktigt bra och relevanta tester.</p>
 
     <p>Det var några klasser jag inte kunde ta mig förbi ~ 95% på egen hand, men då
     fanns ju den detaljerade test-webbrapporten att tillgå, som
     uttryckligen kunde visa vilka faktiska rader och avgreningar som det inte fanns testteckning för.
     Tacksamt. Imponerande. Chapeau till den som konstruerat det verktyget.</p>
 
-    <p>Gjorde några småjusteringar i koden, där jag slimmade ner några uppenbart onödiga metoder.
+    <p>Gjorde några småjusteringar i koden, där jag slimmade ned och även kunde trimma bort några uppenbart
+    onödiga metoder.</p>
+
+    <p>
     Satte också ett tag en boolean-parameter i min DeckOfCard-konstruktor, för att konditionellt
     kunna konstruera en tom kortlek för användning i testningen.
     Smart, tänkte jag då, men icket, då det genererade en motiverad men irriterande:</p>
@@ -325,21 +330,22 @@ trots att det i relativa termer tillkom relativt sent "på riktigt", med riktigt
     följa den cleana standarden med src-matchande klassnamn+Test, och inte börja bryta ut i separata
     ytterligare filer.</p>
 
-    <p>Tycker att det i regel gått ganska bra att testa min kod, men testerna svällde i omfattning,
-    i relation till de rätt så många metoderna generellt i klasstrukturena, och jag har fått mig en riktigt
-    bra tankeställare gällande hur man kan skriva bättre, koncisare, renare kod, och hålla nere på metoder
-    som man lättsamt skapar ad hoc när man är igång och utvecklar.</p>
+    <p>Tycker att det i regel gått ganska bra att testa min kod, men testerna expanderade i omfattning,
+    i relation till de mångtaliga metoderna generellt i klasstrukturena, och jag har fått mig en
+    bra tankeställare och påminnelse gällande vikten av att skriva bra, koncis, ren kod, med SRP som
+    ledstjärna när klasserna konstureras (dock lättare sagt än gjort) - och att hålla nere på de metoder
+    som man så lättsamt skapar ad hoc när man är igång och utvecklar.</p>
 
-    <p>Det kan man ju fortsatt göra iofs, men då bör man också se till att kunna behärska konsten att
-    refaktorera på ett bra och effektivt sätt, för senare kunna slimma ned koden och kapa eventuella
-    överflödiga och osmidiga metoder.</p>
+    <p>Det kan man ju visserligen fortsatt göra iofs, men då bör man också behärska
+    konsten att refaktorera på ett bra och effektivt sätt, för att senare kunna slimma ned koden
+    och kasta eventuell överflödig barlast överbord.</p>
 
     <p>
     Ett fullblodsproffs hade kunnat etablera samma funktionalitet med mycket mindre kod,
-    som i sig skulle behöva mindre testning.</p>
+    som i sig skulle behöva mindre omfattande testning.</p>
 
     <p>
-    Mitt TIL/*TWIL är att man alltid ska ha med sig i bakhuvudet: koden jag skriver nu ska
+    Mitt TIL/*TWIL är att man alltid ska ha med sig i bakhuvudet när man kodar: koden jag skriver nu ska
     jag också i regel kunna testa på ett bra och rimligt sätt, och sväller kodomfattningen,
     så sväller också kodskulden avseende att skapa testteckning för densamma.</p>
 
