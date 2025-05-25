@@ -14,15 +14,23 @@
 
 <div class="lib-container">
 
-    <h1>Books</h1>
+    <h1>Book</h1>
     <div class="lib-container">
 
     <img class="library-bird2" src="{{ asset('img/title-bird.svg') }}" alt="Library Bird Svg"/>
 
     <div class="library-container">
 
-    <table class="library-table">
+    <table class="library-table library-table2">
         <thead>
+
+            <tr>
+                <td colspan="4" class="library-chosen-book-td">
+                    <div class="library-chosen-book-container">
+                        <img class="library-chosen-book-image" src="{{ books[0].getImgSource is not empty ? books[0].getImgSource|e : 'https://images.isbndb.com/covers/23412913488788.jpg' }}" alt="Book Image"/>
+                    </div>
+                </td>
+            </tr>
             <tr>
                 <th>Title</th>
                 <th>Author</th>
@@ -38,7 +46,6 @@
                 <td>
                     <a href="/library/view/{{ book.getISBN|e }}">{{ book.getISBN|e }}</a>
                 </td>
-
                 <td class="edit-library-td">
                     <a class="edit-library-icon" href="/library/update/{{ book.getISBN|e }}" title="Edit">✏️</a>
                     <a class="edit-library-icon"href="/library/delete/{{ book.getISBN|e }}" title="Delete">❌</a>
@@ -47,10 +54,7 @@
             {% endfor %}
         </tbody>
         </table>
-
-
     </div>
-            <a class="blackjack-button library-button"href="/library/create">Add New Book</a>
     </div>
 
     </div>

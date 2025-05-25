@@ -14,30 +14,30 @@ class Book
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    private ?string $title = null;
 
     #[ORM\Column(length: 255)]
     private ?string $author = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $publication_year = null;
+    #[ORM\Column(length: 55)]
+    private ?string $isbn = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $description = null;
+    private ?string $imgsource = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getTitle(): ?string
     {
-        return $this->name;
+        return $this->title;
     }
 
-    public function setName(string $name): static
+    public function setTitle(string $title): static
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }
@@ -54,26 +54,26 @@ class Book
         return $this;
     }
 
-    public function getPublicationYear(): ?int
+    public function getIsbn(): ?string
     {
-        return $this->publication_year;
+        return $this->isbn;
     }
 
-    public function setPublicationYear(?int $publication_year): static
+    public function setIsbn(string $isbn): static
     {
-        $this->publication_year = $publication_year;
+        $this->isbn = $isbn;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getImgsource(): ?string
     {
-        return $this->description;
+        return $this->imgsource;
     }
 
-    public function setDescription(?string $description): static
+    public function setImgsource(?string $imgsource): static
     {
-        $this->description = $description;
+        $this->imgsource = $imgsource;
 
         return $this;
     }

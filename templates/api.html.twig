@@ -17,7 +17,9 @@
     <p><a class="api-link4" href="{{ path('api/game') }}">/api/game</a> - JSON-GET-route showing the current score in the blackjack-game (if active).</p>
     <br>
 
-    <p><a class="api-link5" href="{{ path('api/game') }}">/api/library/books</a> - JSON-GET-route listing all the books currently in the library.</p>
+    <p><a class="api-link5" href="{{ path('book_json_show_all') }}">/api/library/books</a> - JSON-GET-route listing all the books currently in the library.</p>
+
+    <p><a class="api-link5" href="{{ path('book_json_view_isbn', { 'isbn': '9780544959118' }) }}">/api/library/books/{isbn}</a> - JSON-GET-route for a specific book.</p>
     <br>
 
     <p><a class="api-link2" href="{{ path('api/deck') }}">/api/deck</a> - JSON-GET-route showcasing new, ordered decks, including and excluding jokers, and misc details.</p>

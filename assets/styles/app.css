@@ -872,13 +872,13 @@ footer {
 
 }
 
-.blackjack-button {
+/* .blackjack-button {
     font-size: 20px;
     padding: 0.4rem 0.8rem;
     letter-spacing: 1px;
     margin-left: 0.3rem;
 
-}
+} */
 
 .blackjack-chip {
     width: 44px;
@@ -1061,17 +1061,18 @@ footer {
 
 /* CSS */
 
-.blackjack-button {
+/* .blackjack-button {
     font-size: 20px;
     padding: 0.4rem 0.8rem;
     letter-spacing: 1px;
     margin-left: 0.3rem;
 
-}
+} */
 
 
 
-.blackjack-button {
+.blackjack-button,
+.library-button {
     background-color: #f0e8e8;
     border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 0.45rem;
@@ -1082,8 +1083,22 @@ footer {
     min-height: 3rem;
     padding: 0.8rem 1.1rem;
     padding-top: 1rem;
-    transition: all 250ms;
+    transition: all 0.3s;
     font-size: 18px;
+  }
+
+  .library-button {
+    background-color: #854c47;
+    color: #fff;
+    padding: 0.6rem 1.6rem;
+    padding-bottom: 0rem;
+    text-decoration: none;
+  }
+
+  .create-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.4rem;
   }
 
   .blackjack-button2 {
@@ -1095,6 +1110,11 @@ footer {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     color: rgba(0, 0, 0, 0.85);
     transform: translateY(-1px);
+  }
+
+  .library-button:hover {
+    color: #fff;
+    background-color:rgb(191, 108, 104);
   }
 
   .blackjack-button:disabled {
@@ -1130,6 +1150,14 @@ footer {
     line-height: 1.5;
 }
 
+/*
+.library-container {
+    max-width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
 .library-bird {
     position: absolute;
     width: 70px;
@@ -1147,6 +1175,14 @@ footer {
     transform: scaleX(-1);
 }
 
+.library-book {
+    position: absolute;
+    width: 40px;
+    height: auto;
+    top: -40px;
+    left: 280px;
+}
+
 
 
 .library-table {
@@ -1156,6 +1192,7 @@ footer {
     border: 22px solid #854c47;
     border-radius: 8px;
     overflow: hidden;
+    transition: transform ease 0.5s;
 }
 
 .library-table th,
@@ -1171,22 +1208,109 @@ footer {
 }
 
 .library-table tr:nth-child(3n) {
-    background-color: #F2F2F2;
-}
+    background-color: #C0D6D4; /* Slightly darker than #E0E0E0 */
 
+
+}
 .library-table tr:nth-child(3n + 1) {
-    background-color: #E0E0E0;
+    background-color: #E6F7F9; /* Slightly darker than #FFFFFF */
 }
 
 .library-table tr:nth-child(3n + 2) {
-    background-color: #FFFFFF;
+    background-color: #D9E3E2; /* Slightly darker than #F2F2F2 */
 }
 
-.library-table tr:hover {
-    background-color: #E0A19E;
-}
+
+
 
 .library-table tr:hover {
     background-color: #E0A19E;
     transform: scale(1.01);
+}
+
+.library-table2 tr:hover {
+    background-color: none;
+    transform: none;
+}
+
+
+
+
+.library-form {
+    width: auto;
+    margin: 20px auto;
+    border: 22px solid #854c47;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px;
+    background-color: #D9CBA0;
+}
+
+.library-form div {
+    margin-bottom: 15px;
+}
+
+.library-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #854c47;
+}
+
+.library-form input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #854c47;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.library-form input:focus {
+    border-color: #E0A19E;
+}
+
+.library-form button {
+    background-color: #854c47;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.library-form button:hover {
+    background-color:rgb(191, 108, 104);
+    transform: scale(1.01);
+}
+
+.library-chosen-book-td {
+    text-align: center;
+    vertical-align: middle;
+    height: 300px;
+}
+
+.library-chosen-book-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 300px;
+}
+
+.library-chosen-book-image {
+    max-width: 100%;
+    max-height: 300px;
+}
+
+.edit-library-td {
+    font-size: 15px;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.edit-library-td a {
+    text-decoration: none;
+
 }

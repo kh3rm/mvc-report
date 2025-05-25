@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\Persistence\ManagerRegistry;
@@ -20,26 +21,40 @@ final class BookController extends AbstractController
         ]);
     }
 
-    #[Route('/book/create', name: 'book_create')]
-    public function createBook(
-        ManagerRegistry $doctrine
-    ): Response {
-        $entityManager = $doctrine->getManager();
+    #[Route('/library/create', name: 'create_book')]
 
-        $book = new Book();
-        $book->setName('Keyboard_num_' . rand(1, 9));
-        $book->setAuthor(rand(100, 999));
-
-        $entityManager->persist($book);
-
-        $entityManager->flush();
-
-        return new Response('Saved new book with id '.$book->getId());
+    public function create(): Response
+    {
+        return $this->render('book/create.html.twig');
     }
 
+    #[Route('/book/create', name: 'book_create', methods: ['POST'])]
+    public function createBook(Request $request, ManagerRegistry $doctrine): Response {
+        $entityManager = $doctrine->getManager();
 
-    #[Route('/book/show', name: 'book_show_all')]
-    public function showAllProduct(
+        $title = $request->request->get('title');
+        $author = $request->request->get('author');
+        $isbn = $request->request->get('isbn');
+        $imageSource = $request->request->get('image_source');
+
+     /*    if (empty($name) || empty($author) || empty($isbn)) {
+            return new Response('Invalid input', Response::HTTP_BAD_REQUEST);
+        }
+ */
+        $book = new Book();
+        $book->setTitle($title);
+        $book->setAuthor($author);
+        $book->setIsbn($isbn);
+        $book->setImgsource($imageSource);
+
+        $entityManager->persist($book);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('book_view_all');
+    }
+
+    #[Route('/api/library/books', name: 'book_json_show_all')]
+    public function showAllBooks(
         BookRepository $bookRepository
     ): Response {
         $books = $bookRepository
@@ -51,6 +66,92 @@ final class BookController extends AbstractController
         );
         return $response;
     }
+
+
+
+
+    #[Route('/book/update', name: 'book_update', methods: ['POST'])]
+    public function updateBook(
+        BookRepository $bookRepository,
+        Request $request,
+        ManagerRegistry $doctrine): Response {
+
+        $entityManager = $doctrine->getManager();
+        $bookISBN = $request->request->get('isbn');
+
+        $book = $bookRepository->findByISBN($bookISBN);
+
+        if (!$book) {
+            return new Response('Book not found', Response::HTTP_NOT_FOUND);
+        }
+
+        $title = $request->request->get('title');
+        $author = $request->request->get('author');
+        $isbn = $request->request->get('isbn');
+        $imageSource = $request->request->get('image_source');
+
+    /*
+    if (empty($title) || empty($author) || empty($isbn)) {
+        return new Response('Invalid input', Response::HTTP_BAD_REQUEST);
+    }
+    */
+
+    $book[0]->setTitle($title);
+    $book[0]->setAuthor($author);
+    $book[0]->setIsbn($isbn);
+    $book[0]->setImgsource($imageSource);
+
+    $entityManager->flush();
+
+    return $this->redirectToRoute('book_view_all');
+}
+
+
+
+    #[Route('/book/delete', name: 'book_delete', methods: ['POST'])]
+    public function deleteBook(
+        BookRepository $bookRepository,
+        Request $request,
+        ManagerRegistry $doctrine): Response {
+
+        $entityManager = $doctrine->getManager();
+        $bookISBN = $request->request->get('isbn');
+
+        $book = $bookRepository->findByISBN($bookISBN);
+
+        if (!$book) {
+            return new Response('Book not found', Response::HTTP_NOT_FOUND);
+        }
+
+        $entityManager->remove($book[0]);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('book_view_all');
+    }
+
+
+
+    #[Route('/api/library/books/{isbn}', name: 'book_json_view_isbn')]
+    public function viewJSONBookWithISBN(
+        BookRepository $bookRepository,
+        string $isbn
+    ): Response {
+        $book = $bookRepository->findByISBN($isbn);
+
+        if (!$book) {
+            return $this->json(['error' => 'Book not found'], Response::HTTP_NOT_FOUND);
+        }
+
+        $response = $this->json($book);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+
+
+
+
 
 
     #[Route('/book/show/{id}', name: 'book_by_id')]
@@ -86,29 +187,24 @@ final class BookController extends AbstractController
     }
 
 
-    #[Route('/book/update/{id}/{value}', name: 'book_update')]
-    public function updatebook(
-        ManagerRegistry $doctrine,
-        int $id,
-        int $value
+    #[Route('/library/update/{isbn}', name: 'book_update_isbn')]
+    public function updateBookWithISBN(
+        BookRepository $bookRepository,
+        int $isbn
     ): Response {
-        $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Book::class)->find($id);
+        $books = $bookRepository->findByISBN($isbn);
 
-        if (!$book) {
-            throw $this->createNotFoundException(
-                'No book found for id '.$id
-            );
-        }
+        $data = [
+            'books' => $books
+        ];
 
-        $book->setAuthor($value);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('book_show_all');
+        return $this->render('book/update.html.twig', $data);
     }
 
+
+
     #[Route('/library/view', name: 'book_view_all')]
-    public function viewAllProduct(
+    public function viewAllBooks(
         BookRepository $bookRepository
     ): Response {
         $books = $bookRepository->findAll();
@@ -120,18 +216,50 @@ final class BookController extends AbstractController
         return $this->render('book/view.html.twig', $data);
     }
 
-    #[Route('/book/view/{value}', name: 'book_view_minimum_value')]
-    public function viewbookWithMinimumValue(
-        BookRepository $bookRepository,
-        int $value
+
+
+
+    #[Route('/library/reset', name: 'book_reset')]
+    public function resetBooks(
+        BookRepository $bookRepository
     ): Response {
-        $books = $bookRepository->findByMinimumValue($value);
+        $bookRepository->resetToInitialBooks();
+
+
+        return $this->redirectToRoute('book_view_all');
+    }
+
+
+
+
+
+    #[Route('/library/view/{isbn}', name: 'book_view_isbn')]
+    public function viewbookWithISBN(
+        BookRepository $bookRepository,
+        string $isbn
+    ): Response {
+        $books = $bookRepository->findByISBN($isbn);
 
         $data = [
             'books' => $books
         ];
 
-        return $this->render('book/view.html.twig', $data);
+        return $this->render('book/view_book.html.twig', $data);
+    }
+
+
+    #[Route('/library/delete/{isbn}', name: 'delete_book_view_isbn')]
+    public function viewDeletebookWithISBN(
+        BookRepository $bookRepository,
+        string $isbn
+    ): Response {
+        $books = $bookRepository->findByISBN($isbn);
+
+        $data = [
+            'books' => $books
+        ];
+
+        return $this->render('book/delete_book.html.twig', $data);
     }
 
 

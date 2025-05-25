@@ -21,73 +21,9 @@
     <div class="library-container">
         <br>
 
-        <p><a class="library-link" href="{{ path('book_view_all') }}">/library/books</a> - Enter the library. </p>
+        <p><a class="library-link" href="{{ path('book_view_all') }}">/library/books</a> - Peruse the books. </p>
 
-        <p><a class="library-link" href="{{ path('api/game') }}">/api/game</a> - Add new book.</p>
-
-        <p><a class="library-link" href="{{ path('api/deck') }}">/api/deck</a> - Update book.</p>
-
-        <p><a class="library-link" href="{{ path('api/deck') }}">/api/deck</a> - Delete book.</p>
-
-
-        <p><a class="library-link" href="{{ path('librarylp') }}">/library</a> - This very page, listing all the Library-related routes. </p>
-
-
-
-
-
-
-        <br><br>
-
-
-        <table class="library-table">
-        <thead>
-            <tr>
-                <th>Header 1</th>
-                <th>Header 2</th>
-                <th>Header 3</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Row 1, Col 1</td>
-                <td>Row 1, Col 2</td>
-                <td>Row 1, Col 3</td>
-            </tr>
-            <tr>
-                <td>Row 2, Col 1</td>
-                <td>Row 2, Col 2</td>
-                <td>Row 2, Col 3</td>
-            </tr>
-            <tr>
-                <td>Row 3, Col 1</td>
-                <td>Row 3, Col 2</td>
-                <td>Row 3, Col 3</td>
-            </tr>
-        </tbody>
-    </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-        This friendly message is coming from:
-        <ul>
-            <li>Your controller at <code>/home/h3rmano/dbwebb-kurser/mvc/me/report/src/Controller/BookController.php</code></li>
-            <li>Your template at <code>/home/h3rmano/dbwebb-kurser/mvc/me/report/templates/book/index.html.twig</code></li>
-        </ul>
+        <p><a class="library-link" href="{{ path('book_reset') }}">/library/reset</a> - Reset the library to the initial books. </p>
     </div>
 </div>
 {% endblock %}
