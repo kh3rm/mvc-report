@@ -16,76 +16,38 @@ class BookRepository extends ServiceEntityRepository
         parent::__construct($registry, Book::class);
     }
 
-//    /**
-//     * @return Books[] Returns an array of Books objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('b.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    //    /**
+    //     * @return Books[] Returns an array of Books objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('b')
+    //            ->andWhere('b.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('b.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
 
-//    public function findOneBySomeField($value): ?Books
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //    public function findOneBySomeField($value): ?Books
+    //    {
+    //        return $this->createQueryBuilder('b')
+    //            ->andWhere('b.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 
 
     /**
-     * Find all producs having a value above the specified one.
+     * Find book with specific ISBN-nummer.
      *
      * @return Book[] Returns an array of Product objects
      */
-    public function findByMinimumValue($author): array
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.author >= :author')
-            ->setParameter('author', $author)
-            ->orderBy('p.author', 'ASC')
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-
-
-    /**
-     * Find all books having a author above the specified one with SQL.
-     *
-     * @return [][] Returns an array of arrays (i.e. a raw data set)
-     */
-    public function findByMinimumauthor2($author): array
-    {
-        $conn = $this->getEntityManager()->getConnection();
-
-        $sql = '
-            SELECT * FROM book AS p
-            WHERE p.author >= :author
-            ORDER BY p.author ASC
-        ';
-
-        $resultSet = $conn->executeQuery($sql, ['author' => $author]);
-
-        return $resultSet->fetchAllAssociative();
-    }
-
-
-    /**
-     * Find all producs having a value above the specified one.
-     *
-     * @return Book[] Returns an array of Product objects
-     */
-    public function findByISBN($isbn): array
+    public function findByISBN(string $isbn): array
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.isbn = :isbn')
@@ -102,7 +64,7 @@ class BookRepository extends ServiceEntityRepository
      *
      * @return Book[] Returns an array of Book objects
      */
-    public function findByAuthor($authorName): array
+    public function findByAuthor(string $authorName): array
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.author === :author')
@@ -119,7 +81,7 @@ class BookRepository extends ServiceEntityRepository
      *
      * @return Book[] Returns an array of Book objects
      */
-    public function findByTitle($title): array
+    public function findByTitle(string $title): array
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.title LIKE :title')

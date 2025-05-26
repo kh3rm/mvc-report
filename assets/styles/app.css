@@ -1095,6 +1095,10 @@ footer {
     text-decoration: none;
   }
 
+  .library-button3 {
+    margin-top: 0.8rem;
+  }
+
   .create-button-container {
     display: flex;
     justify-content: center;

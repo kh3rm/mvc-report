@@ -9,18 +9,18 @@ use Doctrine\ORM\Mapping as ORM;
 class Book
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\GeneratedValue]
+    private ?int $id; // @phpstan-ignore-line
+
+    #[ORM\Column(length: 55, unique: true)]
+    private ?string $isbn = null;
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
     #[ORM\Column(length: 255)]
     private ?string $author = null;
-
-    #[ORM\Column(length: 55)]
-    private ?string $isbn = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imgsource = null;

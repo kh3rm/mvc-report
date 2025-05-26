@@ -24,7 +24,7 @@
 
 
 <div class="library-container">
-    <form action="/book/update" method="POST" class="library-form">
+    <form action="{{ path('book_update') }}" method="POST" class="library-form">
         {% for book in books %}
         <div>
             <label for="title">Title:</label>
@@ -42,8 +42,12 @@
             <label for="image_source">Image Source:</label>
             <input type="text" id="image_source" name="image_source" value="{{ book.getImgSource() }}">
         </div>
-        <div>
-            <button type="submit">Submit</button>
+
+
+        <div class="create-button-container">
+            <button class="library-button library-button3" type="submit">Submit</button>
+        </div>
+
         </div>
         {% endfor %}
     </form>

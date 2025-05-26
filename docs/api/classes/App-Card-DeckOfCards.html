@@ -73,11 +73,19 @@
                 
             </li>
                     <li>
+                <a href="namespaces/app-entity.html" class="">Entity</a>
+                
+            </li>
+                    <li>
                 <a href="namespaces/app-exception.html" class="">Exception</a>
                 
             </li>
                     <li>
                 <a href="namespaces/app-helper.html" class="">Helper</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/app-repository.html" class="">Repository</a>
                 
             </li>
             </ul>
@@ -194,14 +202,23 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Constructor that populates the DeckOfCards with the classical 52 cards + 2 jokers,
-with all their complete, relevant properties.</dd>
+<dd>Constructor that by default populates the DeckOfCards with the
+classical 52 cards + 2 jokers.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/App-Card-DeckOfCards.html#method_addCard">addCard()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Method that adds a Card object to the $cards array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-DeckOfCards.html#method_drawCard">drawCard()</a>
     <span>
                                 &nbsp;: <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>|null    </span>
 </dt>
+<dd>Method that draws a random card from the deck, and returns it. If there are no cards
+left in the deck, it returns null.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-DeckOfCards.html#method_drawCards">drawCards()</a>
@@ -209,7 +226,14 @@ with all their complete, relevant properties.</dd>
                                 &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
 </dt>
 <dd>Method that draws/deals and returns {$number} of cards at random from $cards (and also
-moves over to $drawnCards), using drawCard().</dd>
+moves those cards over to $drawnCards), using drawCard().</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/App-Card-DeckOfCards.html#method_emptyDeck">emptyDeck()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Method that empties the deck of all its cards.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-DeckOfCards.html#method_getCards">getCards()</a>
@@ -217,14 +241,6 @@ moves over to $drawnCards), using drawCard().</dd>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Method that returns the $cards-array of all the Card-instances in $cards.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Card-DeckOfCards.html#method_getCardsAsString">getCardsAsString()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Method that returns all the cards in the $cards as a string,
-separated by a comma.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-DeckOfCards.html#method_getCardsDrawnUnicode">getCardsDrawnUnicode()</a>
@@ -251,18 +267,11 @@ in Unicode representation.</dd>
 in $drawnCards.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/App-Card-DeckOfCards.html#method_getDrawnCardsAsString">getDrawnCardsAsString()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Method that returns all the cards in the $drawnCards as a string,
-separated by a comma.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-DeckOfCards.html#method_getNumberOfCardsLeft">getNumberOfCardsLeft()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
+<dd>Gets the number of cards left in the deck (int).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-DeckOfCards.html#method_getUnicodeOfRoundCards">getUnicodeOfRoundCards()</a>
@@ -409,12 +418,12 @@ and within that sorting, according to suits.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Constructor that populates the DeckOfCards with the classical 52 cards + 2 jokers,
-with all their complete, relevant properties.</p>
+        <p class="phpdocumentor-summary">Constructor that by default populates the DeckOfCards with the
+classical 52 cards + 2 jokers.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -437,6 +446,53 @@ with all their complete, relevant properties.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_addCard">
+        addCard()
+        <a href="classes/App-Card-DeckOfCards.html#method_addCard" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">254</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Method that adds a Card object to the $cards array.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">addCard</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$card</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$card</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The Card object to add to the deck.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_drawCard">
         drawCard()
         <a href="classes/App-Card-DeckOfCards.html#method_drawCard" class="headerlink"><i class="fas fa-link"></i></a>
@@ -445,11 +501,13 @@ with all their complete, relevant properties.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">214</span>
+    <span class="phpdocumentor-element-found-in__line">202</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Method that draws a random card from the deck, and returns it. If there are no cards
+left in the deck, it returns null.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">drawCard</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>|null</span></code>
@@ -483,12 +541,12 @@ with all their complete, relevant properties.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">239</span>
+    <span class="phpdocumentor-element-found-in__line">227</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">Method that draws/deals and returns {$number} of cards at random from $cards (and also
-moves over to $drawnCards), using drawCard().</p>
+moves those cards over to $drawnCards), using drawCard().</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -527,6 +585,41 @@ moves over to $drawnCards), using drawCard().</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_emptyDeck">
+        emptyDeck()
+        <a href="classes/App-Card-DeckOfCards.html#method_emptyDeck" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">87</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Method that empties the deck of all its cards.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">emptyDeck</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getCards">
         getCards()
         <a href="classes/App-Card-DeckOfCards.html#method_getCards" class="headerlink"><i class="fas fa-link"></i></a>
@@ -535,7 +628,7 @@ moves over to $drawnCards), using drawCard().</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">78</span>
+    <span class="phpdocumentor-element-found-in__line">79</span>
 
     </aside>
 
@@ -568,48 +661,6 @@ moves over to $drawnCards), using drawCard().</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getCardsAsString">
-        getCardsAsString()
-        <a href="classes/App-Card-DeckOfCards.html#method_getCardsAsString" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">101</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Method that returns all the cards in the $cards as a string,
-separated by a comma.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getCardsAsString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <section class="phpdocumentor-description"><p>@return string A string of all the cards in the deck.</p>
-</section>
-
-    
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_getCardsDrawnUnicode">
         getCardsDrawnUnicode()
         <a href="classes/App-Card-DeckOfCards.html#method_getCardsDrawnUnicode" class="headerlink"><i class="fas fa-link"></i></a>
@@ -618,7 +669,7 @@ separated by a comma.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">139</span>
+    <span class="phpdocumentor-element-found-in__line">122</span>
 
     </aside>
 
@@ -662,7 +713,7 @@ in Unicode representation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">128</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
@@ -704,7 +755,7 @@ in Unicode representation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
@@ -738,48 +789,6 @@ in $drawnCards.</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getDrawnCardsAsString">
-        getDrawnCardsAsString()
-        <a href="classes/App-Card-DeckOfCards.html#method_getDrawnCardsAsString" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">114</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Method that returns all the cards in the $drawnCards as a string,
-separated by a comma.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getDrawnCardsAsString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <section class="phpdocumentor-description"><p>@return string A string of all the drawn/dealt cards in the deck.</p>
-</section>
-
-    
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_getNumberOfCardsLeft">
         getNumberOfCardsLeft()
         <a href="classes/App-Card-DeckOfCards.html#method_getNumberOfCardsLeft" class="headerlink"><i class="fas fa-link"></i></a>
@@ -788,11 +797,12 @@ separated by a comma.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">208</span>
+    <span class="phpdocumentor-element-found-in__line">193</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Gets the number of cards left in the deck (int).</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getNumberOfCardsLeft</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
@@ -826,7 +836,7 @@ separated by a comma.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">152</span>
+    <span class="phpdocumentor-element-found-in__line">135</span>
 
     </aside>
 
@@ -882,7 +892,7 @@ a string of its Unicode representation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">165</span>
+    <span class="phpdocumentor-element-found-in__line">148</span>
 
     </aside>
 
@@ -922,7 +932,7 @@ i.e, a (re)shuffled deck.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">175</span>
+    <span class="phpdocumentor-element-found-in__line">158</span>
 
     </aside>
 
@@ -962,7 +972,7 @@ suits, spades, hearts, diamonds,clubs, and then in ascending rank-order.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/DeckOfCards.php"><a href="files/src-card-deckofcards.html"><abbr title="src/Card/DeckOfCards.php">DeckOfCards.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">187</span>
+    <span class="phpdocumentor-element-found-in__line">170</span>
 
     </aside>
 
@@ -1110,14 +1120,14 @@ and within that sorting, according to suits.</p>
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/App-Card-DeckOfCards.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/App-Card-DeckOfCards.html#method_addCard">addCard()</a></li>
                                             <li class=""><a href="classes/App-Card-DeckOfCards.html#method_drawCard">drawCard()</a></li>
                                             <li class=""><a href="classes/App-Card-DeckOfCards.html#method_drawCards">drawCards()</a></li>
+                                            <li class=""><a href="classes/App-Card-DeckOfCards.html#method_emptyDeck">emptyDeck()</a></li>
                                             <li class=""><a href="classes/App-Card-DeckOfCards.html#method_getCards">getCards()</a></li>
-                                            <li class=""><a href="classes/App-Card-DeckOfCards.html#method_getCardsAsString">getCardsAsString()</a></li>
                                             <li class=""><a href="classes/App-Card-DeckOfCards.html#method_getCardsDrawnUnicode">getCardsDrawnUnicode()</a></li>
                                             <li class=""><a href="classes/App-Card-DeckOfCards.html#method_getCardsUnicode">getCardsUnicode()</a></li>
                                             <li class=""><a href="classes/App-Card-DeckOfCards.html#method_getDrawnCards">getDrawnCards()</a></li>
-                                            <li class=""><a href="classes/App-Card-DeckOfCards.html#method_getDrawnCardsAsString">getDrawnCardsAsString()</a></li>
                                             <li class=""><a href="classes/App-Card-DeckOfCards.html#method_getNumberOfCardsLeft">getNumberOfCardsLeft()</a></li>
                                             <li class=""><a href="classes/App-Card-DeckOfCards.html#method_getUnicodeOfRoundCards">getUnicodeOfRoundCards()</a></li>
                                             <li class=""><a href="classes/App-Card-DeckOfCards.html#method_shuffleDeckOfCards">shuffleDeckOfCards()</a></li>

@@ -228,3 +228,8 @@ nav a:hover,
 .blackjack-button:hover {
     color: rgba(242, 236, 236, 0.85);
   }
+
+
+.library-table {
+    color: rgba(18, 18, 18, 0.85)
+}
