@@ -45,7 +45,7 @@ class BookRepository extends ServiceEntityRepository
     /**
      * Find book with specific ISBN-nummer.
      *
-     * @return Book[] Returns an array of Product objects
+     * @return Book[] Returns an array of Book objects
      */
     public function findByISBN(string $isbn): array
     {
@@ -108,7 +108,8 @@ class BookRepository extends ServiceEntityRepository
             ['title' => 'Lord Jim', 'author' => 'Joseph Conrad', 'isbn' => '9788513011713', 'imagesource' => 'https://images.isbndb.com/covers/1179123485219.jpg'],
             ['title' => 'The Library of Babel', 'author' => 'Jorge Luis Borges', 'isbn' => '9781567921236', 'imagesource' => 'https://images.isbndb.com/covers/6433023482746.jpg'],
             ['title' => 'Invisible Cities', 'author' => 'Italo Calvino', 'isbn' => '9780063417625', 'imagesource' => 'https://images.isbndb.com/covers/15380353482210.jpg'],
-            ['title' => 'The Baron In The Trees', 'author' => 'Italo Calvino', 'isbn' => '9780544959118', 'imagesource' => 'https://images.isbndb.com/covers/39403482382.jpg']
+            ['title' => 'The Baron In The Trees', 'author' => 'Italo Calvino', 'isbn' => '9780544959118', 'imagesource' => 'https://images.isbndb.com/covers/39403482382.jpg'],
+            ['title' => 'The Leopard', 'author' => 'Giuseppe Di Lampedusa', 'isbn' => '9780375714795', 'imagesource' => 'https://images.isbndb.com/covers/20829363482321.jpg']
         ];
 
         foreach ($books as $bookData) {
