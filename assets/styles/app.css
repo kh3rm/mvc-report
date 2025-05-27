@@ -1212,16 +1212,15 @@ footer {
 }
 
 .library-table tr:nth-child(3n) {
-    background-color: #C0D6D4; /* Slightly darker than #E0E0E0 */
-
+    background-color: #C0D6D4;
 
 }
 .library-table tr:nth-child(3n + 1) {
-    background-color: #E6F7F9; /* Slightly darker than #FFFFFF */
+    background-color: #E6F7F9;
 }
 
 .library-table tr:nth-child(3n + 2) {
-    background-color: #D9E3E2; /* Slightly darker than #F2F2F2 */
+    background-color: #D9E3E2;
 }
 
 
@@ -1229,7 +1228,7 @@ footer {
 
 .library-table tr:hover {
     background-color: #E0A19E;
-    transform: scale(1.01);
+    transform: scale(1.005);
 }
 
 .library-table2 tr:hover {

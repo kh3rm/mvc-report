@@ -359,9 +359,13 @@ trots att det i relativa termer tillkom relativt sent "på riktigt", med riktigt
     <h2 class="report-rubric" id="kmom05">Kmom05</h2>
 
     <div class="report-container">
-    <p>Övningen flöt på bra och var välstrukturerad. Såg direkt till att etablera och försäkra mig om att den lokala och
-    produktions(student)miljön fungerande (med mariadb). Det är kanske inte jätteexalterande, men desto mer
-    lärorikt, att själv (med goda instruktioner) få se till att kunna få på plats den här typen av konfiguration.</p>
+    <p>Övningen flöt på bra och var välstrukturerad. Såg direkt till att etablera och försäkra mig om att den lokala
+    utvecklingsmiljön fungerande (med mariadb), så att jag kunde sätta igång. Det är kanske inte jätteexalterande, men desto mer lärorikt, att själv (med goda instruktioner) få se till att
+    kunna få på plats den här typen av konfiguration.
+
+    (Tog ut segern i förskott när det gällde det jag trodde var en fungerande konfiguration även på studentservern, efter att jag jobbat
+    mig igenom även den övningen, men mer om det på Canvas.)
+
 
 
     <p>Var ju väldigt smidigt att klicka sig igenom och etablera grundstrukturen för den givna tabellen/klassen,
@@ -370,26 +374,26 @@ trots att det i relativa termer tillkom relativt sent "på riktigt", med riktigt
 
     <p>
     Nu är de ju i sig i sin mycket basala form varken svåra eller tidskrävande
-    att etbalera själv heller, men man får iaf alla serverade på ett fat direkt, med en enhetlig get-/setProperty
-    namnstandard.
+    att etablera själv heller, men man får dem serverade på ett fat automatiskt,
+    med en enhetlig get-/setProperty-namnstandard.
     </p>
 
-    <p>Försökte bygga upp en trevlig Library-interface som möte användaren, med lite svg-utsmyckningar och
+    <p>Försökte bygga upp en trevlig Library-interface, med lite svg-utsmyckningar och
     min sidofågel som nyfiket hänger med i de olika vyerna.</p>
 
     <p>Stylingen och färgschemat på tabellerna, formulären och den svg-bibilioteksbokhylla som möter
     användaren i Library-indexvyn harmoniserar, och upplever att användarinterfacet och flödet är trevligt
     och håller ihop i all sin enkelhet.</p>
 
-    <p>Gick bra att jobba med ORM i Doctrine i största allmänhet, och avseende CRUD-strukturen, så tyckte jag att den glimrade till när det gällde
+    <p>Avseende CRUD-strukturen, så tyckte jag att Doctrines ORM-struktur glimrade till när det gällde
     att enkelt skapa/uppdatera tabellrader i databasen på sitt objektorienterade sätt i POST-routerna, med
-    glasklara och raka set-rader för varje property.</p>
+    glasklara och raka set-kommandon för varje property.</p>
 
     <p>
-    Nu är det ju heller inte särkilt komplicerat att göra detsamma med en ren SQL-förfrågan direkt, men där har vi
-    ett exempelmoment där det är väldigt tydligt vad det är som sker (för en som generellt är
-    objektorienterat programmeringsbevandrad), och där den kanske "objektivt" (pun not intended) är mer lättbegriplig
-    och klar än den vanliga query-syntaxen, som ändå förutsätter att man kan lite grundläggande SQL.
+    Nu är det ju heller inte särkilt komplicerat att göra detsamma med en ren SQL-förfrågan,
+    men här blir det extra tydligt vad det är som sker (för en som generellt är
+    objektorienterat programmeringsbevandrad). Kanske kan den "objektivt" anses vara mer
+    lättbegriplig och klar än den vanliga query-syntaxen, som ändå förutsätter att man behärskar lite grundläggande SQL.
     </p>
 
     <p>Tycker det var en bra introduktion till ORM överlag, och upplevde att det hann täckas in en hel del
@@ -397,7 +401,7 @@ trots att det i relativa termer tillkom relativt sent "på riktigt", med riktigt
     </p>
 
     <p>
-    Nu har vi fått möjligheten att jobba tre huvudsakliga tillvägagångssätt när det gäller att interagera med
+    Nu har vi fått möjligheten att jobba med tre huvudsakliga tillvägagångssätt när det gäller att interagera med
     databaser i php: enklare PDO där SQL-querys skrevs direkt i programkoden med placeholders (webtec-kursen), en mer tydlig
     avgränsning där all SQL-kod för ett givet syfte läggs i en lagrad procedur (med ev kompletterande triggers) som exekveras inuti en
     dedikerad applikationsfunktion i databas-kursen, och nu en annan variant där SQL-queries mot en objektifierad databas huvudsakligen
@@ -405,14 +409,14 @@ trots att det i relativa termer tillkom relativt sent "på riktigt", med riktigt
     funktionen om man föredrar det).
     </p>
 
-    <p>Vi har ju bara hunnit skrapat på ytan hittills, så kan inte än bedömma hur det är att arbeta på ett mer sofistikerat
+    <p>Vi har ju bara hunnit skrapat på ytan hittills, så kan inte än bedöma hur det är att arbeta på ett mer sofistikerat
     sätt i tex Doctrine, men spontant fann jag det helt okej, även om det var lite fel- och krångelbenäget när man t ex
     ville göra småjusteringar i entity-klassen (i.e, tabellstrukturen/schemat) manuellt i efterhand. Enklare och snabbare att etablera, krångligare
-    och sämre när man vill skräddarsy, eventuellt.</p>
+    och sämre när man vill finslipa och skräddarsy, eventuellt.</p>
 
 
     <p>Mitt TIL/*TWIL är på vilket sinnrikt sätt ett ORM-ramverk som Doctrine tillåter en att interagera och jobba mot en
-    relationsdatabas med ett objektorienterat tänk, samtidigt som det förhåller sig agnostiskt när det kommer till vilken
+    relationsdatabas på ett objektorienterat sätt, samtidigt som det kan förhålla sig agnostiskt när det kommer till vilken
     databashanterare som används.
     </p>
 

@@ -44,11 +44,11 @@
                 <td>{{ book.getTitle|e }}</td>
                 <td>{{ book.getAuthor|e }}</td>
                 <td>
-                    <a href="/library/view/{{ book.getISBN|e }}">{{ book.getISBN|e }}</a>
+                     <a class="edit-library-icon" href="{{ path('book_view_isbn', {'isbn': book.getISBN|e}) }}">{{ book.getISBN|e }}</a>
                 </td>
                 <td class="edit-library-td">
-                    <a class="edit-library-icon" href="/library/update/{{ book.getISBN|e }}" title="Edit">✏️</a>
-                    <a class="edit-library-icon"href="/library/delete/{{ book.getISBN|e }}" title="Delete">❌</a>
+                    <a class="edit-library-icon" href="{{ path('book_update_isbn', {'isbn': book.getISBN|e}) }}" title="Edit">✏️</a>
+                    <a class="edit-library-icon" href="{{ path('delete_book_view_isbn', {'isbn': book.getISBN|e}) }}" title="Delete">❌</a>
                 </td>
             </tr>
             {% endfor %}
