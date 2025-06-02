@@ -11,7 +11,7 @@ revision:
 MVC REPORT - A SYMFONY BUILD.
 ====================
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kh3rm/mvc-report/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/kh3rm/mvc-report/?branch=main)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kh3rm/mvc-report/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/kh3rm/mvc-report/?branch=main) [![Code Coverage](https://scrutinizer-ci.com/g/kh3rm/mvc-report/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/kh3rm/mvc-report/?branch=main) [![Build Status](https://scrutinizer-ci.com/g/kh3rm/mvc-report/badges/build.png?b=main)](https://scrutinizer-ci.com/g/kh3rm/mvc-report/build-status/main)
 
 
 ![MVC-Bird image](public/img/title-bird.svg)
