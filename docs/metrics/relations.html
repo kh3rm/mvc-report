@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2025-05-28 15:33:32        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2025-06-02 16:20:58        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -93,7 +93,7 @@
                             <path d="M0 0h24v24H0z" fill="none">
                             <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z">
                         </svg>
-                        Violations (11)
+                        Violations (9)
                     </a>
                 </li>
                                     <li>
@@ -267,105 +267,6 @@
         "relations": []
     },
     {
-        "name": "\\App\\Card\\Player",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Card\\CardHand",
-        "size": 3000,
-        "relations": [
-            "\\App\\Exception\\InvalidCardException",
-            "\\App\\Card\\Card"
-        ]
-    },
-    {
-        "name": "\\App\\Exception\\InvalidCardException",
-        "size": 3000,
-        "relations": [
-            "\\Exception",
-            "\\Throwable"
-        ]
-    },
-    {
-        "name": "\\App\\Card\\BlackjackGameResults",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Card\\BlackjackPlayer",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Card\\BlackjackDealer",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Card\\BlackjackCardHand",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Exception\\HandNotSplittableException",
-        "size": 3000,
-        "relations": [
-            "\\Exception",
-            "\\Throwable"
-        ]
-    },
-    {
-        "name": "\\App\\Card\\DeckOfCards52",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Card\\BlackjackCardHandling",
-        "size": 3000,
-        "relations": [
-            "\\App\\Card\\Card",
-            "\\App\\Exception\\HandOutOfBoundsException",
-            "\\App\\Card\\DeckOfCards52",
-            "\\App\\Exception\\HandNotSplittableException",
-            "\\App\\Card\\BlackjackCardHand",
-            "\\App\\Exception\\NoHandToRetrieveCardsException"
-        ]
-    },
-    {
-        "name": "\\App\\Exception\\HandOutOfBoundsException",
-        "size": 3000,
-        "relations": [
-            "\\Exception"
-        ]
-    },
-    {
-        "name": "\\App\\Exception\\NoHandToRetrieveCardsException",
-        "size": 3000,
-        "relations": [
-            "\\Exception",
-            "\\Throwable"
-        ]
-    },
-    {
-        "name": "\\App\\Card\\DeckOfCards",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Exception\\NotEnoughChipsException",
-        "size": 3000,
-        "relations": [
-            "\\Exception",
-            "\\Throwable"
-        ]
-    },
-    {
         "name": "\\App\\Kernel",
         "size": 3000,
         "relations": [
@@ -383,17 +284,12 @@
         "relations": []
     },
     {
-        "name": "\\App\\Controller\\DiceGameController",
+        "name": "\\App\\Controller\\MetricsController\\MetricsControllerTwig",
         "size": 3000,
         "relations": [
             "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
             "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\App\\Dice\\Dice",
-            "\\App\\Dice\\DiceGraphic",
-            "\\App\\Exception\\ExcessiveDiceRollException",
-            "\\App\\Dice\\DiceHand",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\Symfony\\Component\\HttpFoundation\\Request"
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
         ]
     },
     {
@@ -407,27 +303,29 @@
         "relations": []
     },
     {
-        "name": "\\App\\Dice\\Dice",
+        "name": "\\Symfony\\Component\\Routing\\Annotation\\Route",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "\\App\\Dice\\DiceGraphic",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Exception\\ExcessiveDiceRollException",
+        "name": "\\App\\Controller\\LuckyController\\LuckyControllerTwig",
         "size": 3000,
         "relations": [
-            "\\Exception",
-            "\\Throwable"
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
         ]
     },
     {
-        "name": "\\App\\Dice\\DiceHand",
+        "name": "\\App\\Controller\\ThemeController\\LightDarkThemeController",
         "size": 3000,
-        "relations": []
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
     },
     {
         "name": "\\Symfony\\Component\\HttpFoundation\\Request",
@@ -435,11 +333,27 @@
         "relations": []
     },
     {
-        "name": "\\App\\Controller\\ReportControllerJson",
+        "name": "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Controller\\SessionController\\SessionControllerTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ReportController\\ReportControllerJson",
         "size": 3000,
         "relations": [
             "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\JsonResponse"
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
         ]
     },
     {
@@ -448,56 +362,429 @@
         "relations": []
     },
     {
-        "name": "\\App\\Controller\\GameControllerTwig",
+        "name": "\\App\\Controller\\ReportController\\ReportControllerTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\GameController\\GameControllerJson",
         "size": 3000,
         "relations": [
             "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
             "\\Symfony\\Component\\HttpFoundation\\Response",
             "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\App\\Helper\\Helper"
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
         ]
     },
     {
-        "name": "\\App\\Helper\\Helper",
+        "name": "\\App\\Controller\\GameController\\GameControllerRules",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\GameController\\GameControllerHome",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\GameController\\GameControllerDoc",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\AboutControllerTwig\\AboutControllerTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\DiceController\\DiceGameControllerSave",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\DiceController\\DiceGameControllerPlay",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\DiceController\\DiceGameControllerRoll",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\DiceController\\DiceGameControllerInit",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Dice\\DiceHand",
+            "\\App\\Dice\\DiceGraphic"
+        ]
+    },
+    {
+        "name": "\\App\\Dice\\DiceHand",
+        "size": 3000,
+        "relations": [
+            "\\App\\Dice\\Dice"
+        ]
+    },
+    {
+        "name": "\\App\\Dice\\DiceGraphic",
+        "size": 3000,
+        "relations": [
+            "\\App\\Dice\\Dice"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\CardController\\CardControllerDealPlayersTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Deck\\DeckOfCards52",
+            "\\App\\Player\\Player"
+        ]
+    },
+    {
+        "name": "\\App\\Deck\\DeckOfCards52",
+        "size": 3000,
+        "relations": [
+            "\\App\\Deck\\DeckOfCards"
+        ]
+    },
+    {
+        "name": "\\App\\Player\\Player",
+        "size": 3000,
+        "relations": [
+            "\\App\\CardHand\\CardHand"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\CardController\\CardControllerJsonDeckDrawN",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Deck\\DeckOfCards52",
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\CardController\\CardControllerDrawTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Deck\\DeckOfCards52"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\CardController\\CardControllerJsonDeckDraw",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Deck\\DeckOfCards52",
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\CardController\\CardControllerJsonDeckShuffle",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Deck\\DeckOfCards52",
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\CardController\\CardControllerJsonDeck",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Deck\\DeckOfCards",
+            "\\App\\Deck\\DeckOfCards52",
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Deck\\DeckOfCards",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Controller\\CardController\\CardControllerHomeTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\CardController\\CardControllerDeckTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Deck\\DeckOfCards",
+            "\\App\\Deck\\DeckOfCards52"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\CardController\\CardControllerJsonDealPlayers",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Deck\\DeckOfCards52",
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
+            "\\App\\Player\\Player"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ApiControllerTwig\\ApiControllerTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\HomeController\\HomeControllerTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\BlackjackController\\BJControllerRoundPOSTNRInit",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Helper\\BlackjackHelper\\BlackjackHelper"
+        ]
+    },
+    {
+        "name": "\\App\\Helper\\BlackjackHelper\\BlackjackHelper",
+        "size": 3000,
+        "relations": [
+            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackPlayer",
+            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackDealer",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Deck\\DeckOfCards52",
+            "\\App\\Blackjack\\BlackjackCardHand\\BlackjackCardHand"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\BlackjackController\\BJControllerGETRoundComplete",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\BlackjackController\\BJControllerGETPlay",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\BlackjackController\\BJControllerRoundPOSTInit",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackPlayer",
+            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackDealer",
+            "\\App\\Helper\\BlackjackHelper\\BlackjackHelper"
+        ]
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackPlayer\\BlackjackPlayer",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackPlayer\\BlackjackDealer",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Controller\\BlackjackController\\BJControllerPOSTDealerHitHand",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\BlackjackController\\BJControllerPOSTSplitHand",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\Symfony\\Component\\HttpFoundation\\Request"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\BlackjackController\\BJControllerGETInit",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Helper\\BlackjackHelper\\SessionHelper",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Helper\\BlackjackHelper\\SessionHelper",
         "size": 3000,
         "relations": [
             "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
         ]
     },
     {
-        "name": "\\App\\Controller\\LuckyController",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Component\\HttpFoundation\\Response"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\CardControllerTwig",
+        "name": "\\App\\Controller\\BlackjackController\\BJControllerPOSTStandHand",
         "size": 3000,
         "relations": [
             "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
             "\\Symfony\\Component\\HttpFoundation\\Response",
             "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\App\\Card\\DeckOfCards52",
-            "\\App\\Card\\DeckOfCards",
-            "\\App\\Card\\Player"
+            "\\Symfony\\Component\\HttpFoundation\\Request"
         ]
     },
     {
-        "name": "\\App\\Controller\\CardControllerJson",
+        "name": "\\App\\Controller\\BlackjackController\\BJControllerPOSTHitHand",
         "size": 3000,
         "relations": [
             "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
             "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\App\\Card\\DeckOfCards",
-            "\\App\\Card\\DeckOfCards52",
-            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
             "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\App\\Card\\Player"
+            "\\Symfony\\Component\\HttpFoundation\\Request"
         ]
     },
     {
-        "name": "\\App\\Controller\\BookController",
+        "name": "\\App\\Controller\\BlackjackController\\BJControllerPOSTNewRound",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\BlackjackController\\BJControllerRoundCompletePOST",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Blackjack\\BlackjackGameResults\\BlackjackGameResults"
+        ]
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackGameResults\\BlackjackGameResults",
+        "size": 3000,
+        "relations": [
+            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackPlayer",
+            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackDealer"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\LibraryController\\LibraryControllerCreate",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\Book"
+        ]
+    },
+    {
+        "name": "\\Symfony\\Component\\Routing\\Attribute\\Route",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Doctrine\\Persistence\\ManagerRegistry",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Controller\\LibraryController\\LibraryControllerHome",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\LibraryController\\LibraryControllerDelete",
         "size": 3000,
         "relations": [
             "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
@@ -505,7 +792,7 @@
             "\\App\\Repository\\BookRepository",
             "\\Symfony\\Component\\HttpFoundation\\Request",
             "\\Doctrine\\Persistence\\ManagerRegistry",
-            "\\App\\Entity\\Book"
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
         ]
     },
     {
@@ -518,70 +805,45 @@
         ]
     },
     {
-        "name": "\\Doctrine\\Persistence\\ManagerRegistry",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Controller\\MetricsControllerTwig",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\BlackjackGameControllerTwig",
+        "name": "\\App\\Controller\\LibraryController\\LibraryControllerView",
         "size": 3000,
         "relations": [
             "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
             "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\BookRepository",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\LibraryController\\LibraryControllerJson",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\BookRepository",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\LibraryController\\LibraryControllerReset",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\BookRepository",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\LibraryController\\LibraryControllerUpdate",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\BookRepository",
             "\\Symfony\\Component\\HttpFoundation\\Request",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\App\\Card\\DeckOfCards52",
-            "\\App\\Card\\BlackjackCardHand",
-            "\\App\\Card\\BlackjackPlayer",
-            "\\App\\Card\\BlackjackDealer",
-            "\\App\\Card\\BlackjackGameResults"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\LightDarkThemeController",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\Request",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\ReportControllerTwig",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\CardGameControllerJson",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
-            "\\App\\Card\\DeckOfCards52",
-            "\\App\\Card\\Player"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\SessionControllerTwig",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
         ]
     },
     {
@@ -590,31 +852,173 @@
         "relations": []
     },
     {
-        "name": "\\App\\Exception\\ExcessiveDiceValueException",
-        "size": 3000,
-        "relations": [
-            "\\Exception",
-            "\\Throwable"
-        ]
-    },
-    {
-        "name": "\\App\\Dice\\DiceOldHand",
-        "size": 3000,
-        "relations": [
-            "\\App\\Dice\\Dice"
-        ]
-    },
-    {
-        "name": "\\App\\Dice\\DiceOld",
+        "name": "\\App\\CardHand\\CardHand",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "\\App\\Dice\\DiceOldGraphic",
+        "name": "\\App\\Exception\\InvalidCardException",
         "size": 3000,
         "relations": [
-            "\\App\\Dice\\Dice"
+            "\\Exception"
         ]
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackCardHand\\BlackjackCardHand",
+        "size": 3000,
+        "relations": [
+            "\\App\\Card\\Card",
+            "\\App\\Exception\\InvalidCardException",
+            "\\App\\Deck\\DeckOfCards52"
+        ]
+    },
+    {
+        "name": "\\App\\Helper\\BlackjackHelper\\RoundWagerTrait",
+        "size": 3000,
+        "relations": [
+            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackPlayer",
+            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackDealer",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
+        ]
+    },
+    {
+        "name": "\\App\\Dice\\Dice",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Exception\\ExcessiveDiceValueException",
+        "size": 3000,
+        "relations": [
+            "\\Exception"
+        ]
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackPlayer\\TurnHandlingTrait",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackPlayer\\BlackjackCardHandling",
+        "size": 3000,
+        "relations": [
+            "\\App\\Exception\\NoHandToRetrieveCardsException"
+        ]
+    },
+    {
+        "name": "\\App\\Exception\\NoHandToRetrieveCardsException",
+        "size": 3000,
+        "relations": [
+            "\\Exception"
+        ]
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackPlayer\\BlackjackHandActionHandling",
+        "size": 3000,
+        "relations": [
+            "\\App\\Card\\Card",
+            "\\App\\Exception\\HandOutOfBoundsException",
+            "\\App\\Blackjack\\BlackjackCardHand\\BlackjackCardHand",
+            "\\App\\Deck\\DeckOfCards52",
+            "\\App\\Exception\\HandNotSplittableException"
+        ]
+    },
+    {
+        "name": "\\App\\Exception\\HandOutOfBoundsException",
+        "size": 3000,
+        "relations": [
+            "\\Exception"
+        ]
+    },
+    {
+        "name": "\\App\\Exception\\HandNotSplittableException",
+        "size": 3000,
+        "relations": [
+            "\\Exception"
+        ]
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackPlayer\\ChipHandlingTrait",
+        "size": 3000,
+        "relations": [
+            "\\App\\Exception\\NotEnoughChipsException"
+        ]
+    },
+    {
+        "name": "\\App\\Exception\\NotEnoughChipsException",
+        "size": 3000,
+        "relations": [
+            "\\Exception"
+        ]
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackCardHand\\HandSplitTrait",
+        "size": 3000,
+        "relations": [
+            "\\App\\Exception\\HandNotSplittableException",
+            "\\App\\Blackjack\\BlackjackCardHand\\BlackjackCardHand"
+        ]
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackCardHand\\ActiveHandHandlingTrait",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackCardHand\\HandEvaluationTrait",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackGameResults\\BJGRSessionHandlingTrait",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
+        ]
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackGameResults\\BJGRHandRewardTrait",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackGameResults\\BJGRFormattingTrait",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackGameResults\\BJGRHandEvaluationTrait",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Deck\\GetCardFromDeckTrait",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Deck\\PopulateDeckHelpTrait",
+        "size": 3000,
+        "relations": [
+            "\\App\\Card\\Card"
+        ]
+    },
+    {
+        "name": "\\App\\Deck\\DrawCardFromDeckTrait",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Deck\\DeckShuffleSortTrait",
+        "size": 3000,
+        "relations": [
+            "\\App\\Deck\\DeckOfCards"
+        ]
+    },
+    {
+        "name": "\\App\\Deck\\UnicodeRepresentationTrait",
+        "size": 3000,
+        "relations": []
     },
     {
         "name": "\\Exception",
@@ -622,16 +1026,17 @@
         "relations": []
     },
     {
-        "name": "\\Throwable",
-        "size": 3000,
-        "relations": []
-    },
-    {
         "name": "\\App\\Exception\\InvalidCardHandException",
         "size": 3000,
         "relations": [
-            "\\Exception",
-            "\\Throwable"
+            "\\Exception"
+        ]
+    },
+    {
+        "name": "\\App\\Exception\\ExcessiveDiceRollException",
+        "size": 3000,
+        "relations": [
+            "\\Exception"
         ]
     }
 ];
