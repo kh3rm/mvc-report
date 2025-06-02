@@ -1398,3 +1398,7 @@ footer {
     font-weight: 400;
     letter-spacing: 2px;
 }
+
+.scrutinizer-badges-container {
+    margin: 1.2rem 0;
+}

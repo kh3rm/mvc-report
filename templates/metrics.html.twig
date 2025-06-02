@@ -250,30 +250,32 @@
 
         <h2 class="metrics-rubric">Resultat</h2>
 
+        <div class="scrutinizer-badges-container">
+            <a href="https://scrutinizer-ci.com/g/kh3rm/mvc-report/?branch=main">
+                <img src="https://scrutinizer-ci.com/g/kh3rm/mvc-report/badges/quality-score.png?b=main" alt="Scrutinizer Code Quality">
+            </a>
+            <a href="https://scrutinizer-ci.com/g/kh3rm/mvc-report/?branch=main">
+                <img src="https://scrutinizer-ci.com/g/kh3rm/mvc-report/badges/coverage.png?b=main" alt="Code Coverage">
+            </a>
+            <a href="https://scrutinizer-ci.com/g/kh3rm/mvc-report/build-status/main">
+                <img src="https://scrutinizer-ci.com/g/kh3rm/mvc-report/badges/build.png?b=main" alt="Build Status">
+            </a>
+        </div>
+
         <img class="phpmetrics-img-pre" src="{{ asset('img/phpmetricspost.png') }}" alt="Scrutinizer Post Img"/>
 
         <p>Efter en rejäl bearbetning lyser nu alla phpmetrics-indikatorer mycket riktigt vackert grönt.</p>
 
-        **POST SCRUTINIZER IMAGE**
-
-        **PRE AND POST ISSUES CAPTURE COMPARISONS**
-
-        <p>Scrutinizer är även tillfreds, och vi har oss en 10-notering, även om det uppkom mindre issues av annan art,
-        mycket relaterade till hur Scrutinizer läser in funktionalitet som lyfts ut till traits
+        <p>Scrutinizer är även tillfreds, och vi har oss en 10-notering, även om det faktiskt uppkom fler,
+        men mindre viktiga, issues av annan art,
+        mycket relaterade till hur Scrutinizer läser in de traits jag skapade
         när jag slimmade klasserna, bland annat gällande properties som definieras inne i huvudklassen
         snarare än i traitet.</p>
 
-        </p>
+        <p>
         Verkar även föredra att man gärna just ska jobba med interface som ett ytterligare
         abstraherande mellanlager som best practice. Någonting att ta med sig. Nöjer mig här.
         </p>
-
-        <div class="scrutinizer-badge-div">
-             <img class="scrutinizer-badge" src="{{ asset('img/scrutinizer-badge-pre.png') }}" alt="Scrutinizer Pre Badge"/>
-            <img class="scrutinizer-badge" src="{{ asset('img/scrutinizer-badge-post.png') }}" alt="Scrutinizer Post Badge"/>
-        </div>
-
-
 
 
         <h2 class="metrics-rubric">Diskussion</h2>
@@ -284,7 +286,7 @@
         </p>
 
         <p>Skulle säga att koden har fått sig ett ordentligt lyft, och att det varit
-        lärorikt att implementera de här förändringarna, även om en del bara handlade om
+        lärorikt att implementera de här förändringarna, även om en hel del bara handlade om
         att kopiera och lyfta ut kodpartier i separata filer, klasser, traits och metoder.</p>
 
         <p>Vissa av åtgärderna, framförallt rörande flaggad problematisk komplexitet, var dock av mer tveksam
@@ -320,13 +322,13 @@
 
         <p>Man kan ju t ex i ett utvecklingsteam enas om att lätta på riktlinjerna kring
         exempelvis komplexiteten, och slå fast: okej, absolut, det är fritt fram att bygga
-        aningen större klasser och metoder om det anses befogat, men då ska de också kompletteras
+        större klasser och metoder om det anses befogat, men då ska de också kompletteras
         med exemplarisk dokumentation, och gärna extra noggranna tester. Frihet under ansvar.</p>
 
         <p>
         Man gör nog gott i att ändå verkligen försöka lyssna in synpunkterna från den här typen av hjälpsamma verktyg.
-        Det kan vara aningen demoraliserande till en början, och tidsåtgången för att åtgärda alla
-        dessa flaggade klasser och metoder kan kännas motig, men ser man till att försöka ta in och lära
+        Det kan vara aningen demoraliserande till en början när det lyser gult och rött, och tidsåtgången för att åtgärda alla
+        dessa flaggade klasser och metoder kan ibland kännas orimlig, men ser man till att försöka ta in och lära
         sig av det och etablera bättre kodvanor (lättare sagt än gjort),
         så är det ju tid och energi man i regel har tillbaka mångfalt senare i form utav mer koncis, lättarbetad,
         lättunderhållen och buggfri kod.
