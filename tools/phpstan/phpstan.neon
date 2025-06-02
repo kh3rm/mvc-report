@@ -8,5 +8,4 @@ parameters:
     excludePaths:
         - ../../tests
         - ../../tests/bootstrap.php
-        - ../../src/Controller/DiceGameController.php
     treatPhpDocTypesAsCertain: false

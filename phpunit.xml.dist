@@ -34,8 +34,8 @@
             <directory>./src/Helper</directory>
             <directory>./src/Entity</directory>
             <directory>./src/Repository</directory>
-            <file>./src/Card/CardHand.php</file>
-            <file>./src/Card/Player.php</file>
+            <file>./src/CardHand/CardHand.php</file>
+            <file>./src/Player/Player.php</file>
             <file>./src/Exception/ExcessiveDiceRollException.php</file>
             <file>./src/Exception/InvalidCardHandException.php</file>
         </exclude>

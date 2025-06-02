@@ -3,15 +3,323 @@
 {% block title %}Metrics{% endblock %}
 
 {% block body %}
-    <h1>Metrics - Code Quality Analysis</h1>
+    <h1>Metrics</h1>
 
     <div class="api-container">
-        <h2>Introduktion</h2>
-        <h2>Phpmetrics</h2>
-        <h2>Scrutinizer</h2>
-        <h2>Förbättringar</h2>
-        <h2>Diskussion</h2>
+        <h2 class="metrics-rubric">Introduktion</h2>
+        <p>I detta kursmoment ska vi arbeta med kodrelaterade mätvärden - Metrics.</p>
+
+        <p> De två ytterligare verktyg vi kommer att ha till våran hjälp är:</p>
+        <br>
+
+        <div class="c-metric-tool-container">
+
+            <div class="c-metric-tool-div">
+                <a href="https://phpmetrics.org/">
+                <img class="phpmetrics-img" src="{{ asset('img/phpmetrics.ico') }}" alt="PHP-Metrics Img"/>
+                <span class="c-metric-tool">phpmetrics</span>
+                </a>
+                <p> Ett verktyg man installerar i sin lokala utvecklingsmiljö,
+                som hjälper en att analysera och visualisera kod, och som också tillhandahåller
+                detaljerade rapporter i html-format.</p>
 
 
+            </div>
+
+            <div class="c-metric-tool-div">
+                <a href="https://scrutinizer-ci.com/">
+                <img class="scrutinizer-img" src="{{ asset('img/scrutinizer.png') }}" alt="Scrutinizer Img"/>
+                <span class="c-metric-tool">Scrutinizer</span></a>
+                <p> Ett webbaserat verktyg som jobbar mot ett givet Git-repo, kapabelt att automatiskt
+                köras vid varje commit, och som bjuder på liknande övergripande mätvärden och
+                utvärdering.</p>
+            </div>
+
+        </div>
+
+        <p>Innan vi kliver in i analysen,
+        så ämnar jag redogöra för sju C:n (6+1), som kan utgöra en vettig konceptuell
+        grund för denna typ av kodanalys.</p>
+
+        <p>Dessa C:n används för att utvärdera och bedöma kodkvaliteten på olika
+        sätt:</p>
+
+        <p><span class="c-metric-rubric">Codestyle</span></p>
+
+        <p>Avser hur väl koden följer gängse god kodstandard
+        och kodpraxis, och även bitar som bra beskrivande namngivning och
+        gedigen dokumentation.</p>
+
+        <p>För att upprätthålla god kvalitet är det starkt rekommenderat
+        att ta linters och andra kvalitetssäkringsverktyg till sin hjälp. I den här kursen har
+        vi hittills använt oss av php-cs-fix, phpstan och phpmd.</p>
+
+        <p><span class="c-metric-rubric">Complexity</span></p>
+
+        <p>Avser kodens komplexitet, där lägre
+        värden, lägre mått av komplexitet, i regel är eftersträvansvärt, för att
+        främja bättre kod som är mindre buggbenägen och lättare att läsa, underhålla,
+        refaktorera och felsöka.</p>
+
+        <p>Låg komplexitet är inte ett självändamål i sig, och det är inte
+        alltid möjligt att undvika att metoderna växer sig komplexa, men det är
+        någonting man aktivt ska ha med sig i bakhuvudet. </p>
+
+        <p>Ofta är det möjligt att
+        bryta ut delar av logiken i egna funktioner/metoder, eller att skriva koden på ett
+        annat sätt, så att man undviker konstruktioner och logik som indenteras
+        i oroväckande djupa konditionella avgreningar.</p>
+
+        <p><span class="c-metric-rubric">Coverage</span></p>
+
+        <p>Avser hur stor del av koden som har
+        täckning av enhetstester. En hög täckning är att eftersträva, som ett bevis på att
+        kodens beteende i hög grad har testats och verifierats, vilket minskar risken för
+        buggar.</p>
+
+        <p>Tumregel: komplexa metoder
+        och klasser kräver mer omfattande testning, för att bättre kunna säkerställa ett
+        pålitligt beteende.</p>
+
+        <p><span class="c-metric-rubric">Cohesion</span></p>
+
+        <p>Avser hur väl sammanhållen en klass är. En hög Cohesion tyder på en
+        väl sammansatt och uttänkt klass. När det däremot gäller det faktiska mätvärdet
+        LCOM - Lack of Cohesion of Methods - så vill man att värdet ska vara lågt.</p>
+
+        <p>Begreppet är starkt sammankopplat och relaterat till konceptet med
+        SRP (Single Responsibility Principle): en väl sammanhållen klass signalerar att klassen
+        eller metoden har ett tydligt, avgränsat ansvarsområde, och efterlever SRP i stor utsträckning.
+        </p>
+
+        <p>En mindre sammanhållen klass, med ett högt LCOM-värde, kan istället signalera att
+        klassen tål att ses över och bearbetas, och att det eventuellt kan vara en idé att lyfta ut delar
+        av logiken i separata klasser/metoder.</p>
+
+
+
+        <p><span class="c-metric-rubric">Coupling</span></p>
+
+        <p>Avser hur beroende en given klass är av andra
+        klasser. Ett lågt värde är eftersträvansvärt, då det tillåter en större grad
+        av oberoende, vilket främjar kod som är lättare att underhålla, omarbeta och
+        återanvända.</p>
+
+        <p><span class="c-metric-rubric">CRAP (Change Risk
+        Analysis Probability)</span></p>
+        <p>Det sjätte C:et är uppenbarligen ingen blyg viol. Det raka akronymet relaterar till
+        ett samlat beräknat värde som försöker återspegla risken för att problem uppstår när koden ändras.
+        Låga värden är att eftersträva.
+        Höga värden indikerar att klassen eller metoden kan vara riskabel att ändra, och
+        gör den vansklig att underhålla och refaktorera.</p>
+
+        <p>Ett ytterligare sjunde C som brukar kunna nämnas i sammanhanget, är:
+
+        </p><span class="c-metric-rubric">Code Smell</span></p>
+
+        <p>Avser mönster eller tendenser i koden som tyder på potentiella
+        problem med bristande designval eller kodpraxis. Begreppen går in i varandra
+        delvis, men att kunna identifiera och åtgärda dessa "lukter" är viktigt för
+        att kunna förbättra kodens allmänna kvalitet och robusthet.</p>
+
+        <p>Dessa sex (*sju) C:n ger en en habil grund när man ämnar identifiera
+        styrkor och svagheter i ens kod.</p>
+
+
+        <h2 class="metrics-rubric">PhpMetrics</h2>
+
+        <img class="phpmetrics-img-pre" src="{{ asset('img/phpmetricspre.png') }}" alt="Phpmetrics Pre"/>
+
+        <p>De första resultaten vittnar om att det finns en hel del förbättringspotential.</p>
+
+        <p>Phpmetrics lägger mycket av huvudfokuset på komplexiteten och underhållsvänligheten, och till att
+        börja med, så är den starkt kritisk till Controllers-strukturen i största
+        allmänhet, där det är idelt illrött och gult bland de representativa cirklarna.</p>
+
+        <img class="phpmetrics-img-pre" src="{{ asset('img/phpmetrics-controllers.png') }}" alt="Phpmetrics Pre"/>
+
+        <p>Den ser inte med blida ögon på den här typen av stora och svulstiga Controller-klasser. Höga LCOM-värden (i.e svag Cohesion), hög cyklomatisk komplexitet
+        och difficulty (i.e hög Complexity), vilket driver upp värdet för de estimerade buggarna.
+
+
+
+        <p>Hade jag istället anammat en renlärlig SRP-approach så hade principen varit: en route = en klass.</p>
+
+        <p>Kan personligen spontant visserligen se ett värde i att bättre och enklare kunna
+        överblicka alla relaterade routes i en och samma modul och klass, men förstår synpunkten,
+        och att en mer SRP-orienterad approach är viktig även här, i synnerhet när det kommer till
+        att också på ett vettigt sätt kunna testa sina Controllers.</p>
+
+        <p>
+            Även när det gäller de Card-, Deck- och Blackjack-relaterade huvudsakliga klasserna går
+            mönstret igen:
+            <br>
+            Stora, spretiga, hög komplexitet.
+        </p>
+
+        Exempelvis:
+
+        <img class="phpmetrics-img-pre" src="{{ asset('img/blackjack-bjch-doc.png') }}" alt="Phpmetrics DOC Img Pre"/>
+
+        <img class="phpmetrics-img-pre" src="{{ asset('img/blackjack-bjgr.png') }}" alt="Phpmetrics BJGameResults Img Pre"/>
+
+
+        <p>Sedan finns också problem av enklare slag, som påverkar Maintainability Index-värdena negativt,
+        som att PHPDocs-kommentarerna som bör ackompanjera alla klasser, metoder och routes
+        inte konsekvent är på plats.</p>
+
+        <img class="phpmetrics-img-pre" src="{{ asset('img/phpmetrics-mc.png') }}" alt="Phpmetrics MC Img Pre"/>
+
+        <h2 class="metrics-rubric">Scrutinizer</h2>
+
+         <img class="phpmetrics-img-pre" src="{{ asset('img/scrutinizer-first.png') }}" alt="Phpmetrics MC Img Pre"/>
+
+        <p>Scrutinizers inledande rapport var desto mer upplyftande läsning, och landar i nästan
+        fulländade värden direkt.
+
+        <p>Spontant känns det som att den mer är i synk med de krav
+        som php-cs-fix, phpmd och phpstan ställt, och den tar i beaktning de phpunit-tester som implementerats.
+        </p>
+
+        <p>Givet att jag jobbat mot en phpstan-8-nivå, och
+        koden validerat bortsett från invändningar mot för många public methods i mina uppsvällda Controller-klasser
+        och testklasser (phpmd), så har nog många av de eventuella problem som Scrutinizer skulle ha haft synpunkter på
+        redan städats undan och åtgärdats i ett tidigare skede i utvecklingen.</p>
+
+        <img class="phpmetrics-img-pre" src="{{ asset('img/scrutinizer-class2.png') }}" alt="Scrutinizer Class2 Img Pre"/>
+
+        <p>Det faktum att jag har 100% testtäckning för de relevanta klasserna uppskattas,
+        och det kompenserar och viktar upp betyget för klasserna, som landar i idel A:n, trots att
+        många av dem är aningen komplexa, och som vi har identifierat tidigare, skulle tålas att ses över.</p>
+
+        <p>Det finns dock fortsatt lite smått och gott att åtgärda, i form utav några småfel av den här arten:</p>
+
+        <img class="phpmetrics-img-pre" src="{{ asset('img/scrutinizer-fault1.png') }}" alt="Scrutinizer Fault1 Img Pre"/>
+
+        <p>Glömt en uppdatering i testklassen (constructorn ska inte ta något argument) efter att ha återreviderat min DeckOfCards-klass:</p>
+
+        <img class="phpmetrics-img-pre" src="{{ asset('img/scrutinizer-fault2.png') }}" alt="Scrutinizer Fault2 Img Pre"/>
+
+        <p>etc.</p>
+
+
+        <h2 class="metrics-rubric">Förbättringar</h2>
+
+        <p><span class="atgard">Åtgärd 1:</span></p>
+
+        <p>Bearbeta mina huvudklasser. Identifiera funktionalitet som kan lyftas ut
+        i traits för mer slimmade, underhållsvänliga och SRP-kompatibla klasser.
+        </p>
+
+        <p><span class="atgard">Åtgärd 2:</span></p>
+
+        <p>En rejäl overhaul av Controller-klasserna, som jag kommer bryta ut i separata klasser, enligt
+        grunddevisen: (i regel) en Controller-klass för varje route.</p>
+
+        <p>
+        <p>Utöver det ämnar jag se till att komplexiteten även för mina nu snart separerade routes
+        hålls nere. Kanske kan komma att etablera eventuella helpers som om nödvändigt får bistå
+        mig i det.
+        </p>
+
+        <p><span class="atgard">Åtgärd 3:</span></p>
+        <p>En liknande overhaul för Test-klasserna, som jag kommer att bryta ned och modulera på ett bättre sätt.
+        </p>
+
+        <p><span class="atgard">Åtgärd 4:</span></p>
+
+        <p>Etablera tillbörlig PHPDocs-dokumentation för alla klasser, metoder och routes.
+        </p>
+
+        <p><span class="atgard">Åtgärd 5:</span></p>
+
+        <p>Rätta till de mindre fel av mer petitessartad natur som Scrutinizer har identifierat.
+        </p>
+
+        <p><span class="atgard">Åtgärd 6:</span></p>
+
+        <p>Se över och modifiera folder-strukturen för bättre tydlighet, och dubbelkolla att namespace,
+        use, etc. överlag är korrekt implementerade.
+        </p>
+
+        <p>
+        Dessa åtgärder sammantaget kommer förhoppningsvis bidra till en bättre klasstruktur,
+        clenare kod, och bringa komplexitetsnoteringarna och maintainability-index till skönt,
+        grönt territorium.
+        </p>
+
+        <h2 class="metrics-rubric">Resultat</h2>
+
+        <img class="phpmetrics-img-pre" src="{{ asset('img/phpmetricspost.png') }}" alt="Scrutinizer Post Img"/>
+
+        <p>Efter en rejäl bearbetning lyser nu alla phpmetrics-indikatorer mycket riktigt vackert grönt.</p>
+
+        **POST SCRUTINIZER IMAGE**
+
+        **PRE AND POST ISSUES CAPTURE COMPARISONS**
+
+        <p>Scrutinizer är även tillfreds, alla Issues är bearbetade, och vi har oss en 10-notering.</p>
+
+        <h2 class="metrics-rubric">Diskussion</h2>
+
+        <p>
+        Resultatet får anses vara gott, givet premisserna och de bedömningskriterier
+        som verktygen jobbar utifrån.
+        </p>
+
+        <p>Skulle säga att koden har fått sig ett ordentligt lyft, och att det varit
+        lärorikt att implementera de här förändringarna, även om en del bara handlade om
+        att kopiera och lyfta ut kodpartier i separata filer, klasser, traits och metoder.</p>
+
+        <p>Vissa av åtgärderna, framförallt rörande flaggad problematisk komplexitet, var dock av mer tveksam
+        nytta, där ett par av förändringarna som var nödvändiga för att få grönt ljus i alla avseenden
+        kändes onödiga, och i ett par fall i mitt tycke t o m gjorde koden aningen sämre och mer omständig.
+        </p>
+
+        <p>Ibland kanske det är bättre och tydligare att t ex behålla en enkel, rak konditionell form-validering i en
+        route, även om det medför någon ytterligare if-sats som nominellt
+        driver upp komplexiteten, än att in i absurdum insistera på att lyfta ut funktionaliteten separat. Detsamma kan sägas
+        om några av de ytterligare traits jag implementerat för att slimma ned klasserna.</p>
+
+        <p>Trots att det här är bra verktyg, så är de just det, verktyg, och ska betraktas som sådana,
+        och man ska inte ramla in i ett dogmatiskt tänk som gör en förblindad.</p>
+
+        <p>Däremot, allt sammantaget, med välkalibrerade linters, code-sniffers, mess-detectors,
+        verktyg som phpmetrics, osv. i den egna utvecklingsmiljön, kompletterade med ytterligare bra resurser som Scrutinizer,
+        så ger man sig själv väldigt goda förutsättningar till att kunna upprätthålla
+        goda vanor och skapa kod av god kvalitet.</p>
+
+       <p>De underlättar dessutom oerhört när det kommer till att etablera och upprätthålla en enad,
+       objektivt satt kodstandard när man samarbetar med andra.</p>
+
+        <p>Existerar ju därtill en uppsjö andra liknande bra verktyg som man kan ha till sin hjälp.</p>
+
+        <p>En god idé i övrigt är att ordentligt sätta sig in i hur man konfigurerar
+        verktygen, så att man kan skräddarsy dem utifrån sina behov.</p>
+
+        <p>Förhållningssättet till alla de här olika mätvärdena, och vad som är acceptabel
+        "clean code", kan och bör justeras, beroende på hur mycket tid man har till sitt förfogande,
+        projektets karaktär, omfattning, framtida underhållsbehov,
+        antalet personer som jobbar med det, etc.</p>
+
+        <p>Man kan ju t ex i ett utvecklingsteam enas om att lätta på riktlinjerna kring
+        exempelvis komplexiteten, och slå fast: okej, absolut, det är fritt fram att bygga
+        aningen större klasser och metoder om det anses befogat, men då ska de också kompletteras
+        med exemplarisk dokumentation, och gärna extra noggranna tester. Frihet under ansvar.</p>
+
+        <p>
+        Man gör nog gott i att ändå verkligen försöka lyssna in synpunkterna från den här typen av hjälpsamma verktyg.
+        Det kan vara aningen demoraliserande till en början, och tidsåtgången för att åtgärda alla
+        dessa flaggade klasser och metoder kan kännas motig, men ser man till att försöka ta in och lära
+        sig av det och etablera bättre kodvanor (lättare sagt än gjort),
+        så är det ju tid och energi man i regel har tillbaka mångfalt senare i form utav mer koncis, lättarbetad,
+        lättunderhållen och buggfri kod.
+        </p>
+
+        <h2 class="metrics-rubric">Slutord</h2>
+
+        <p>Det har varit intressant att i det här kursmomentet bli introducerad till två ytterligare
+        tacksamma och imponerande verktyg, och att utifrån de mätvärden de tillhandahåller, få öva sig på
+        att tolka dem och implementera relevanta förbättringar av koden.</p>
     </div>
 {% endblock %}

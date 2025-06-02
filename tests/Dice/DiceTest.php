@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Dice;
+namespace App\Tests\Dice;
 
 use PHPUnit\Framework\TestCase;
+
+use App\Dice\Dice;
 
 use App\Exception\ExcessiveDiceValueException;
 /**
@@ -17,7 +19,7 @@ class DiceTest extends TestCase
     public function testCreateDice()
     {
         $die = new Dice();
-        $this->assertInstanceOf("\App\Dice\Dice", $die);
+        $this->assertInstanceOf(Dice::class, $die);
 
         $res = $die->getAsString();
         $this->assertNotEmpty($res);

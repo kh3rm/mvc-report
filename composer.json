@@ -59,7 +59,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "App\\Tests\\": "tests/"
         }
     },
     "autoload-dev": {
@@ -85,6 +86,7 @@
         "phpdoc": "tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml",
         "phpunit": "XDEBUG_MODE=coverage bin/phpunit --coverage-text tests",
         "phpmetrics": "tools/phpmetrics/vendor/bin/phpmetrics --config=tools/phpmetrics/phpmetrics.json",
+        "metrics": "tools/phpmetrics/vendor/bin/phpmetrics --config=tools/phpmetrics/phpmetrics.json",
         "lint": [
             "@csfix",
             "@phpmd",

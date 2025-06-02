@@ -410,7 +410,7 @@ trots att det i relativa termer tillkom relativt sent "på riktigt", med riktigt
     </p>
 
     <p>Vi har ju bara hunnit skrapat på ytan hittills, så kan inte än bedöma hur det är att arbeta på ett mer sofistikerat
-    sätt i tex Doctrine, men spontant fann jag det helt okej, även om det var lite fel- och krångelbenäget när man t ex
+    sätt med ORM i tex Doctrine, men spontant fann jag det helt okej, även om det var aningen omständigare när man t ex
     ville göra småjusteringar i entity-klassen (i.e, tabellstrukturen/schemat) manuellt i efterhand. Enklare och snabbare att etablera, krångligare
     och sämre när man vill finslipa och skräddarsy, eventuellt.</p>
 
@@ -425,12 +425,57 @@ trots att det i relativa termer tillkom relativt sent "på riktigt", med riktigt
     </div>
 
 
-    <h2 class="report-rubric" id="kmom06">KMOM06</h2>
+    <h2 class="report-rubric" id="kmom06">Kmom06</h2>
+    <div class="report-container">
+    <p>Sista reguljära kursmomentet avbockat.</p>
 
-    <p>Redovisningstext</p>
+    <p>Phpmetrics var ett nöje att introduceras till, och tycker att det hade ett väldigt
+    tydligt, lättarbetat gränssnitt, i synnerhet i html-rapporterna.</p>
 
-    <br><br><br><br><br><br><br><br>
+    <p>Vi är visuella varelser, så ögonen drog sig direkt till det stilrena kluster av färgade
+    bollar (varje boll motsvarande en klass) som möter en i Overview, i representativa
+    färger beroende på hur de respektive klasserna presterar avseende maintainability/complexity.
+    </p>
 
+    <p>De överblickande statistik-vyerna för klasserna var tydliga och bra,
+    även om noteringarna i Violations var av en mer vag, oklar och abstrakt art.</p>
+
+    <p>LCOM, Class cyclomatic complexity, Max method cyclomatic complexity var de mätvärden
+    jag fokuserade mest på, utöver de övergripande maintainability/complexity-värdena.</p>
+
+    <p>Det gick bra att integrera med Scrutinizer, när den initiella analysen väl tuggade igång,
+    och fick ett väldigt bra första intryck av verktyget, som förefaller vara väldigt
+    pedagogiskt, tydligt och lättarbetat.</p>
+
+    <p>Noterade en 9.95-score vid första försöket, med 100% kodtäckning
+    (av de inkluderade klasserna tål att tilläggas).
+    </p>
+
+    <p>När det gäller Issues, så är den till skillnad mot phpmetrics istället
+    väldigt konkret, och visar upp de exakta kodpartier den har synpunkter på, med utförliga beskrivningar.
+    </p>
+
+    <p>Scrutinizer har betydligt större acceptans och tolerans än phpmetrics när det kommer till
+    komplexa, större klasser och metoder,
+    på gott och ont, och verktyget verkar vara villigt att ge grönt ljus till rätt så mycket givet
+    att man bygger tillbörliga validerande tester till dem.</p>
+    </p>
+
+    <p>Smidigt att den dessutom är kapabel att automatiskt köra igång en ny analys vid varje färsk commit.</p>
+
+    <p>Jag tror definitivt att man det är möjligt att bilda sig en hygglig, preliminär bild över ett projekts kodkvalitet
+    genom att studera dess badges, även om man måste sätta stora asterisks vid varje mätvärde, då de kan
+    visa sig vara både rättvisande och missledande, beroende på en rad faktorer, t ex hur mycket kod man inkluderar
+    för testning.
+    </p>
+
+    <p>
+        TIL/*TWIL vilka grymma verktyg Phpmetrics och Scrutinizer är att ha med sig i verktygslådan.
+    </p>
+
+
+
+</div>
 
     <h2 class="report-rubric" id="projekt">Projekt</h2>
 

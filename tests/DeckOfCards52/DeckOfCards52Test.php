@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Card;
+namespace App\Deck;
 
 use PHPUnit\Framework\TestCase;
 
 use App\Card\Card;
+use App\Deck\DeckOfCards52;
 
 // use App\Exception\ExcessiveDiceValueException;
 
@@ -20,7 +21,7 @@ class DeckOfCards52Test extends TestCase
     public function testCreateDeckOfCards52()
     {
         $deck = new DeckOfCards52();
-        $this->assertInstanceOf("\App\Card\DeckOfCards52", $deck);
+        $this->assertInstanceOf(DeckOfCards52::class, $deck);
         $this->assertNotEmpty($deck);
     }
 
@@ -32,7 +33,7 @@ class DeckOfCards52Test extends TestCase
     public function testCreateDeckOfCards52Complete()
     {
         $deck = new DeckOfCards52();
-        $this->assertInstanceOf("\App\Card\DeckOfCards52", $deck);
+        $this->assertInstanceOf(DeckOfCards52::class, $deck);
         $cardsInDeck = $deck->getCards();
         $this->assertContainsOnlyInstancesOf(Card::class, $cardsInDeck);
         $this->assertCount(52, $cardsInDeck);
@@ -46,9 +47,9 @@ class DeckOfCards52Test extends TestCase
      */
     public function testCreateDeckOfCardsEmpty()
     {
-        $deck = new DeckOfCards52(false);
+        $deck = new DeckOfCards52();
         $deck->emptyDeck();
-        $this->assertInstanceOf("\App\Card\DeckOfCards", $deck);
+        $this->assertInstanceOf(DeckOfCards52::class, $deck);
         $cardsInDeck = $deck->getCards();
         $this->assertCount(0, $cardsInDeck);
     }
@@ -64,7 +65,7 @@ class DeckOfCards52Test extends TestCase
      */
     public function testJokersAreRemoved()
     {
-        $deck = new DeckOfCards52(true);
+        $deck = new DeckOfCards52();
         $cards = $deck->getCards();
         foreach ($cards as $card) {
             $this->assertNotEquals(0, $card->getCardAsInt());

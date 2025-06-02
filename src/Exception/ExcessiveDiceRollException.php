@@ -2,10 +2,18 @@
 
 namespace App\Exception;
 
+/**
+ * An exception that is thrown when an excessive number of dice rolls is attempted.
+ */
 class ExcessiveDiceRollException extends \Exception
 {
-    public function __construct(string $message = "Can not roll more than 99 dices!", int $code = 0, \Throwable $previous = null)
+    /**
+     * Constructor.
+     *
+     * @param string $message  The exception message.
+     */
+    public function __construct(string $message = "Sorry, cannot roll more than 99 dice!")
     {
-        parent::__construct($message, $code, $previous);
+        parent::__construct($message);
     }
 }

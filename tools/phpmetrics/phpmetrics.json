@@ -3,7 +3,8 @@
         "../../src"
     ],
     "exclude": [
-      "../../test[s]?"
+      "../../test[s]?",
+      "../../src/Player"
     ],
     "report": {
         "html": "../../docs/metrics"

@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Card;
+namespace App\Tests\BlackjackPlayer\BlackjackDealer;
 
 use PHPUnit\Framework\TestCase;
-use App\Exception\NotEnoughChipsException;
+
+use App\Card\Card;
+use App\Blackjack\BlackjackPlayer\BlackjackDealer;
+use App\Blackjack\BlackjackCardHand\BlackjackCardHand;
 
 class BlackjackDealerTest extends TestCase
 {

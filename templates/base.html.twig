@@ -46,7 +46,7 @@
 
     {% set navlink_unicode_icon = app.session.get('theme') == 'dark' ? '✧' : '☁️' %}
 
-    <nav>
+    <nav class="nav">
             <a class="navlink" href="{{ path('home') }}">
                 <span>{{ navlink_unicode_icon }}</span> Home
             </a>
@@ -70,6 +70,10 @@
             </a>
             <a class="navlink" href="{{ path('librarylp') }}">
                 <span>{{ navlink_unicode_icon }}</span> Library
+            </a>
+
+            <a class="navlink" href="{{ path('metrics') }}">
+                <span>{{ navlink_unicode_icon }}</span> Metrics
             </a>
     </nav>
 

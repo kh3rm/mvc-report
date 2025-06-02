@@ -2,10 +2,18 @@
 
 namespace App\Exception;
 
+/**
+ * An exception that is thrown when an hand is not splittable.
+ */
 class HandNotSplittableException extends \Exception
 {
-    public function __construct(string $message = "Sorry, the hand cannot be split because it is not splittable.", int $code = 0, \Throwable $previous = null)
+    /**
+     * Constructor.
+     *
+     * @param string $message  The exception message.
+     */
+    public function __construct(string $message = "Sorry, the hand cannot be split because it is not splittable.")
     {
-        parent::__construct($message, $code, $previous);
+        parent::__construct($message);
     }
 }

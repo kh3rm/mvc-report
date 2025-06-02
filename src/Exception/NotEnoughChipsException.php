@@ -2,10 +2,18 @@
 
 namespace App\Exception;
 
+/**
+ * An exception that is thrown when Dealer/Player tries to wager more chips than is available.
+ */
 class NotEnoughChipsException extends \Exception
 {
-    public function __construct(string $message = "Sorry, not enough chips available to wager that amount.", int $code = 0, \Throwable $previous = null)
+    /**
+      * Constructor.
+      *
+      * @param string $message  The exception message.
+      */
+    public function __construct(string $message = "Sorry, not enough chips available to wager that amount.")
     {
-        parent::__construct($message, $code, $previous);
+        parent::__construct($message);
     }
 }
