@@ -11,6 +11,8 @@ revision:
 MVC REPORT - A SYMFONY BUILD.
 ====================
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kh3rm/mvc-report/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/kh3rm/mvc-report/?branch=main)
+
 
 ![MVC-Bird image](public/img/title-bird.svg)
 
