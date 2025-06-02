@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1748869357">
-  <project timestamp="1748869357">
+<coverage generated="1748876638">
+  <project timestamp="1748876638">
     <file name="/home/h3rmano/dbwebb-kurser/mvc/me/report/src/Blackjack/BlackjackCardHand/ActiveHandHandlingTrait.php">
       <class name="App\Blackjack\BlackjackCardHand\ActiveHandHandlingTrait" namespace="global">
         <metrics complexity="5" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="9" coveredelements="9"/>
@@ -430,30 +430,27 @@
     </file>
     <file name="/home/h3rmano/dbwebb-kurser/mvc/me/report/src/Deck/DeckShuffleSortTrait.php">
       <class name="App\Deck\DeckShuffleSortTrait" namespace="global">
-        <metrics complexity="4" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="18" elements="21" coveredelements="21"/>
+        <metrics complexity="4" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="18" coveredelements="18"/>
       </class>
       <line num="15" type="method" name="shuffleDeckOfCards" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="17" type="stmt" count="1"/>
-      <line num="18" type="stmt" count="1"/>
-      <line num="25" type="method" name="sortDeck" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="24" type="method" name="sortDeck" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="26" type="stmt" count="1"/>
       <line num="27" type="stmt" count="1"/>
       <line num="28" type="stmt" count="1"/>
-      <line num="29" type="stmt" count="1"/>
-      <line num="30" type="stmt" count="1"/>
-      <line num="37" type="method" name="sortDeckFirstByRankThenBySuit" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="35" type="method" name="sortDeckFirstByRankThenBySuit" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="37" type="stmt" count="1"/>
+      <line num="38" type="stmt" count="1"/>
       <line num="39" type="stmt" count="1"/>
       <line num="40" type="stmt" count="1"/>
       <line num="41" type="stmt" count="1"/>
       <line num="42" type="stmt" count="1"/>
-      <line num="43" type="stmt" count="1"/>
       <line num="44" type="stmt" count="1"/>
+      <line num="45" type="stmt" count="1"/>
       <line num="46" type="stmt" count="1"/>
-      <line num="47" type="stmt" count="1"/>
       <line num="48" type="stmt" count="1"/>
-      <line num="50" type="stmt" count="1"/>
-      <line num="51" type="stmt" count="1"/>
-      <line num="53" type="stmt" count="1"/>
-      <metrics loc="56" ncloc="40" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="18" elements="21" coveredelements="21"/>
+      <line num="49" type="stmt" count="1"/>
+      <metrics loc="52" ncloc="36" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="18" coveredelements="18"/>
     </file>
     <file name="/home/h3rmano/dbwebb-kurser/mvc/me/report/src/Deck/DrawCardFromDeckTrait.php">
       <class name="App\Deck\DrawCardFromDeckTrait" namespace="global">
@@ -578,6 +575,6 @@
       </class>
       <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="30" loc="1773" ncloc="1159" classes="29" methods="89" coveredmethods="89" conditionals="0" coveredconditionals="0" statements="308" coveredstatements="308" elements="397" coveredelements="397"/>
+    <metrics files="30" loc="1769" ncloc="1155" classes="29" methods="89" coveredmethods="89" conditionals="0" coveredconditionals="0" statements="305" coveredstatements="305" elements="394" coveredelements="394"/>
   </project>
 </coverage>

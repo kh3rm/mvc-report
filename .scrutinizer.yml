@@ -3,6 +3,7 @@ imports:
 
 filter:
     excluded_paths: [vendor/*, test/*, src/Repository/*, src/Entity/*]
+    dependency_paths: [src/*]
 
 build:
     image: default-bionic

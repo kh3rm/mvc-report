@@ -12,29 +12,27 @@ trait DeckShuffleSortTrait
      * Shuffles the array of instances of Card in $cards, resulting in a new random array-index-order,
      * i.e, a (re)shuffled deck.
      */
-    public function shuffleDeckOfCards(): DeckOfCards
+    public function shuffleDeckOfCards(): void
     {
         shuffle($this->cards);
-        return $this;
     }
 
     /**
      * Sorts the deck using the cards cardInt-property to its initial state, i.e first according to
      * suits, spades, hearts, diamonds,clubs, and then in ascending rank-order.
      */
-    public function sortDeck(): DeckOfCards
+    public function sortDeck(): void
     {
         usort($this->cards, function ($firstCard, $secondCard) {
             return $firstCard->getCardAsInt() <=> $secondCard->getCardAsInt();
         });
-        return $this;
     }
 
     /**
      * Sorts the deck using the cards rank and suit, this time first according to rank in ascending order,
      * and within that sorting, according to suits.
      */
-    public function sortDeckFirstByRankThenBySuit(): DeckOfCards
+    public function sortDeckFirstByRankThenBySuit(): void
     {
         $suitsRank = [
             'spade' => 1,
@@ -49,7 +47,5 @@ trait DeckShuffleSortTrait
             }
             return $firstCard->getRank() <=> $secondCard->getRank();
         });
-
-        return $this;
     }
 }
