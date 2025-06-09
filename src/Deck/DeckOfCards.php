@@ -19,6 +19,8 @@ class DeckOfCards
     use GetCardFromDeckTrait;
     use DrawCardFromDeckTrait;
     use PopulateDeckHelpTrait;
+
+
     /**
      * An array that holds the Card-instances constituting the deck, including jokers.
      *
@@ -32,10 +34,11 @@ class DeckOfCards
      * @var Card[]  $drawnCards  An array of Card instances.
      */
     protected $drawnCards = [];
+
     /**
-     * Constructor that by default populates the DeckOfCards with the
-     * classical 52 cards + 2 jokers using the populateDeck-method.
-     */
+    * Constructor that by default populates the DeckOfCards with the
+    * classical 52 cards + 2 jokers using the populateDeck-method.
+    */
     public function __construct()
     {
 
@@ -118,4 +121,5 @@ class DeckOfCards
         $this->cards = [];
         $this->drawnCards = [];
     }
+
 }

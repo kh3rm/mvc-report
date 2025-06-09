@@ -1,9 +1,21 @@
-{% extends "base.html.twig" %}
+{% set relative_template = project_game ? "project/project-base.html.twig" : "base.html.twig" %}
+
+{% extends relative_template %}
 
 {% block title %}Blackjack Game{% endblock %}
 
 {% block body %}
-<h1>Blackjack Game</h1>
+
+{% if app.session.get('project_game') == 'true' %}
+    <style> .main-project { opacity: 0.96; background: transparent; } </style>
+{% endif %}
+
+
+{% if not app.session.get('project_game') %}
+    <h1>Blackjack Game</h1>
+{% endif %}
+
+
 
 <div class="blackjack-container">
 <div class="blackjack-table" style="background-image: url({{ asset('img/blackjack-background.jpg') }})">
@@ -75,21 +87,25 @@
         </div>
         </div>
     </div>
-    {% if dealer.isActiveTurn() %}
-    {% set bird_message = "My turn!" %}
-        {% if dealer.getHands()[0].currentHandValue > 16 %}
-            {% set bird_message = "Well played!" %}
+
+    {% if not app.session.get('project_game') == 'true' %}
+
+        {% if dealer.isActiveTurn() %}
+        {% set bird_message = "My turn!" %}
+            {% if dealer.getHands()[0].currentHandValue > 16 %}
+                {% set bird_message = "Well played!" %}
+            {% endif %}
+
+
+
+        <div class="bird-dealer-container">
+            <img class="bird-dealer-intro" src="{{ asset('img/title-bird.svg') }}" alt="Blackjack Dealer Bird">
+            <pre class="bird-dealer-speech-bubble">
+
+                            - <span class="bird-message-play">"{{bird_message}}"</span>
+            </pre>
+        </div>
         {% endif %}
-
-
-
-    <div class="bird-dealer-container">
-        <img class="bird-dealer-intro" src="{{ asset('img/title-bird.svg') }}" alt="Blackjack Dealer Bird">
-        <pre class="bird-dealer-speech-bubble">
-
-                           - <span class="bird-message-play">"{{bird_message}}"</span>
-        </pre>
-    </div>
     {% endif %}
 </div>
 

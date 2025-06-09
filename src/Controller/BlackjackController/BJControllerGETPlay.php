@@ -30,6 +30,8 @@ class BJControllerGETPlay extends AbstractController
         $player->updateHandsStatus();
         $player->activeTurnStatus();
 
+        $projectGame = $session->get("project_game");
+
         $dealer = $session->get("dealer");
 
         if (!$player->isActiveTurn()) {
@@ -45,7 +47,8 @@ class BJControllerGETPlay extends AbstractController
             "player" => $player,
             "dealer" => $dealer,
             "deck" => $session->get("deck_in_use"),
-            "splits_afforded" => $session->get("splits_afforded")
+            "splits_afforded" => $session->get("splits_afforded"),
+            "project_game"=> $projectGame
         ];
 
         return $this->render('game/play.html.twig', $data);

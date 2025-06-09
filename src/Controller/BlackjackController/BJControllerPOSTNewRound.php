@@ -44,7 +44,7 @@ class BJControllerPOSTNewRound extends AbstractController
             "game_decided" => $gameDecided
         ];
 
-        return $this->render('game/next-round-init.html.twig', $data);
+        return $this->render($session->has('project_game') ? 'game/project-next-round-init.html.twig' : 'game/next-round-init.html.twig', $data);
     }
 
 }

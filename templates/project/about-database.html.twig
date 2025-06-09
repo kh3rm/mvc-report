@@ -1,0 +1,111 @@
+{% extends "project/project-base.html.twig" %}
+
+{% block title %}About Database Project{% endblock %}
+
+{% block body %}
+    <h1 class="project-h1">About Database</h1>
+
+    <div class="uml-container">
+        <h2 class="rubric">Project Tables - UML</h2>
+            <a href="{{ asset('img/project-table.png') }}">
+                <img src="{{ asset('img/project-table.png') }}" alt="Project Tables"/>
+            </a>
+    </div>
+
+    <div class="doc-container">
+
+    </div>
+    <br><br>
+    <div class="about-database-container">
+    <h2 class="rubric">Om tabellerna</h2>
+    <p>Valde att etablera en highscore-entry-tabell för pokerpatiensen, som innehåller
+    ett autoinkrementerat id som är primärnyckel, name, score och en created_at datetime-notering.</p>
+
+    <p>Därtill etablerade jag ytterligare en boktabell
+    innehållandes poker- och blackjackrelaterade böcker.
+    Den innehåller ett autoinkrementerat id, isbn, title, author och imagesource för
+    eventuell bildkälla.
+     </p>
+
+    <p>Dessa är fristående från varandra.
+     </p>
+
+     <p>Jag har använt mig av MariaDB som databashanterare, kompletterat med SQL-Workbench, även om
+     jag till 99% faktiskt fördrar att arbeta i terminalen, vilket fungerar utmärkt. För att det även ska fungera även
+     på studentservern, så tar jag hjälp av en dedikerad databasserver kopplad till mitt studentkonto
+     som BTH generöst tillhandahåller.
+     </p>
+
+     <p>Jag har inte ytterligare enhetstestat dessa databaser, utan har bara genomgående försökt
+     försäkra mig om att de fungerar om de ska. </p>
+
+    <h2 class="rubric">Om arbetet i ORM</h2>
+
+    <p>Det har varit intressant att introduceras till ett annat sätt att jobba med och mot
+    databaser i objektifierad form i Doctrine enligt ORM.</p>
+
+    <p>Första interaktionen med den i övningen, där man
+    med några knapptryck kunde etablera tabellstrukturen och därtill få Entity-klassmallen,
+    med setters och getters etablerade, och tillhörande Repository-klass (och därtill
+    autogenerera tillhörande Controller-template, om man var på det humöret) var väldigt smidigt
+    och generöst, men jag var aningen skeptisk till den egentliga nyttan, då den grunden inte är
+    direkt svår att etablera på egen hand.
+    </p>
+
+    <p>Men, strukturen kommer på plats trots allt, utan utrymme till slarvfel, inte att förakta, och så sakteliga
+    började min skepcis falna, och blev faktiskt imponerad när det kom till hanteringen av de faktiska CRUD-operationerna,
+    där det verkligen blev föredömligt klart och tydligt med set-kommandon vad det var som pågick.</p>
+
+    <p>För en objektorienterat bevandrad, som ännu inte har haft möjligheten, eller är intresserad,
+    av att lära sig basic SQL, så går det verkligen att se de stora pedagogiska fördelarna med en
+    sådan här approach. Inte för att exempelvis en update-sats i ren SQL är särskilt avancerad eller svårbegriplig i sig,
+    men i jämförelse, så skulle jag säga att ORM verkligen skiner, med en glasklar metodik:
+
+    Hämta/Skapa den objektifierade tabellentryn/raden, tillskriv (set) varje property (kolumnvärde), alternativt ta bort,
+    flusha/uppdatera tabellen. Done.</p>
+
+    <p>Sedan finns ju också möjligheten till en kompromiss där man använder en mer traditionell SQL-query-struktur
+    gentemot objektet, vilket också det var tacksamt, och jag använt mig av en del, t ex när jag nollställer
+    highscore-tabellen.</p>
+
+    <p>För oss som har fått möjligheten att få en gedigen introduktion till SQL, och åtminstone har lite
+    kött på benen, så har man ju en klar bild av vad det är den faktiskt gör under huven. Den typen av
+    konceptuell förståelse är alltid värdefull, inte minst om det krånglar och man måste felsöka.</p>
+
+    <p>Det finns annars alltid en risk med alla typer av verktyg och ramverk, som åtminstone
+    har som ett delsyfte att förenkla och sänka ingångströsklar, och möjliggör arbete i språk och med koncept
+    som man annars kanske inte hade varit mogen för, att man komma att stå där handfallen när det krånglar, för att man
+    inte har någon egentlig förståelse gällande vad det är som faktiskt pågår.</p>
+
+    <p>Nu blev det inte så mycket avancerat databasarbete just i den här kursen, så vet inte hur
+    det är att jobba på ett mer sofistikerat sätt med ORM i exempelvis Doctrine, men tycker att det
+    har fungerat bra, och att det varit en trevlig ny bekantskap.</p>
+
+    <p>Med det förbehållet, så skulle jag nog spontant föredra att jobba mer kirurgiskt och
+    exaxt med renodlad SQL med stored procedures, funktioner och triggers, vilket vi introducerades
+    till i databaskursen. Triggers i synnerhet gjorde intryck på mig, en fantastisk smidig konstruktion
+    (viktigt att hålla ordentlig koll på vilka man implementerar, dock), som kan automatisera vissa
+    förlopp och hålla nere på volymen tradig, grå route-kod. </p>
+
+    <p>Det kan dock absolut handla om
+    familiarity bias, för, när jag snabbt överblickar hur Doctrine i det här ORM-exemplet har konfigurerat triggers-hanteringen,
+    så ser det, inte så förvånande, genomtänkt, klart och relativt intuitivt ut det med.</p>
+
+      <h2 class="rubric">Slutord</h2>
+
+    <p>Sammanfattningsvis har det varit intressant och stimulerande att få testa på att arbeta
+    med en ORM-struktur, och jag kliver ut ur kursen med en positiv känsla till den.</p>
+
+    <p>Tog visserligen inte ut svängarna särskilt mycket när det gällde de två extra tabellerna jag etablerade,
+    men det var de här två jag kände passade in i mitt projektupplägg, och ville inte forcera fram
+    komplexitet bara för sakens skull, och jag är nöjd överlag med hur de artade sig
+    och hur de kompletterar projektflödet i stort.</p>
+
+    </div>
+
+
+
+
+
+
+{% endblock %}

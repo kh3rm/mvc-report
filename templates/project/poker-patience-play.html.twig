@@ -1,0 +1,171 @@
+    {% extends "project/project-base.html.twig" %}
+
+    {% block title %}About{% endblock %}
+
+    {% block body %}
+
+    <style> .main-project { opacity: 0.96; background: transparent; } </style>
+
+    <pre id="output"></pre>
+
+
+
+    <div class="poker-container">
+
+        <form action="poker-patience-complete" method="POST" id="poker-game-complete-form">
+            <input type="hidden" name="cat_score" value="{{cat_score}}">
+            <input type="hidden" name="player_score" value="{{player_current_score}}">
+
+            <button type="submit" class="navlink-project blackjack-button" id="poker-game-completed-btn">
+                Complete Game
+            </button>
+        </form>
+
+        <div class="poker-table" style="background-image: url({{ asset('img/blackjack-background.jpg') }})">
+            <div class="poker-card {{ drawncards[0].getSuit() }}" id="current-card">{{ drawncards[0].getCardAsUnicode() }}</div>
+
+
+            <div class="poker-card-grid">
+                <div class="cat-score-container">
+                    <p>Cat Score:<br> {{ cat_score }}
+                    </p>
+                </div>
+
+                <div class="player-score-container">
+                    <p>{{ player_name }} Score:<br> {{ player_current_score }} </p>
+                    </p>
+                </div>
+
+                {% for card in drawncards %}
+                    <div class="grid-square">
+                        <div class="club poker-card placeholder" data-position="{{ loop.index0 }}">
+                            {{ placeholder }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+    <div class="row-score horizontal-1"><p>⇨ 0</p></div>
+    <div class="row-score horizontal-2"><p>⇨ 0</p></div>
+    <div class="row-score horizontal-3"><p>⇨ 0</p></div>
+    <div class="row-score horizontal-4"><p>⇨ 0</p></div>
+    <div class="row-score horizontal-5"><p>⇨ 0</p></div>
+
+    <div class="row-score vertical-1"><p>⇓<br> 0</p></div>
+    <div class="row-score vertical-2"><p>⇓<br> 0</p></div>
+    <div class="row-score vertical-3"><p>⇓<br> 0</p></div>
+    <div class="row-score vertical-4"><p>⇓<br> 0</p></div>
+    <div class="row-score vertical-5"><p>⇓<br> 0</p></div>
+    </div>
+
+    </div>
+    <button class="blackjack-button" id="deal-card">Deal Card</button>
+
+    <script>
+        let dealtCards = [
+            {% for card in drawncards %}
+                "{{ card.getCardAsUnicode() }}"{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        ];
+
+        let currentCardColors = [
+            {% for card in drawncards %}
+                "{{ card.getSuit() }}"{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        ];
+
+        let currentCardIndex = 0;
+
+        let currentCardIntValue = [
+            {% for card in drawncards %}
+                "{{ card.getCardAsInt() }}"{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        ];
+
+        document.getElementById('deal-card').addEventListener('click', function() {
+            if (currentCardIndex < dealtCards.length - 1) {
+                currentCardIndex++;
+                document.getElementById('current-card').innerHTML = dealtCards[currentCardIndex];
+                document.getElementById('current-card').className = `poker-card ${currentCardColors[currentCardIndex]}`;
+            }
+        });
+
+        document.querySelectorAll('.placeholder').forEach(function(card) {
+            card.addEventListener('click', async function() {
+                if (this.classList.contains('placeholder')) {
+
+                    // *deactivate pointerEvents temporarily*
+
+                    const allPlaceholders = document.querySelectorAll('.placeholder');
+                    allPlaceholders.forEach(function(placeholder) {
+                        placeholder.style.pointerEvents = 'none';
+                    });
+
+                    this.innerHTML = document.getElementById('current-card').innerHTML;
+                    this.classList.remove('placeholder');
+                    this.classList.add(currentCardColors[currentCardIndex]);
+
+                    const indexPosition = this.getAttribute('data-position');
+
+                    const cardValue = currentCardIntValue[currentCardIndex];
+
+                    // *the api-request gets prepared and then sent, updating the json-grid*
+
+                    const data = {
+                        index: indexPosition,
+                        card: cardValue
+                    };
+
+                    const response = await fetch('{{ path('api_update_gamestate_proj') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    });
+
+                    const result = await response.json();
+
+                    console.log(result);
+
+                    document.querySelector('.player-score-container p').innerHTML = `{{ player_name }} Score:<br> ${result.scores.current_score}`;
+                    document.querySelector('input[name="player_score"]').value = result.scores.current_score;
+
+                    result.scores.horizontal.forEach((score, index) => {
+                        const horizontalDiv = document.querySelector(`.horizontal-${index + 1}`);
+                        if (horizontalDiv) {
+                            horizontalDiv.innerHTML = `<p>⇨ ${score} </p>`;
+                        }
+                    });
+
+                    result.scores.vertical.forEach((score, index) => {
+                        const verticalDiv = document.querySelector(`.vertical-${index + 1}`);
+                        if (verticalDiv) {
+                            verticalDiv.innerHTML = `<p>⇓<br> ${score} </p>`;
+                        }
+                    });
+
+
+                    if (currentCardIndex < dealtCards.length - 1) {
+                        currentCardIndex++;
+                        document.getElementById('current-card').innerHTML = dealtCards[currentCardIndex];
+                        document.getElementById('current-card').className = `poker-card ${currentCardColors[currentCardIndex]}`;
+                    } else {
+                        document.getElementById('current-card').innerHTML = '🃦';
+                        document.getElementById('poker-game-complete-form').style.display = 'block';
+                        document.getElementById('poker-game-completed-btn').style.display = 'block';
+                    }
+
+
+                    // *reactivate pointerEvents*
+
+                    allPlaceholders.forEach(function(placeholder) {
+                        placeholder.style.pointerEvents = 'auto';
+                    });
+                }
+
+
+            });
+        });
+    </script>
+    {% endblock %}

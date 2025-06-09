@@ -1,0 +1,63 @@
+{% extends "project/project-base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1 class="project-h1">Project? Rescue Bird.</h1>
+
+    <div class="project-about-two-col-container">
+
+    <div class="project-about-right-container">
+        <a href="{{ path('proj_about') }}">
+            <img class="logo-trio cage-about" src="{{ asset('img/cage3.svg') }}" alt="Cage About Svg">
+            <img class="about-bird" src="{{ asset('img/title-bird.svg') }}" alt="Bird About Svg">
+        </a>
+
+    </div>
+
+    <div class="project-about-left-container">
+    <p>
+        Damn. Bird has been captured by Cat, and is being held in a cramped and uncomfortable cage.
+    </p>
+
+    <p>
+        Alas, there is hope. Cat is a card-connoisseur, a proud and conceited one,
+        who deems it impossible for anyone to outsmart him.
+    </p>
+
+    <p>
+        Were one to succeed in beating him at his two favorite games: Poker Patience and Blackjack,
+        he has agreed to let Bird go.
+    </p>
+
+    <p>
+        Click <a href="{{ path('challenge_init_proj') }}" class="about-link-project">Start Challenge</a> to give it a try.
+    </p>
+
+    <p>
+        Head to <a href="{{ path('rules_project') }}" class="about-link-project">Rules</a> to study the game rules in effect.
+    </p>
+
+    <p>
+        Head to the <a href="{{ path('book_view_all_proj') }}" class="about-link-project">Library</a> to find books to read up on valuable game-theory.
+    </p>
+
+    <p>
+        Head to <a href="{{ path('api_project') }}" class="about-link-project">API</a> to check out the Project's JSON-related routes.
+    </p>
+    <p>
+        Head to <a href="{{ path('proj_highscore') }}" class="about-link-project">Highscore</a> to check out the Poker Patience Highscore-table.
+    </p>
+
+    <p>
+        Head to <a href="{{ path('about_database_proj') }}" class="about-link-project">About Database</a> to read about the database table-structure used in the Project.
+    </p>
+
+
+     <p>
+        Good luck! Bird's fate rests is in your hands.
+    </p>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends '/project/project-base-library.html.twig' %}
+
+{% block title %}Books{% endblock %}
+
+{% block body %}
+
+<div class="lib-container">
+
+    <div class="library-container">
+
+    <table class="library-table-project">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.getTitle|e }}</td>
+                <td>{{ book.getAuthor|e }}</td>
+                <td>
+                    <a class="edit-library-icon" href="{{ path('book_view_isbn_proj', {'isbn': book.getISBN|e}) }}">{{ book.getISBN|e }}</a>
+                </td>
+
+                <td class="edit-library-td">
+                    <a class="edit-library-icon" href="{{ path('book_update_isbn_proj', {'isbn': book.getISBN|e}) }}" title="Edit">✏️</a>
+                    <a class="edit-library-icon" href="{{ path('delete_book_view_isbn_proj', {'isbn': book.getISBN|e}) }}" title="Delete">❌</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+
+    </div>
+            <a class="blackjack-button library-button" href="{{ path('create_book_proj') }}">Add New Book</a>
+    </div>
+
+</div>
+{% endblock %}

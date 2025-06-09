@@ -1,0 +1,54 @@
+{% extends '/project/project-base-library.html.twig' %}
+
+{% block title %}Update Book{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .title-bird {
+        display: none;
+    }
+</style>
+
+
+<div class="lib-container">
+
+    <div class="lib-container">
+
+    <img class="library-book" src="{{ asset('img/book2.svg') }}" alt="Library Bird Svg"/>
+
+
+<div class="library-container">
+    <form action="{{ path('book_update_proj') }}" method="POST" class="library-form-project">
+        {% for book in books %}
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="{{ book.getTitle() }}" required>
+        </div>
+        <div>
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" value="{{ book.getAuthor() }}" required>
+        </div>
+        <div>
+            <label for="isbn">ISBN:</label>
+            <input type="text" id="isbn" name="isbn" value="{{ book.getISBN() }}" readonly required>
+        </div>
+        <div>
+            <label for="image_source">Image Source:</label>
+            <input type="text" id="image_source" name="image_source" value="{{ book.getImgSource() }}">
+        </div>
+
+
+        <div class="create-button-container">
+            <button class="library-button library-button3" type="submit">Submit</button>
+        </div>
+
+        </div>
+        {% endfor %}
+    </form>
+</div>
+
+    </div>
+</div>
+{% endblock %}

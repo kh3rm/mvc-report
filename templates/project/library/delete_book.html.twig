@@ -1,0 +1,67 @@
+{% extends '/project/project-base-library.html.twig' %}
+
+{% block title %}Delete Book{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .title-bird {
+        display: none;
+    }
+</style>
+
+
+<div class="lib-container">
+
+    <div class="lib-container">
+
+    <div class="library-container">
+
+    <table class="library-table-project library-table2">
+        <thead>
+
+            <tr>
+                <td colspan="3" class="library-chosen-book-td">
+                    <div class="library-chosen-book-container">
+                        <img class="library-chosen-book-image" src="{{ books[0].getImgSource is not empty ? books[0].getImgSource|e : 'https://images.isbndb.com/covers/23412913488788.jpg' }}" alt="Book Image"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.getTitle|e }}</td>
+                <td>{{ book.getAuthor|e }}</td>
+                <td>
+                    <a href="/library/view/{{ book.getISBN|e }}">{{ book.getISBN|e }}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+    </div>
+
+        <form method="post" action="{{ path('proj_book_delete') }}">
+            <input type="hidden" name="isbn" value="{{ books[0].getISBN|e }}">
+            <label>
+                <input type="checkbox" name="confirmDelete" required>
+                I confirm that I want to delete this book.
+            </label>
+
+            <div class="button-container">
+                <br>
+                <button class="library-button library-delete-button" type="submit">Delete Book</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

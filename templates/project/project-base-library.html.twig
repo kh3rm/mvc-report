@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/php-elephant.svg') }}">
+        {% block stylesheets %}
+            {% if app.session.get('theme') == 'dark' %}
+                {{ encore_entry_link_tags('app-dark-theme') }}
+            {% else %}
+                {{ encore_entry_link_tags('app') }}
+            {% endif %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {% if app.session.get('theme') == 'dark' %}
+                {{ encore_entry_script_tags('app-dark-theme') }}
+            {% else %}
+                {{ encore_entry_script_tags('app') }}
+            {% endif %}
+
+            {% block importmap %}
+                {% if app.session.get('theme') == 'dark' %}
+                    {{ importmap('app-dark-theme') }}
+                {% else %}
+                    {{ importmap('app') }}
+                {% endif %}
+            {% endblock %}
+        {% endblock %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&family=Bungee+Spice&family=Doto:wght@100..900&family=Genos:ital,wght@0,100..900;1,100..900&family=Gugi&family=Italiana&family=Kaisei+Decol&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kumar+One&family=Monofett&family=Monoton&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&family=Raleway+Dots&family=Revalia&family=Rubik+Dirt&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Turret+Road:wght@200;300;400;500;700;800&family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+
+    {% if app.session.get('theme') == 'dark' %}
+        <body class="project-body-library" style="background-image: url({{ asset('img/project-library-bg.jpg') }})">
+    {% else %}
+        <body class="project-body-library" style="background-image: url({{ asset('img/project-library-bg.jpg') }})">
+    {% endif %}
+
+    <style>
+    .project-body {
+        filter: brightness(0.2);
+    }
+    .main-project {
+    background-color: transparent;
+    }
+    </style>
+
+
+
+
+    <header>
+    <div class="title-project">
+    Project
+    <img class="cage" src="{{ asset('img/cage3.svg') }}" alt="Cage">
+    <img class="title-bird-project" src="{{ asset('img/title-bird.svg') }}" alt="Title Bird">
+    </div>
+
+    {% set navlink_unicode_icon = app.session.get('theme') == 'dark' ? '␥' : '⌗' %}
+
+    <nav class="nav">
+            <a class="navlink-project" href="{{ path('proj') }}">
+                <span>{{ navlink_unicode_icon }}</span> Home
+            </a>
+            <a class="navlink-project" href="{{ path('home') }}">
+                <span>{{ navlink_unicode_icon }}</span> Start Challenge
+            </a>
+            <a class="navlink-project" href="{{ path('rules_project') }}">
+                <span>{{ navlink_unicode_icon }}</span> Rules
+            </a>
+            <a class="navlink-project" href="{{ path('book_view_all_proj') }}">
+                <span>{{ navlink_unicode_icon }}</span> Library
+            </a>
+            <a class="navlink-project" href="{{ path('api_project') }}">
+                <span>{{ navlink_unicode_icon }}</span> API
+            </a>
+            <a class="navlink-project" href="{{ path('proj_highscore') }}">
+                <span>{{ navlink_unicode_icon }}</span> Highscore
+            </a>
+            <a class="navlink-project" href="{{ path('proj_about') }}">
+                <span>{{ navlink_unicode_icon }}</span> About
+            </a>
+
+    </nav>
+
+
+
+    <nav class="toggle-theme-project">
+    <a href="{{ path('toggle_theme') }}">
+        {% if app.session.get('theme') == 'dark' %}
+            🌖
+        {% else %}
+            ☀️
+        {% endif %}
+    </a>
+</nav>
+
+
+
+    </header>
+    <main class="main-project">
+        {% block body %}
+        {% block main %}
+        {% endblock %}
+        {% endblock %}
+    </main>
+    <footer>
+         <a href="https://github.com/kh3rm/mvc-report/">
+             <img class="github" src="{{ asset('img/github.svg') }}" alt="Github">
+        </a>
+
+    </footer>
+    </body>
+</html>
+

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Library{% endblock %}
+
+{% block body %}
+<style>
+    .title-bird {
+        display: none;
+    }
+</style>
+
+
+
+<h1>Library</h1>
+
+<div class="lib-container">
+
+    <img class="library" src="{{ asset('img/library.svg') }}" alt="Library Svg">
+    <img class="library-bird" src="{{ asset('img/title-bird.svg') }}" alt="Blackboard Bird Svg"/>
+
+    <div class="library-container">
+        <br>
+
+        <p><a class="library-link" href="{{ path('book_view_all') }}">/library/view</a> - Peruse the books. </p>
+
+        <p><a class="library-link" href="{{ path('book_reset') }}">/library/reset</a> - Reset the library content to the initial books. </p>
+    </div>
+</div>
+{% endblock %}

@@ -19,9 +19,11 @@
                 <img class="phpmetrics-img" src="{{ asset('img/phpmetrics.ico') }}" alt="PHP-Metrics Img"/>
                 <span class="c-metric-tool">phpmetrics</span>
                 </a>
-                <p> Ett verktyg man installerar i sin lokala utvecklingsmiljö,
-                som hjälper en att analysera och visualisera kod, och som också tillhandahåller
-                detaljerade rapporter i html-format.</p>
+                <div class="tool-descr">
+                    <p> Ett verktyg man installerar i sin lokala utvecklingsmiljö,
+                    som hjälper en att analysera och visualisera kod, och som också tillhandahåller
+                    detaljerade rapporter i html-format.</p>
+                </div>
 
 
             </div>
@@ -30,9 +32,11 @@
                 <a href="https://scrutinizer-ci.com/">
                 <img class="scrutinizer-img" src="{{ asset('img/scrutinizer.png') }}" alt="Scrutinizer Img"/>
                 <span class="c-metric-tool">Scrutinizer</span></a>
-                <p> Ett webbaserat verktyg som jobbar mot ett givet Git-repo, kapabelt att automatiskt
-                köras vid varje commit, och som bjuder på liknande övergripande mätvärden och
-                utvärdering.</p>
+                <div class="tool-descr">
+                    <p> Ett webbaserat verktyg som jobbar mot ett givet Git-repo, kapabelt att automatiskt
+                    köras vid varje commit, och som bjuder på liknande övergripande mätvärden och
+                    utvärdering.</p>
+                </div>
             </div>
 
         </div>
@@ -133,7 +137,7 @@
         <p>De första resultaten vittnar om att det finns en hel del förbättringspotential.</p>
 
         <p>Phpmetrics lägger mycket av huvudfokuset på komplexiteten och underhållsvänligheten, och till att
-        börja med, så är den starkt kritisk till Controllers-strukturen i största
+        börja med, så är den starkt kritisk till Controller-strukturen i största
         allmänhet, där det är idelt illrött och gult bland de representativa cirklarna.</p>
 
         <img class="phpmetrics-img-pre" src="{{ asset('img/phpmetrics-controllers.png') }}" alt="Phpmetrics Pre"/>
@@ -149,7 +153,6 @@
         överblicka alla relaterade routes i en och samma modul och klass, men förstår synpunkten,
         och att en mer SRP-orienterad approach är viktig även här, i synnerhet när det kommer till
         att också på ett vettigt sätt kunna testa sina Controllers.</p>
-
         <p>
             Även när det gäller de Card-, Deck- och Blackjack-relaterade huvudsakliga klasserna går
             mönstret igen:
@@ -269,8 +272,8 @@
         <p>Scrutinizer är även tillfreds, och vi har oss en 10-notering, även om det faktiskt uppkom fler,
         men mindre viktiga, issues av annan art,
         mycket relaterade till hur Scrutinizer läser in de traits jag skapade
-        när jag slimmade klasserna, bland annat gällande properties som definieras inne i huvudklassen
-        snarare än i traitet.</p>
+        när jag slimmade ned klasserna, bland annat gällande properties som definieras inne i huvudklassen,
+        men som manipuleras i metoder i traitet.</p>
 
         <p>
         Verkar även föredra att man gärna just ska jobba med interface som ett ytterligare
@@ -291,7 +294,7 @@
 
         <p>Vissa av åtgärderna, framförallt rörande flaggad problematisk komplexitet, var dock av mer tveksam
         nytta, där ett par av förändringarna som var nödvändiga för att få grönt ljus i alla avseenden
-        kändes onödiga, och i ett par fall i mitt tycke t o m gjorde koden aningen sämre och mer omständig.
+        kändes onödiga, och i ett par fall i mitt tycke gjorde koden sämre och mer omständig.
         </p>
 
         <p>Ibland kanske det är bättre och tydligare att t ex behålla en enkel, rak konditionell form-validering i en
@@ -327,10 +330,10 @@
 
         <p>
         Man gör nog gott i att ändå verkligen försöka lyssna in synpunkterna från den här typen av hjälpsamma verktyg.
-        Det kan vara aningen demoraliserande till en början när det lyser gult och rött, och tidsåtgången för att åtgärda alla
+        Det kan vara aningen demoraliserande till en början när det lyser illavarslande gult och rött, och tidsåtgången för att åtgärda alla
         dessa flaggade klasser och metoder kan ibland kännas orimlig, men ser man till att försöka ta in och lära
-        sig av det och etablera bättre kodvanor,
-        så är det ju tid och energi man i regel har tillbaka mångfalt senare i form utav mer koncis, lättarbetad,
+        sig av det, som ett led i att etablera bättre kodvanor, så är det ju tid och energi man i regel har tillbaka
+        mångfalt senare i form utav en bättre förståelse, och mer koncis, lättarbetad,
         lättunderhållen och buggfri kod.
         </p>
 
@@ -338,6 +341,6 @@
 
         <p>Det har varit intressant att i det här kursmomentet bli introducerad till två ytterligare
         tacksamma och imponerande verktyg, och att utifrån de mätvärden de tillhandahåller, få öva sig på
-        att tolka dem och implementera relevanta förbättringar av koden.</p>
+        att tolka, prioritera och implementera relevanta förbättringar av koden.</p>
     </div>
 {% endblock %}

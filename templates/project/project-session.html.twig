@@ -1,0 +1,16 @@
+{% extends "project/project-base.html.twig" %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+    <h1 class="project-h1">Session</h1>
+
+    <h2>Current Session Content:</h2>
+
+    <pre>
+        {{ dump(session) }}
+    </pre>
+
+    {{ include('flash.html.twig') }}
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "project/project-base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1 class="project-h1">Poker Patience Highscore</h1>
+
+        <table class="library-table-project">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in highscoretable %}
+            <tr>
+                <td>{{ entry.getName|e }}</td>
+                <td>{{ entry.getScore|e }}</td>
+                <td>{{ entry.getCreatedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+{% endblock %}

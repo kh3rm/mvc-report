@@ -1,0 +1,83 @@
+{% extends "project/project-base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1 class="project-h1">Poker Patience Results</h1>
+
+    <div class="project-about-two-col-container">
+        <div class="project-about-right-container">
+            <a href="{{ path('proj_about') }}">
+                <img class="logo-trio cage-about" src="{{ asset('img/cage3.svg') }}" alt="Cage About Svg">
+                <img class="about-bird" src="{{ asset('img/title-bird.svg') }}" alt="Bird About Svg">
+            </a>
+        </div>
+
+        <div class="project-about-left-container">
+            <p>
+                <p>Cat score: {{ catscore }}</p>
+                <p>{{ app.session.get('player_name_challenge') }} score: {{ playerscore }}</p>
+                <button class="navlink-project" id="register-button" onclick="registerHighscore(event)">Register to Highscore</button>
+
+                {% if not playerWon == true %}
+                    <p>"Hah! Easier than I thought. Oh... Now you've made Bird upset, and I can't stand wailing.</p>
+                    <p>...Alright, I'll give you another shot."</p>
+                    <a class="navlink-project blackjack-button" href="{{ path('proj_poker_patience_play') }}">Start New Challenge</a>
+                {% else %}
+                    <p>"Ridiculous...</p>
+                    <p>Bird, don't get your hopes up. I intend to mop the floor with your little friend here at the Blackjack-table.</p>
+                    <p>All for the best: that room needs cleaning anyways."</p>
+
+
+                <form id="play-form" action="{{ path('blackjack_init_post_project') }}" method="POST">
+                    <input type="hidden" name="player_name" id="hidden-player-name">
+                    <button type="submit" class="navlink-project blackjack-button">Start Blackjack Game</button>
+                </form>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+
+    <script>
+        async function registerHighscore(event) {
+            event.preventDefault();
+            let button = document.getElementById('register-button');
+            button.disabled = true;
+            button.classList.add('disabled');
+
+            const data = {
+                playername: '{{ app.session.get('player_name_challenge') }}',
+                playerscore: {{ playerscore }}
+            };
+
+            try {
+                const response = await fetch("{{ path('proj_register_highscore') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    const resultUrl = await response.json(); // Assuming the server responds with a URL
+                    window.open(resultUrl, '_blank'); // Open the result in a new window
+                } else {
+                    console.error("Failed to register high score:", response.statusText);
+                }
+            } catch (error) {
+                console.error("Error occurred while registering high score:", error);
+            }
+        }
+    </script>
+
+    <style>
+        .disabled {
+            pointer-events: none;
+            color: gray;
+            background-color: lightgray;
+            cursor: not-allowed;
+            animation: none;
+        }
+    </style>
+{% endblock %}

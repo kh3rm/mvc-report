@@ -1,0 +1,39 @@
+{% extends "project/project-base.html.twig" %}
+
+{% block title %}API{% endblock %}
+
+{% block body %}
+    <h1 class="project-h1">API</h1>
+
+    <h2 class="rubric">Project API-Routes</h2>
+    <div class="api-container">
+
+    <p><a class="api-link" href="{{ path('api_project') }}">/api</a> - This very page, listing all the Project's JSON-related routes. </p>
+
+    <br>
+    <p><a class="api-link5" href="{{ path('book_json_show_all_proj') }}">proj/api/library/books</a> - JSON-GET-route listing all the Poker and Blackjack-books currently in the library.</p>
+
+    <p><a class="api-link5" href="{{ path('book_json_view_isbn_proj', { 'isbn': '9781419680892' }) }}">proj/api/library/books/{isbn}</a> - JSON-GET-route for a specific book.</p>
+    <br>
+
+
+    <p><a class="api-link4" href="{{ path('api_gamestate_proj') }}">/proj/api/gamestate</a> - JSON-GET-route showing the current/last gamestate-grid and results of the poker-patience. (Empty JSON-structure as default.)</p>
+    <br>
+
+
+    <p><a class="api-link2" href="{{ path('highscore_api_proj') }}">/proj/api/highscore</a> - JSON-GET-route offering up the Poker Patience Highscore.</p>
+    <p class="api-link2">JSON POST-example registering a score to the highscore-table:</p>
+    <form action="{{ path('proj_register_highscore_example') }}" method="POST" target="_blank">
+        <label for="name">Name:</label>
+        <br>
+        <input class="navlink-project2" type="text" name="name" id="name" value="Name">
+        <br>
+        <label for="score">Score:</label>
+        <br>
+        <input class="navlink-project2" type="number" name="score" id="score" value="123">
+        <br><br>
+        <button class="navlink-project2" type="submit" id="register-button">Register Faux-Highscore Entry</button>
+    </form>
+
+</div>
+{% endblock %}

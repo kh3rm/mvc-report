@@ -1,0 +1,91 @@
+{% extends "project/project-base.html.twig" %}
+
+{% block title %}Rules{% endblock %}
+
+{% block body %}
+    <style>
+        .title-bird {
+            display: none;
+        }
+        .blackboard-container {
+            display: none;
+        }
+        .blackboard-container.active {
+            display: block;
+        }
+    </style>
+
+    <h1 class="project-h1">Game Rules</h1>
+    <br>
+
+    <button class="blackjack-button navlink-project2" id="toggle-button" onclick="toggleBoards()">Show Poker Patience Rules</button>
+
+    <div class="doc-container">
+        <div class="blackjack-rules-project">
+            <div class="blackboard-container active" id="blackjack-rules">
+                <a href="{{ asset('img/blackboard-dark.svg') }}">
+                    <img class="blackboard" src="{{ asset('img/blackboard5.svg') }}" alt="Blackboard SVG Dark Theme"/>
+                </a>
+                <div class="blackboard-rules">
+                    <pre>
+            <span class="blackboard-rubric">BLACKJACK-RULES</span>
+            Both the dealer and player wager 100 chips each per hand - no exceptions
+            Dealer must hit if hand is less than 17
+            Dealer must stand if hand is greater than or equal to 17
+            Dealer's and player's hands are evaluated equally
+            Dealer's and player's hands interact equally with aces
+            No bonuses for a clean Blackjack-hand (A♠<span class="red">K♥</span>) and the like:
+            it's a beautiful hand, but it's treated and rewarded normally,
+            for dealer and player alike
+            200 for won hand, 100 for drawn, 0 for lost (slightly redundant)
+            Game is concluded when the dealer or player has won all the chips
+            Otherwise the normal <a href="https://en.wikipedia.org/wiki/Blackjack">Blackjack-rules</a> apply.
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="poker-patience-rules-project">
+            <div class="blackboard-container" id="poker-patience-rules">
+                <a href="{{ asset('img/blackboard-dark.svg') }}">
+                    <img class="blackboard" src="{{ asset('img/blackboard5.svg') }}" alt="Blackboard SVG Dark Theme"/>
+                </a>
+                <div class="blackboard-rules">
+                    <pre>
+            <span class="blackboard-rubric">POKER PATIENCE-RULES</span>
+            With 25 cards, 5x5, build 5 Poker hands horizontally, and 5 vertically,
+            and try to maximize your score.
+
+            Pair - 2p
+            Two Pair - 5p
+            Three Of A Kind - 10p
+            Straight - 15p
+            Flush - 20p
+            Full House - 25p
+            Four Of A Kind - 50p
+            Straight Flush - 75p
+            Royal Straight Flush - 150p
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleBoards() {
+            const blackjackRules = document.getElementById('blackjack-rules');
+            const pokerPatienceRules = document.getElementById('poker-patience-rules');
+            const toggleButton = document.getElementById('toggle-button');
+
+            if (blackjackRules.classList.contains('active')) {
+                blackjackRules.classList.remove('active');
+                pokerPatienceRules.classList.add('active');
+                toggleButton.textContent = 'Show Blackjack Rules';
+            } else {
+                blackjackRules.classList.add('active');
+                pokerPatienceRules.classList.remove('active');
+                toggleButton.textContent = 'Show Poker Patience Rules';
+            }
+        }
+    </script>
+{% endblock %}

@@ -5,7 +5,7 @@ namespace App\Deck;
 use App\Card\Card;
 
 /**
- * PopulateDeckHelpTrait - handles the Unicode representation of a deck.
+ * PopulateDeckHelpTrait - handles the population of a deck.
  */
 trait PopulateDeckHelpTrait
 {

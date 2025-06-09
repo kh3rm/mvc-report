@@ -4,7 +4,7 @@
     ],
     "exclude": [
       "../../test[s]?",
-      "../../src/Player"
+      "../../src/Controller/ProjectController/ProjectPokerPlayJsonUpdate.php"
     ],
     "report": {
         "html": "../../docs/metrics"

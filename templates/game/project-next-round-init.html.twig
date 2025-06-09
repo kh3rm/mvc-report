@@ -1,0 +1,34 @@
+{% extends "project/project-base.html.twig" %}
+
+{% block title %}Blackjack Game{% endblock %}
+
+{% block body %}
+
+<style>
+    .title-bird
+    {
+        display: none;
+    }
+</style>
+
+<h1 class="project-h1">Blackjack Game</h1>
+
+<div class="bird-blackjack-intro-container">
+"Let's not mess around. We'll wager it all again. You're not scared, are you?"
+</div>
+
+<form method="POST" action="next-round-init">
+    <p>How many hands this round?</p>
+    {% set max_hands = maximum_hands < 10 ? maximum_hands : 10 %}
+    <p><input class="game-form game-number_of_hands" type="number" name="number_of_hands" id="number_of_hands" value="{{max_hands}}" readonly></p>
+    <p>Bet size:</p>
+    <p><input class="game-form game-bet-size-form" type="number" name="bet_size" id="bet_size" value="100" readonly></p>
+    <p><input class="blackjack-button init-button blackjack-button2 navlink-project2" type="submit" name="do_it" value="Start Round"></p>
+</form>
+
+{{ include('flash.html.twig') }}
+
+<p>Player: {{ dump(player) }}</p>
+<p>Dealer:  {{ dump(dealer) }}</p>
+
+{% endblock %}

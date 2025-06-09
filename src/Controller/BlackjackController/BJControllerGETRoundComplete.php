@@ -46,6 +46,8 @@ class BJControllerGETRoundComplete extends AbstractController
             $gameResults->clearBlackjackGameSession();
         }
 
+        return $this->render($session->has('project_game') ? 'game/project-round-results.html.twig' : 'game/round-results.html.twig', $data);
+
         return $this->render('game/round-results.html.twig', $data);
     }
 

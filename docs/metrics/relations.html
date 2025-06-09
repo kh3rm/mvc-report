@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2025-06-02 16:20:58        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2025-06-09 03:49:23        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -93,7 +93,7 @@
                             <path d="M0 0h24v24H0z" fill="none">
                             <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z">
                         </svg>
-                        Violations (9)
+                        Violations (11)
                     </a>
                 </li>
                                     <li>
@@ -279,7 +279,27 @@
         "relations": []
     },
     {
+        "name": "\\App\\Entity\\HighscoreEntry",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\DateTimeZone",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\DateTime",
+        "size": 3000,
+        "relations": []
+    },
+    {
         "name": "\\App\\Entity\\Book",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Entity\\ProjectBook",
         "size": 3000,
         "relations": []
     },
@@ -417,6 +437,362 @@
         ]
     },
     {
+        "name": "\\App\\Controller\\ProjectController\\ProjectAboutControllerTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectHighscoreController\\HighscoreControllerRegExample",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\HighscoreEntry",
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
+        ]
+    },
+    {
+        "name": "\\Doctrine\\Persistence\\ManagerRegistry",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Symfony\\Component\\Routing\\Attribute\\Route",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectHighscoreController\\ProjHighscoreControllerJson",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\App\\Repository\\HighscoreEntryRepository",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Repository\\HighscoreEntryRepository",
+        "size": 3000,
+        "relations": [
+            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
+            "\\Doctrine\\Persistence\\ManagerRegistry"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectHighscoreController\\ProjectHighscoreControllerTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\HighscoreEntryRepository",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectHighscoreController\\HighscoreControllerRegister",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\HighscoreEntry",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectHighscoreController\\HighscoreControllerReset",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\HighscoreEntryRepository",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectApiControllerTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectLibraryController\\ProjLibraryControllerView",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\ProjectBookRepository",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Repository\\ProjectBookRepository",
+        "size": 3000,
+        "relations": [
+            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\ProjectBook"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectLibraryController\\ProjLibraryControllerReset",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\ProjectBookRepository",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectLibraryController\\ProjLibraryControllerHome",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectLibraryController\\ProjLibraryControllerUpdate",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\ProjectBookRepository",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectLibraryController\\ProjLibraryControllerCreate",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\ProjectBook"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectLibraryController\\ProjLibraryControllerDelete",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\ProjectBookRepository",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectLibraryController\\ProjLibraryControllerJson",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\ProjectBookRepository",
+            "\\Symfony\\Component\\Routing\\Attribute\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectBlackjackController\\BJControllerProjectPOSTInit",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Helper\\BlackjackHelper\\SessionHelper",
+            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackPlayer",
+            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackDealer",
+            "\\App\\Helper\\BlackjackHelper\\BlackjackHelper"
+        ]
+    },
+    {
+        "name": "\\App\\Helper\\BlackjackHelper\\SessionHelper",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
+        ]
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackPlayer\\BlackjackPlayer",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Blackjack\\BlackjackPlayer\\BlackjackDealer",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Helper\\BlackjackHelper\\BlackjackHelper",
+        "size": 3000,
+        "relations": [
+            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackPlayer",
+            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackDealer",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Deck\\DeckOfCards52",
+            "\\App\\Blackjack\\BlackjackCardHand\\BlackjackCardHand"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectBlackjackController\\ProjectBJControllerGETPlay",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectPokerPCompletePOST",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\Symfony\\Component\\HttpFoundation\\Request"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectSessionController\\ProjectSessionController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectPokerPlayJsonController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\PokerPatienceGS\\PokerPatienceGrid",
+            "\\App\\PokerPatienceGS\\EvaluateHands",
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse"
+        ]
+    },
+    {
+        "name": "\\App\\PokerPatienceGS\\PokerPatienceGrid",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\PokerPatienceGS\\EvaluateHands",
+        "size": 3000,
+        "relations": [
+            "\\App\\Exception\\IncorrectGridFormatException"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectAboutDatabaseTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectPokerPlayController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Helper\\JsonGridHelper",
+            "\\App\\Deck\\DeckOfCards52",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Helper\\JsonGridHelper",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\PokerPatienceGS\\PokerPatienceGrid"
+        ]
+    },
+    {
+        "name": "\\App\\Deck\\DeckOfCards52",
+        "size": 3000,
+        "relations": [
+            "\\App\\Deck\\DeckOfCards"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectChallengeInitController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectRulesController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectFreeBirdController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectPokerPlayJsonUpdate",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\PokerPatienceGS\\PokerPatienceGrid",
+            "\\App\\Helper\\JsonGridHelper",
+            "\\App\\PokerPatienceGS\\EvaluateHands"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\ProjectController\\ProjectHomeControllerTwig",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response"
+        ]
+    },
+    {
         "name": "\\App\\Controller\\DiceController\\DiceGameControllerSave",
         "size": 3000,
         "relations": [
@@ -478,13 +854,6 @@
             "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
             "\\App\\Deck\\DeckOfCards52",
             "\\App\\Player\\Player"
-        ]
-    },
-    {
-        "name": "\\App\\Deck\\DeckOfCards52",
-        "size": 3000,
-        "relations": [
-            "\\App\\Deck\\DeckOfCards"
         ]
     },
     {
@@ -615,17 +984,6 @@
         ]
     },
     {
-        "name": "\\App\\Helper\\BlackjackHelper\\BlackjackHelper",
-        "size": 3000,
-        "relations": [
-            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackPlayer",
-            "\\App\\Blackjack\\BlackjackPlayer\\BlackjackDealer",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\App\\Deck\\DeckOfCards52",
-            "\\App\\Blackjack\\BlackjackCardHand\\BlackjackCardHand"
-        ]
-    },
-    {
         "name": "\\App\\Controller\\BlackjackController\\BJControllerGETRoundComplete",
         "size": 3000,
         "relations": [
@@ -659,16 +1017,6 @@
         ]
     },
     {
-        "name": "\\App\\Blackjack\\BlackjackPlayer\\BlackjackPlayer",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Blackjack\\BlackjackPlayer\\BlackjackDealer",
-        "size": 3000,
-        "relations": []
-    },
-    {
         "name": "\\App\\Controller\\BlackjackController\\BJControllerPOSTDealerHitHand",
         "size": 3000,
         "relations": [
@@ -696,13 +1044,6 @@
             "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
             "\\App\\Helper\\BlackjackHelper\\SessionHelper",
             "\\Symfony\\Component\\Routing\\Annotation\\Route"
-        ]
-    },
-    {
-        "name": "\\App\\Helper\\BlackjackHelper\\SessionHelper",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
         ]
     },
     {
@@ -763,16 +1104,6 @@
             "\\Doctrine\\Persistence\\ManagerRegistry",
             "\\App\\Entity\\Book"
         ]
-    },
-    {
-        "name": "\\Symfony\\Component\\Routing\\Attribute\\Route",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Doctrine\\Persistence\\ManagerRegistry",
-        "size": 3000,
-        "relations": []
     },
     {
         "name": "\\App\\Controller\\LibraryController\\LibraryControllerHome",
@@ -879,6 +1210,23 @@
             "\\App\\Blackjack\\BlackjackPlayer\\BlackjackPlayer",
             "\\App\\Blackjack\\BlackjackPlayer\\BlackjackDealer",
             "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
+        ]
+    },
+    {
+        "name": "\\App\\PokerPatienceGS\\HandScoringTrait",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\PokerPatienceGS\\HandEvaluationTrait",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Exception\\IncorrectGridFormatException",
+        "size": 3000,
+        "relations": [
+            "\\Exception"
         ]
     },
     {

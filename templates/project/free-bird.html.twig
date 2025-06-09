@@ -1,0 +1,19 @@
+{% extends "project/project-base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1 class="project-h1">Bird is Free!</h1>
+
+    <div class="free-bird-container">
+            <img class="logo-trio cage-about" src="{{ asset('img/cage3.svg') }}" alt="Cage About Svg">
+            <img class="about-bird" src="{{ asset('img/title-bird.svg') }}" alt="Bird About Svg">
+    </div>
+
+    <p>"Thank you, {{ app.session.get('player_name_challenge') }}, I knew you would come through!"</p>
+
+
+    <p>Game completed. Well done.</p>
+    <a class="blackjack-button navlink-project" href="{{ path('session_delete_proj') }}">Reset Project Session</a>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "project/project-base.html.twig" %}
+
+{% block title %}Project Blackjack Game{% endblock %}
+
+{% block body %}
+
+<style>
+    .title-bird {
+        display: none;
+    }
+</style>
+
+
+{% if game_decided %}
+
+<h1 class="project-h1">Results</h1>
+
+{% else %}
+
+<h1 class="project-h1">Project Blackjack Chip Count</h1>
+
+{% endif %}
+
+
+
+{% if game_decided %}
+    <h2> Game completed</h2>
+{% endif %}
+
+<h2>Chip Count:</h2>
+<h2>Cat:  {{ dealer.getChipCount() }} </h2>
+<h2>{{ player.getPlayerName() }}: {{ player.getChipCount() }} </h2>
+
+{% if game_decided %}
+    {% if dealer.getChipCount() == 0 %}
+        <p>"Unreal... Alright, alright, take the Bird. </p>
+
+        <p>...I never cared much for birds anyways, the feathers
+        always get stuck in my throat."</p>
+
+        <form action="{{ path('free_bird_project') }}" method="GET">
+            <button class="blackjack-button blackjack-button2 navlink-project" type="submit">Free Bird</button>
+        </form>
+
+    {% else %}
+        <p>"And there we go. Easy. Never in doubt.</p>
+
+        <p>...but sure, I'll give you another shot, it's not mealtime yet."</p>
+
+        <form action="{{ path('challenge_init_proj') }}" method="GET">
+            <button class="blackjack-button blackjack-button2 navlink-project" type="submit">Start New Challenge</button>
+        </form>
+
+    {% endif %}
+
+
+
+{% else %}
+
+<form id="next-round" action="next-round" method="POST">
+    <input type="hidden" name="nextRound">
+    <br>
+    <button class="blackjack-button blackjack-button2 navlink-project" type="submit">Next Round</button>
+</form>
+
+{% endif %}
+
+
+{% endblock %}

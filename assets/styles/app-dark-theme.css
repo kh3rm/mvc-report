@@ -233,3 +233,17 @@ nav a:hover,
 .library-table {
     color: rgba(18, 18, 18, 0.85)
 }
+
+.tool-descr {
+    color: rgb(26, 37, 26);
+}
+
+
+
+
+/* ********************************PROJECT-RELATED ****************************** */
+
+
+.project-body {
+    background-position: center;
+}

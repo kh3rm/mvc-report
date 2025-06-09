@@ -1,0 +1,83 @@
+{% extends "project/project-base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1 class="project-h1">Start Challenge</h1>
+
+    <div class="project-about-two-col-container">
+
+        <div class="project-about-right-container">
+            <a href="{{ path('proj_about') }}">
+                <img class="about-bird" src="{{ asset('img/title-bird.svg') }}" alt="Bird About Svg">
+                <img class="logo-trio cage-about" src="{{ asset('img/cage3.svg') }}" alt="Cage About Svg">
+
+            </a>
+        </div>
+
+        <div class="project-about-left-container">
+            <p>
+                "Ah, so you're Bird's friend. It took you a while.
+            </p>
+            <p>
+                ...what is your name?"
+            </p>
+            <div id="name-prompt">
+
+                <form id="name-form">
+                    <input class="navlink-project name-form"type="text" id="username" name="username" required>
+                    <button class="navlink-project" type="submit">Submit</button>
+                </form>
+            </div>
+
+            <div id="content" style="display: none;">
+                <p id="greeting-line">
+                </p>
+
+                <p>
+                   We start off with Poker Patience. If you were to beat me at that, we move on to a game of Blackjack.
+                </p>
+
+                <p>
+                   If you need to study up on the rules, head to <a href="{{ path('rules_project') }}" class="about-link-project">Rules</a>.
+                </p>
+
+                <p>
+                   If you desire to read up on some theory - although no theory in the world
+                   could ever help you - head to the <a href="{{ path('book_view_all_proj') }}" class="about-link-project">Library</a>.
+                </p>
+
+                <p>
+                    Further palaver is pointless, the conditions are as clear as day:
+                </p>
+
+                <p>
+                    Beat me at both games = Bird is set free."
+                </p>
+
+                <form id="play-form" action="{{ path('proj_poker_patience_play') }}" method="POST" style="display: none;">
+                    <input type="hidden" name="player_name" id="hidden-player-name">
+                    <button type="submit" class="navlink-project blackjack-button">Start Challenge</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        document.getElementById('name-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+
+            document.getElementById('greeting-line').innerHTML = `"Okay, ${username}, you really think you're going to outplay me? Laughable.`;
+
+            document.getElementById('name-prompt').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            document.getElementById('hidden-player-name').value = username;
+
+            document.getElementById('play-form').style.display = 'block';
+        });
+    </script>
+
+{% endblock %}
