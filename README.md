@@ -18,9 +18,12 @@ MVC REPORT - A SYMFONY BUILD.
 
 Greetings!
 
+Light Mode:
 ![MVC-Report Screenshot](public/img/mvc-report-screenshot-2.png)
-![MVC-Report Screenshot](public/img/mvc-report3.png)
-![MVC-Report Screenshot](public/img/mvc-project.png)
+Dark Mode:
+![MVC-Report Screenshot](public/img/mvc-dark.png)
+Project:
+![MVC-Report Screenshot](public/img/mvc-report-project.png)
 
 Welcome to this repo that contains my, [Herman Karlsson (hekr23)](https://www.student.bth.se/~hekr23/dbwebb-kurser/mvc/me/report/public/), mvc-report-build, established in and for the course [mvc v2](https://dbwebb.se/kurser/mvc-v2).
 
