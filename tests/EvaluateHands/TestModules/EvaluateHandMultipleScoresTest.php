@@ -110,7 +110,7 @@ trait EvaluateHandMultipleScoresTest
 /**
  * Evaluate 4 straight-flush dream hands horizontally, including 5 four of a kind vertically,
  * plus an extra straight flush as a cherry on top on the bottom row.
- * asserting correct scoring (150*4) + (50*5) + 75 = 925
+ * Assert correct scoring (150*4) + (50*5) + 75 = 925
  */
 public function testDreamHandCorrectMultipleFull()
 {

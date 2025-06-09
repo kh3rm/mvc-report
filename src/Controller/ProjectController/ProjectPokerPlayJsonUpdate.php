@@ -27,7 +27,7 @@ class ProjectPokerPlayJsonUpdate extends AbstractController
      *
      * @Route("proj/api/updategamestate", name="api_update_gamestate_proj", methods={"POST"})
      * @param Request $request The HTTP request object containing the card and index data
-     * @param SessionInterface $session The session interface to store the gameplay data
+     * @param SessionInterface $session The session interface in which to store the gameplay data
      * @return JsonResponse Returns a JSON response containing the updated game state
      * grid and scores, or an error message.
      */

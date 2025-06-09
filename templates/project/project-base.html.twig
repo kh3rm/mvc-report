@@ -19,6 +19,8 @@
                 {{ encore_entry_script_tags('app') }}
             {% endif %}
 
+            {% do app.session.set('theme', 'light') %}
+
             {% block importmap %}
                 {% if app.session.get('theme') == 'dark' %}
                     {{ importmap('app-dark-theme') }}

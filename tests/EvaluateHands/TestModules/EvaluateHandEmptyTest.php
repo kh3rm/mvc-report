@@ -6,7 +6,7 @@ use App\PokerPatienceGS\EvaluateHands;
 use App\Exception\IncorrectGridFormatException;
 
 /**
- * Hand-score-test cases for the class EvaluateHands.
+ * Empty hand-score-test cases for the class EvaluateHands.
  */
 trait EvaluateHandEmptyTest
 {
