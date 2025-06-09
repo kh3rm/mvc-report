@@ -482,10 +482,278 @@ trots att det i relativa termer tillkom relativt sent "på riktigt", med riktigt
 </div>
 
     <h2 class="report-rubric" id="projekt">Projekt</h2>
+<div class="report-container">
+    <h2 class="rubric">Krav 1-3</h2>
 
-    <p>Redovisningstext</p>
+<p>Började med att skapa en grov stylingmässig struktur för det nya projektet, där jag lekte
+runt med lite olika bakgrunder, navbar-strukturer etc., innan den mer konkreta projektidén började
+utkristalliseras.</p>
 
-    <br><br><br><br><br><br><br><br>
+<p>Landade i katt-temat som inbjuder till en liten storyline och twist, som fick ackompanjera
+och liva upp Poker Patience-bygget, som trots allt var den huvudsakliga pjäsen.</p>
 
+<p>Som jag redogör för även i texten avseende advanced features i Krav 6, så inledde jag med
+att bygga upp en liknande struktur med reroutes som jag gjort för Blackjack-spelet, och fick på
+plats en grovt fungerande variant.</p>
+
+<p>Kände dock att den var lite träig, och att det konstanta hoppandet mellan routes efter varje
+kortutplacering i gridet störde användarupplevelsen, så började istället fila på en lösning där
+man kan jobba utifrån SAP med en dynamisk JSON-AJAX-reqest.</p>
+
+<p>Där fick jag väldigt god nytta av mina korts unika, säregna cardInt-properties, som innehåller
+både suit (1XX, 2XX, 3XX, 4XX)  och rank (X02-X14), och kunde minimalistiskt bara spara undan det
+i en array med 25 värden motsvarande alla indexpositioner i 5x5-gridet.</p>
+
+<p>Efter att ha filat lite på min EvaluateHands-klass, så kunde jag också till slut använda mig av
+den direkt i den update-routen, och jobba direkt mot den gridstrukturen som var etablerad,
+där jag även höll koll på de 5 horizontella och 5 vertikala händerna, och kunde skicka tillbaka
+de värdena för att ge användaren dynamiska uppdateringar i anslutning till gameplay-gridet.</p>
+
+<p>Slimmade ned det som var 4-5 konceptuella klasser i arbetet med det här, till två,
+EvaluateHands och PokerPatienceGrid, och några tillhörande avlastande traits.</p>
+
+<p>Är nöjd med hur det artade sig.</p>
+
+<p>Igen, för att lyfta humöret litegrann, och ha en liten rolig twist, så är själva utmaningen
+som användaren ställs inför: att besegra katten i både Poker Patience och Blackjack, för att på
+så sätt kunna frigöra den tillfångatagna och inburade fågeln.</p>
+
+<p>Blackjack-logiken var ju redan på plats, och behövdes bara lite småmodifikationer för att pussla
+in det i det här konceptet. Katten och användaren börjar med 500 marker vardera, 100 per hand,
+och satsar allt i varje runda, tills det att man har en vinnare, för att hålla det kort och
+koncist, inte minst för er rättare.</p>
+
+<p>Satte även kattens framslumpade PokerPatience-score som man spelar mot artificiellt lågt,
+så att ni inte ska behöva sitta och traggla och lägga ett grymt parti för att på ett vettigt
+sätt kunna rätta och gå igenom arbetet.</p>
+
+<h2 class="rubric">Krav 4</h2>
+
+<p>Etablerandet av ett antal JSON-API-routes var väl det minst arbetsintensiva av kraven, även om
+mycket av arbetet med huvudkravet också involverade JSON i den dynamiska uppdateringen, och de går
+in i varandra litegrann på det sättet.</p>
+
+<p>Men för den faktiska proj/api-routen:</p>
+
+<p>Etablerad två GET-routes kopplade till project-book/project-library: en för att visa alla
+poker- och blackjack-relaterade böcker i databasen, och en för att visa en specifik, där man
+använder sig av bokens ISBN-nummer.</p>
+
+<p>Därefter har vi en GET-route som visar gamestate-statusen för den JSON-struktur som uppdateras
+dynamiskt för Poker Patience-spelet, baserat på gameplay_grid-noteringen som sparas undan i session.</p>
+
+<p>Slutligen har vi ytterligare två HighscoreEntry-relaterade routes: en för att visa upp alla
+entries i highscore-tabellen, och en för att registrera in en ny highscore-score utifrån
+formulärdata.</p>
+
+<p>Körde en liten ytterligare dynamisk bonusvariant också, och byggde ytterligare en kontroller,
+i marginalen, för att kunna skicka iväg och skapa en ny entry när användaren har lagt klart
+pokerpatiensen och vill registrera sin score till highscoren.</p>
+
+<p>JSON är ju en fantastiskt mångsidig struktur, och det känns som att det är väldigt många
+avenyer och dörrar som öppnar sig om man lär sig att verkligen behärska och bemästra den
+och det här sättet att jobba mot ett API.</p>
+
+<h2 class="rubric">Krav 5</h2>
+
+<p>De ytterligare databastabellerna jag etablerade var inte av någon jätteavancerad eller
+sofistikerad art, men kompletterade mitt projektupplägg på ett bra sätt.</p>
+
+<p>En project_book-tabell - ProjectBook-Entity- och -Repository - som fick innehålla poker- och
+blackjackrelaterade böcker, som teoretiskt, i trippel bemärkelse, ämnar kunna understödja
+användaren i sin hjärnornas kamp mot katten.</p>
+
+<p>Den var mer eller mindre en karbonkopia av den Book-klass jag etablerade i tidigare kursmoment,
+så inte någon fruktansvärd arbetsinsats där, men omarbetade bokinnehållet utifrån temat, och
+kompenserade med att piffa upp stylingen ordentligt på ett trevligt sätt.</p>
+
+<p>Det var också banalt nog här jag åkte på min tuffaste tidsmässiga dikeskörning, och spenderade
+några timmar, där jag inte fick min create-book-project-route att fungera, trots att allt annat
+fungerade avseende view/update/delete för en given bok, efter att ha använt mig av den mall som
+jag etablerat i tidigare kursmoment för template/Controller.</p>
+
+<p>Försökte vrida och vända, felsöka, logga, men kunde inte lista ut problemet, och fick inte
+några klara felmeddelanden som kunde peka mig i rätt riktning heller, utan formuläret bara
+nollställdes efter det att jag submittat.</p>
+
+<p>Felet var att jag använt mig av path-name-routen i min submit och för att interagera med
+Controllern, och överblickat den faktiska route-adressen, som jag ansåg mer eller mindre
+irrelevant i sammanhanget, och hade missat att justera den, som fortsatt var densamma som
+den karbonkopierade create-book routen från kmom05.</p>
+
+<p>Ibland är man blind för de mest triviala och enkla av lösningar.
+Ni har förmodligen stött på det här problemet för studenter tidigare otaliga gånger, men om inte,
+så finns det en liten felmeddelandemässig lucka där, och kan eventuellt vara värt att göra en
+notering, och kunna tipsa studenter som kört fast i sin CRUD-implementation att verkligen
+dubbelkolla det.</p>
+
+<p>Den andra tabllen highscore_entry - HighscoreEntry-Entity och Repository - ansvarar istället
+för min highscore implementation.</p>
+
+<p>Inte så väldigt mycket mer att tillägga här som jag inte redan redogjort för i
+about-database-texten, men ORM var en trevlig bekantskap, och det var ett intressant sätt
+alternativt sätt att jobba mot en databas.</p>
+
+<h2 class="rubric">Krav 6</h2>
+
+<p>Eventuellt trevligare formatering i den <a href="{{ path('about_advf_proj') }}">dedikerade routen</a> på projektsidan, men kommer här också:</p>
+
+<h2>Feature 1</h2>
+
+<p>Den första featuren jag väljer att lyfta fram är den friktionsfria Poker
+Patience-gameplay-implementationen.</p>
+
+<p>Började initiellt med att konstruera en liknande struktur som för Blackjack-spelet, där jag
+mellanlandade i routerna efter varje post-request när en användare placerar ut ett kort.</p>
+
+<p>Habilt, helt okej, men det stör flytet i spelet lite, och jag tycker att det blev extra
+påtagligt när man tar sig an en Poker Patience, där det är trevligt att kunna få lägga ut
+korten ostört och fokuserat, utan att kastas in och ut mellan routes.</p>
+
+<p>Så började fila på en annan variant, där jag fick riktigt god användning av de kortunika
+cardInt-attributen som jag etablerade tidigt i kursen för mina Card-objekt, där jag kunde
+uppdatera och lägga in det kort som utplacerats i gridet i en motsvarande JSON-array med 25
+indexpositioner, med en asynkron JSON-AJAX-request, alltså understödd av lite JS, vilket
+möjliggör en implementation utan hackiga omdirigeringar (enligt SPA om man ska fortsätta
+droppa akronymer).</p>
+
+<p>Blev en i mitt tycke väldigt trevlig och bra lösning i slutändan, och bidrog till en mycket
+bättre användarupplevelse.</p>
+
+<p>
+Hade också lite problem till en början med att den ibland kunde lagga till, och innan det att ett
+nytt kort hunnit genererats efter ett klick, så kunde man av misstag placera ut samma kort två
+gånger, vilket 1. inte är bra eller rätt, och 2. dessutom satte spellogiken ordentligt ur fas.</p>
+
+<p>Löste det med att temporärt inaktivera alla pointerevents från den tidpunkten att en användare
+klickar på ett kort, för att sedan återaktivera i slutet av den logiska följden där
+JSON-uppdateringen är avklarad och allt har bearbetats. Artade sig utmärkt.</p>
+
+<h2>Feature 2</h2>
+<p>
+I ovan nämnda etablerade poker patience-omarbetning, så var det ändå någonting som saknades,
+nämligen, att också kunna möjliggöra dynamisk poänguppdatering i anslutning till
+25-korts-spelgridet av de 5 horizontella och 5 vertikala händerna.</p>
+
+<p>Omkonstruerade därför min evaluate klass så att den också skulle kunna vara kapabel att
+jobba mot det här gridformatet, där den nu får köra sina uppdateringar dynamiskt i den
+update-routen i samband med att ett kort läggs till.</p>
+
+<p>
+Och även om både rank och suit-attribut fanns tillgängliga att arbeta med Card-klassen, så
+fungerar ju mitt cardInt-attribut alldeles utmärkt allena, inte bara som en smidig säregen
+pseudo-primärnyckel-identifikator i JSON-gridet, för att blanda in lite SQL-terminologi,
+för både suiten (1XX, 2XX, 3XX, 4XX) finns ju tillgänlig, och likaså ranken (X02-X14),
+och den räcker ju mer än väl till att bygga upp huvudlogiken kring.</p>
+
+<p>Kunde därför på ett cleant och direkt sätt jobba direkt mot det etablerade gridet, och
+bygga upp min handutvärderingsklass utifrån det.</p>
+
+<h2>Feature 3</h2>
+<p>Den tredje featuren jag väljer att lyfta fram, är av en mindre komplex, men ändå
+(inbillar jag mig) någorlunda sinnrik art.</p>
+
+<p>Etablerade nämligen två nya base-templates för att komplettera den jag använt mig tidigare
+i kursen: project-base, som utgör den kattorienterade huvudbackdroppen för projektsidan, och
+ytterligare en, project-base-library, som jag använde mig av i alla mina
+project-library/project-book-relaterade vyer.</p>
+
+<p>Kunde också manipulera och applicera basen konditionellt med en project_game satt
+session-boolean, och därför använda mig av samma Controllers, routes och templates för
+blackjack-gameplayen som jag etaalerat tidigare, för att inte behöva skapa onödiga,
+icke-DRY och potentiellt problematiska kopior in i absurdum. Väldigt smidigt.</p>
+
+<p>Anpassade även lite annat med samma konditionella logik iBlackjack-routerna, där jag
+plockade bort den tidigare fågeln (som ju blivit instängd i en bur av katten, vilket är
+projektets huvud-storyline), ändrade lite styling och anpassade kattens syrliga kommentarer
+beroende på resultat och status.</p>
+
+<h2>Feature 4</h2>
+<p>
+Beskrivningen av fjärde featuren håller jag föredömligt kort, och är av en mer generell natur:
+har lagt en allmänt ordentlig insats på styling och detaljfronten, med animationer, interaktion,
+spelflöde och kommentarer, som jag upplever harmoniserar och knyter ihop hela paketet till ett
+trevlig och sammanhållet koncept.</p>
+
+<h2 class="rubric">Allmänt om Projektet</h2>
+
+<p>Projektarbetet har flytit på bra, och har varit en ovanligt trevlig avslutning på en kurs.
+Har ett kortspelsintresse och en pokerbakgrund, och uppskattar projektupplägg där man ges relativt
+fria tyglar, så det här föll mig verkligen på läppen.</p>
+
+<p>Har redogjort för de problem och de lösningar på ett ganska uttömmande sätt, men tänkte att det
+kunde vara värt att resonera lite kring de linters och validerings- och kvalitetssäkringsverktyg vi
+arbetat med i kursen och även här i projektet.</p>
+
+<p>Tycker att det är en riktigt gedigen uppsättning, som täcker in aspekter kring kodkvalité från
+olika infallsvinklar, men där de inte alltid är helt överrens gällande vad som ska prioriteras
+när det kommer till syntax och struktur.</p>
+
+<p>Minimalistiska klasser, metoder och Controllers avseende storlek och komplexitet, med få
+konditionella avgreningar, och helst inga else-satser alls, rimmar inte alltid till 100% väl med
+ordentliga typechecks och gedigen felhantering.</p>
+
+<p>Inte det enklaste alla gånger att få till den balansen, och att få till idel gröna php-metrics
+noteringar för mina klasser och Controllers i kmom06 krävde mycket omstuvning och utflyttning i
+separate Controllers och traits, som visserligen till stora delar var nyttig, men även i vissa
+avseenden försämrade koden och gjorde den i mitt tycke mer spretig och osammanhängande.</p>
+
+<p>Valde därför att inte vara fullt så kategorisk i projektarbetet, även om nästan alla av de
+nyintroducerade klasserna och Controllers lyser grönt, och lät två gula prickar bero kring 80% MI,
+efter lite omarbetning, där jag inte kände att det skulle väsentligt förbättra kodkvalitén och
+tydligheten att lyfta ut/refaktorera någonting mer in i absurdum.</p>
+
+<p>HandEvaluationTrait (som tillsammans med HandScoringTrait var de två gula) var också det enda
+stället i hela koden där jag aktivt avvaktiverade en synpunkt med:
+@SuppressWarnings("PHPMD.CyclomaticComplexity").</p>
+
+<p>Hade det varit svart och vitt, eller grönt och rött, en definitiv indikator, och inte bara en
+generellt bra vägvisande sådan, hade det varit värt det att verkligen alltid vrida och vända och
+jaga gröna prickar och grönt ljus.</p>
+
+<p>Men iom att  det här är flytande begrepp, och att det här är värden och tillvägagångsätt
+som man ständigt får väga mot varandra och i relation till det man håller på med, så får man
+passa sig för att stirra sig blind och bli alltför kategorisk och dogmatisk.</p>
+
+<p>Detsamma kan sägas om Scrutinizer (10 score, 100% täckning av relevanta klasserna), med
+synpunkter av annan art, men som också det sammantaget var ett väldigt bra verktyg.</p>
+
+<p>Nog om det.</p>
+
+<p>
+I övrigt tycker jag att projektet var en vettig avslutning på kursen, som tog rimligt med tid i
+anspråk, även om jag valde att logga lite övertaliga timmar för att få till det på ett för mig
+riktigt tillfredsställande sätt.</p>
+
+
+
+<h2 class="rubric">Avslutande ord om kursen</h2>
+
+<p>Tycker att det har varit en riktigt givande och bra kurs, och en utav de roligaste hittills, i
+hård konkurrens.</p>
+
+<p>De konceptuella genomgångarna som ackompanjerar varje kurmoment är _riktigt_ bra, som vanligt,
+och skulle rekommendera även andra kursansvariga att överväga att anamma det konceptet:
+att verkligen försöka samla de övergripande koncept som ska täckas in i den typen av riktigt
+genomarbetade genomgångar, som (precis som välkonstruerad kod) kan återanvändas från år till år.</p>
+
+<p>Sedan kan genomgångarna och tisdagszoomarna på veckobasis vara lite mer uppsläppta och
+informella.</p>
+
+<p>Har sympati för att det kan vara tradigt och svårt att verkligen vara hundraprocentigt
+motiverad till att naila det när man drar liknande grejer varje år, och att kursinnehållet ändras
+och omarbetas på kontinuerlig basis, men att det som kan täckas in mer övergripande verkligen
+gynnas av att göra det i det här väldigt uppstyrda och seriösa formatet.</p>
+
+<p>Stabila genomgångar överlag, bra testgenomgång av Marie, habila läroresurser.</p>
+
+<p>Eventuella frågetecken har kunnat rätas ut i Discord-chatten som vanligt.</p>
+
+<p>Har alltsomoftast tenderat att landa i stabila 8:or när jag satt betyg på kurserna jag
+hittills läst, en stabil och hög nivå, men här viktar det över i en 9:a. Väldigt bra.</p>
+
+<p>Stort tack till lärarteamet (och rättarteamet) för deras arbete, och på återhörande.</p>
+
+</div>
 
 {% endblock %}

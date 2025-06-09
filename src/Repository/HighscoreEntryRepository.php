@@ -17,7 +17,7 @@ class HighscoreEntryRepository extends ServiceEntityRepository
         parent::__construct($registry, HighscoreEntry::class);
     }
 
-    public function findAllEntriesScoreDesc()
+    public function findAllEntriesScoreDesc(): mixed
     {
         return $this->createQueryBuilder('e')
             ->select('e')
@@ -26,13 +26,13 @@ class HighscoreEntryRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-/**
- * Clear all the highscore entries from the database.
- */
-public function resetHs(): void
-{
-    $entityManager = $this->getEntityManager();
+    /**
+     * Clear all the highscore entries from the database.
+     */
+    public function resetHs(): void
+    {
+        $entityManager = $this->getEntityManager();
 
-    $entityManager->createQuery('DELETE FROM ' . HighscoreEntry::class)->execute();
-}
+        $entityManager->createQuery('DELETE FROM ' . HighscoreEntry::class)->execute();
+    }
 }

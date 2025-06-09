@@ -17,7 +17,6 @@ use App\Entity\HighscoreEntry;
  */
 final class HighscoreControllerRegister extends AbstractController
 {
-
     /**
      * Create highscore-entry-route
      * @Route("/proj/api/register_highscore", name="book_create", methods={"POST"})

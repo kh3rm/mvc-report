@@ -15,11 +15,11 @@ use Symfony\Component\Routing\Attribute\Route;
  */
 final class ProjHighscoreControllerJson extends AbstractController
 {
-    private HighscoreEntryRepository $highscoreEntryRepository;
+    private HighscoreEntryRepository $hsEntryRepository;
 
-    public function __construct(HighscoreEntryRepository $highscoreEntryRepository)
+    public function __construct(HighscoreEntryRepository $hsEntryRepository)
     {
-        $this->highscoreEntryRepository = $highscoreEntryRepository;
+        $this->hsEntryRepository = $hsEntryRepository;
     }
 
 
@@ -31,7 +31,7 @@ final class ProjHighscoreControllerJson extends AbstractController
     #[Route('proj/api/highscore', name: 'highscore_api_proj')]
     public function showHighscoreApi(): Response
     {
-        $highscoreEntries = $this->highscoreEntryRepository->findAllEntriesScoreDesc();
+        $highscoreEntries = $this->hsEntryRepository->findAllEntriesScoreDesc();
 
         $response = $this->json($highscoreEntries);
         $response->setEncodingOptions(

@@ -23,9 +23,9 @@ final class HighscoreControllerReset extends AbstractController
      */
     #[Route('/proj/highscore/reset', name: 'highscore_reset')]
     public function resetHighscore(
-        HighscoreEntryRepository $HSSEntryRepository
+        HighscoreEntryRepository $hssEntryRepository
     ): Response {
-        $HSSEntryRepository->resetHs();
+        $hssEntryRepository->resetHs();
 
 
         return $this->redirectToRoute('proj_highscore');

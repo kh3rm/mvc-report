@@ -12,20 +12,37 @@ use App\PokerPatienceGS\PokerPatienceGrid;
 use App\PokerPatienceGS\EvaluateHands;
 use App\Helper\JsonGridHelper;
 
+/**
+ * Class ProjectPokerPlayJsonUpdate
+ * @package App\Controller\ProjectController
+ *
+ * This controller handles the API-route for updating the game state of
+ * the Project Poker Patience game.
+ */
 class ProjectPokerPlayJsonUpdate extends AbstractController
 {
+    /**
+     * Update the game state by adding a card to the grid, and returning dynamic results
+     * for the gameplay-view.
+     *
+     * @Route("proj/api/updategamestate", name="api_update_gamestate_proj", methods={"POST"})
+     * @param Request $request The HTTP request object containing the card and index data
+     * @param SessionInterface $session The session interface to store the gameplay data
+     * @return JsonResponse Returns a JSON response containing the updated game state
+     * grid and scores, or an error message.
+     */
     #[Route("proj/api/updategamestate", name: "api_update_gamestate_proj", methods: ['POST'])]
     public function updateGameState(Request $request, SessionInterface $session): JsonResponse
     {
+        $gameplayGrid = [];
         $pokerPatienceGS = new PokerPatienceGrid();
 
-
-        if (!$session->has('gameplay_grid')) {
+        $gameplayGrid = $session->get('gameplay_grid') ?? (function () use ($session): array {
             $jsonGridHelper = new JsonGridHelper();
             $jsonGridHelper->initiateEmptyGameJson($session);
-        } else {
-            $gameplayGrid = $session->get('gameplay_grid');
-        }
+
+            return [];
+        })();
 
         $pokerPatienceGS->setGrid($gameplayGrid);
 

@@ -1,4 +1,7 @@
-<?php namespace App\PokerPatienceGS;
+<?php
+
+namespace App\PokerPatienceGS;
+
 use App\Exception\IncorrectGridFormatException;
 
 /**
@@ -6,21 +9,26 @@ use App\Exception\IncorrectGridFormatException;
  *
  * This class evaluates poker hands from a 5x5 grid representing a game state.
  */
-class EvaluateHands {
-    private $grid;
-
+class EvaluateHands
+{
     use HandScoringTrait;
     use HandEvaluationTrait;
+    /**
+     *
+     * @var array<mixed> $grid An array representing the game state grid.
+     */
+    private $grid;
 
     /**
      * EvaluateHands constructor.
      *
-     * @param array $gameStateGrid An array representing the game state grid.
+     * @param array<int> $gameStateGrid An array representing the game state grid.
      * @throws IncorrectGridFormatException If the grid does not contain exactly 25 values.
      */
-    public function __construct(array $gameStateGrid) {
+    public function __construct(array $gameStateGrid)
+    {
         if (count($gameStateGrid) !== 25) {
-            throw new IncorrectGridFormatException;
+            throw new IncorrectGridFormatException();
         }
         $this->grid = $gameStateGrid;
     }
@@ -29,10 +37,11 @@ class EvaluateHands {
     /**
      * Evaluates the grid and returns scores for horizontal and vertical hands.
      *
-     * @return array A JSON-ready associative array containing the scores
+     * @return array{horizontal: array<mixed>, vertical: array<mixed>, current_score: float|int}
      * for horizontal and vertical hands and the current score.
      */
-    public function evaluate(): array {
+    public function evaluate(): array
+    {
         $horizontalHands = $this->getHorizontalHands();
         $verticalHands = $this->getVerticalHands();
 
@@ -54,9 +63,10 @@ class EvaluateHands {
     /**
      * Gets the 5 horizontal hands from the grid.
      *
-     * @return array An array containing all horizontal hands.
+     * @return array<int[]> An array containing all vertical hands.
      */
-    private function getHorizontalHands(): array {
+    private function getHorizontalHands(): array
+    {
         $horizontalHands = [];
 
         for ($currentRow = 0; $currentRow < 5; $currentRow++) {
@@ -71,10 +81,10 @@ class EvaluateHands {
 
     /**
      * Gets the 5 vertical hands from the grid.
-     *
-     * @return array An array containing all vertical hands.
+     * @return array<int[]> An array containing all vertical hands.
      */
-    private function getVerticalHands(): array {
+    private function getVerticalHands(): array
+    {
         $verticalHands = [];
 
         for ($columnIndex = 0; $columnIndex < 5; $columnIndex++) {

@@ -46,7 +46,7 @@ class ProjectBJControllerGETPlay extends AbstractController
             "dealer" => $dealer,
             "deck" => $session->get("deck_in_use"),
             "splits_afforded" => $session->get("splits_afforded"),
-            "project_game"=> true
+            "project_game" => true
         ];
 
         return $this->render('game/play.html.twig', $data);

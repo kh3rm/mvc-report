@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\HighscoreEntryRepository;
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
+use DateTimeZone;
 
 #[ORM\Entity(repositoryClass: HighscoreEntryRepository::class)]
 class HighscoreEntry
@@ -11,7 +13,7 @@ class HighscoreEntry
     #[ORM\Id]
     #[ORM\Column]
     #[ORM\GeneratedValue]
-    private ?int $id = null;
+    private ?int $id; // @phpstan-ignore-line
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -20,12 +22,12 @@ class HighscoreEntry
     private ?int $score = null;
 
     #[ORM\Column(type: "datetime")]
-    private ?\DateTime $created_at = null;
+    private ?\DateTime $createdAt = null;
 
     public function __construct()
     {
-        $timezone = new \DateTimeZone('CEST');
-        $this->created_at = new \DateTime('now', $timezone);
+        $timezone = new DateTimeZone('CEST');
+        $this->createdAt = new DateTime('now', $timezone);
     }
 
     /**
@@ -77,7 +79,6 @@ class HighscoreEntry
      */
     public function getCreatedAt(): ?\DateTime
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 }
-

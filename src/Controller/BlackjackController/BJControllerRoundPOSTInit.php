@@ -43,7 +43,9 @@ class BJControllerRoundPOSTInit extends AbstractController
         $player = new BlackjackPlayer($playerName, [], (int)$startingChips);
         $dealer = new BlackjackDealer([], (int)$startingChips);
 
-        BlackjackHelper::nextRoundInitHelper($player, $dealer, $numberOfHands, $session);
+        $newBlackjackHelper = new BlackjackHelper();
+
+        $newBlackjackHelper->nextRoundInitHelper($player, $dealer, $numberOfHands, $session);
 
         return $this->redirectToRoute('blackjack_play');
     }

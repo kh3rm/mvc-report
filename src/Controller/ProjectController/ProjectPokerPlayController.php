@@ -39,18 +39,18 @@ class ProjectPokerPlayController extends AbstractController
         $deckInUse = new DeckOfCards52();
         $deckInUse->shuffleDeckOfCards();
         $drawn25Cards = $deckInUse->drawCards(25);
- /*        $pokerPatienceGS = new PokerPatienceGS(); */
+        /*        $pokerPatienceGS = new PokerPatienceGS(); */
 
 
-        $catScore = 1;
+        $catScore = rand(20, 50);
 
         $data = [
             "drawncards" => $drawn25Cards,
-            "placeholder"=> "🃴",
+            "placeholder" => "🃴",
 /*             "pokerPatienceGS" => $pokerPatienceGS, */
             "player_name" => $playerName,
             "player_current_score" => 0,
-            "cat_score" =>$catScore
+            "cat_score" => $catScore
         ];
 
         return $this->render('project/poker-patience-play.html.twig', $data);

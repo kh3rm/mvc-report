@@ -41,7 +41,9 @@ class BJControllerProjectPOSTInit extends AbstractController
         $player = new BlackjackPlayer($playerName, [], (int)$startingChips);
         $dealer = new BlackjackDealer([], (int)$startingChips, "Cat");
 
-        BlackjackHelper::nextRoundInitHelper($player, $dealer, $numberOfHands, $session);
+        $bjHelper = new BlackjackHelper();
+
+        $bjHelper->nextRoundInitHelper($player, $dealer, $numberOfHands, $session);
 
         return $this->redirectToRoute('blackjack_play');
     }

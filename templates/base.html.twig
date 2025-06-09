@@ -42,6 +42,12 @@
     <div class="title">
     MVC
     <img class="title-bird" src="{{ asset('img/title-bird.svg') }}" alt="Title Bird">
+
+    <a class="navlink cat-project-link" href="{{ path('proj') }}">
+        <span class="project-cloud">
+        <img class="cat-project-image" src="{{ asset('img/cat.svg') }}" alt="Cat Project Img Link">
+        </span> Project
+    </a>
     </div>
 
     {% set navlink_unicode_icon = app.session.get('theme') == 'dark' ? '✧' : '☁️' %}
@@ -75,7 +81,6 @@
             <a class="navlink" href="{{ path('metrics') }}">
                 <span>{{ navlink_unicode_icon }}</span> Metrics
             </a>
-
 
     </nav>
 

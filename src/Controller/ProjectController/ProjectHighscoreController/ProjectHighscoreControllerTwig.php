@@ -23,9 +23,9 @@ class ProjectHighscoreControllerTwig extends AbstractController
     * @return Response Returns the rendered view of the api.twig-template.
     */
     #[Route("proj/highscore", name: "proj_highscore")]
-    public function highscoreProj(HighscoreEntryRepository $hsEntryRepositoryRepository): Response
+    public function highscoreProj(HighscoreEntryRepository $hseRepository): Response
     {
-        $highscoreTable = $hsEntryRepositoryRepository->findAllEntriesScoreDesc();
+        $highscoreTable = $hseRepository->findAllEntriesScoreDesc();
 
         $data = [
             "highscoretable" => $highscoreTable

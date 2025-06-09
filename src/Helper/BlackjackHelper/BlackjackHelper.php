@@ -18,7 +18,7 @@ class BlackjackHelper
      * nextRoundInitHelper()-method that contains the necessary logic to
      * initiate a new round of blackjack.
      */
-    public static function nextRoundInitHelper(
+    public function nextRoundInitHelper(
         BlackjackPlayer $player,
         BlackjackDealer $dealer,
         int $numberOfHands,
@@ -39,7 +39,7 @@ class BlackjackHelper
     /**
      * initializeHands()-method to handle the logic for creating player and dealer hands.
      */
-    private static function initializeHands(DeckOfCards52 $deckInUse, BlackjackPlayer $player, BlackjackDealer $dealer, int $numberOfHands): void
+    public function initializeHands(DeckOfCards52 $deckInUse, BlackjackPlayer $player, BlackjackDealer $dealer, int $numberOfHands): void
     {
         $playerHands = [];
         for ($i = 0; $i < $numberOfHands; $i++) {

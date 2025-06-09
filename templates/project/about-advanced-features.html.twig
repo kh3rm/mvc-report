@@ -1,0 +1,106 @@
+{% extends "project/project-base.html.twig" %}
+
+{% block title %}About Database Project{% endblock %}
+
+{% block body %}
+    <h1 class="project-h1">About Advanced Features</h1>
+
+
+    <img class="advf-image" src="{{ asset('img/plus.svg') }}" alt="Plus AdvF Image"/>
+
+
+    <div class="doc-container">
+
+    </div>
+    <br><br>
+    <div class="about-database-container">
+    <h2 class="rubric">Feature 1</h2>
+
+<p>Den första featuren jag väljer att lyfta fram är den friktionsfria Poker Patience-gameplay-implementationen.</p>
+<p>Började initiellt med att konstruera en liknande struktur som för Blackjack-spelet, där jag
+mellanlandade i routerna efter varje post-request när en användare placerar ut ett kort.</p>
+
+<p>Habilt, helt okej, men det stör flytet i spelet lite, och jag tycker att det blev extra
+påtagligt när man tar sig an en Poker Patience, där det är trevligt att kunna få lägga ut korten ostört
+och fokuserat, utan att kastas in och ut mellan reroutes.</p>
+
+<p>Så började fila på en annan variant, där jag fick riktigt god användning av de kortunika
+cardInt-attributen som jag etablerade tidigt i kursen för mina Card-objekt, där jag kunde
+uppdatera och lägga in det kort som utplacerats i gridet  i en motsvarande JSON-array med
+25 indexpositioner, med en asynkron JSON-AJAX-request, alltså understödd av lite JS, vilket
+möjliggör en implementation utan hackiga omdirigeringar (enligt SPA om man ska fortsätta
+droppa akronymer).</p>
+
+<p>Blev en i mitt tycke väldigt trevlig och bra lösning i slutändan, och bidrog till en mycket
+bättre användarupplevelse.</p>
+
+<p>Hade också lite problem till en början med att den ibland kunde lagga till, och innan det
+att ett nytt kort hunnit genererats efter ett klick, så kunde man av misstag placera ut samma
+kort två gånger, vilket 1. inte är bra eller är rätt, och 2. dessutom satte spellogiken ordentligt
+ur fas.</p>
+
+<p>Löste det med att temporärt inaktivera alla pointerevents från den tidpunkten att en användare
+klickar på ett kort, för att sedan återaktivera i slutet av den logiska följden där
+JSON-uppdateringen är avklarad och allt har bearbetats. Artade sig utmärkt.</p>
+
+<h2 class="rubric">Feature 2</h2>
+
+<p>I ovan nämnda etablerade poker patience-omarbetning, så var det ändå någonting som saknades,
+nämligen, att också kunna möjliggöra dynamisk poänguppdatering i anslutning till
+25-korts-spelgridet av de 5 horizontella och 5 vertikala händerna.</p>
+
+<p>Omkonstruerade därför min evaluate klass så att den också skulle kunna vara kapabel att
+jobba mot det här gridformatet, där den nu får köra sina uppdateringar dynamiskt i den
+update-routen i samband med att ett kort läggs till.</p>
+
+<p>Och även om både rank och suit-attribut fanns tillgängliga att arbeta med Card-klassen,
+så fungerar ju mitt cardInt-attribut alldeles utmärkt allena, inte bara som en smidig säregen
+pseudo-primärnyckel-identifikator i JSON-gridet, för att blanda in lite SQL-terminologi, för
+både suiten (1XX, 2XX, 3XX, 4XX) finns ju tillgänlig, och likaså ranken (X02-X14), och den
+räcker ju mer än väl till att bygga upp huvudlogiken kring.</p>
+
+<p>Kunde därför på ett cleant och direkt sätt jobba direkt mot det etablerade gridet,
+och bygga upp min handutvärderingsklass utifrån det.</p>
+
+
+<h2 class="rubric">Feature 3</h2>
+<p>Den tredje featuren jag väljer att lyfta fram, är av en mindre komplex, men ändå
+(inbillar jag mig) någorlunda sinnrik art.</p>
+
+<p>Etablerade nämligen två nya base-templates för att komplettera den jag använt mig tidigare
+i kursen: project-base, som utgör den kattorienterade huvudbackdroppen för projektsidan,
+och ytterligare en, project-base-library, som jag använde mig av i alla mina
+project-library/project-book-relaterade vyer.</p>
+
+<p>Kunde också manipulera och applicera basen konditionellt med en project_game satt
+session-boolean, och därför använda mig av samma Controllers, routes och templates för
+blackjack-gameplayen som jag etbalerat tidigare, för att inte behöva skapa onödiga,
+icke-DRY och potentiellt problematiska kopior in i absurdum.
+Väldigt smidigt.</p>
+
+<p>Anpassade även lite annat med samma konditionella logik i Blackjack-routerna, där jag plockade
+bort den tidigare fågeln (som ju blivit instängd i en bur av katten, vilket är projektets
+huvud-storyline), ändrade lite styling och anpassade kattens syrliga kommentarer beroende på
+resultat och status.</p>
+
+<h2 class="rubric">Feature 4</h2>
+<p>
+Beskrivningen av fjärde featuren håller jag föredömligt kort, och är av en mer generell natur:
+har lagt en allmänt ordentlig insats på styling och detaljfronten, med animationer, interaktion,
+spelflöde och kommentarer, som jag upplever harmoniserar och knyter ihop hela paketet till ett
+trevlig och sammanhållet koncept.</p>
+
+<p>Nöjer mig där.</p>
+
+<p>MVH</p>
+
+
+    </div>
+
+
+
+
+
+
+
+{% endblock %}

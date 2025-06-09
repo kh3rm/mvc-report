@@ -31,7 +31,6 @@ final class HighscoreControllerRegExample extends AbstractController
     {
         $entityManager = $doctrine->getManager();
 
-
         $name = (string)$request->request->get('name', '');
         $score = (int)$request->request->get('score', 0);
 
@@ -42,12 +41,15 @@ final class HighscoreControllerRegExample extends AbstractController
         $entityManager->persist($entry);
         $entityManager->flush();
 
+        $dateCreated = $entry->getCreatedAt();
+
+        $createdAtFormatted = $dateCreated ? $dateCreated->format('Y-m-d H:i:s T') : null;
 
         return new JsonResponse([
             'id' => $entry->getId(),
             'name' => $entry->getName(),
             'score' => $entry->getScore(),
-            'created_at' => $entry->getCreatedAt()->format('Y-m-d H:i:s T')
+            'created_at' => $createdAtFormatted
         ], Response::HTTP_CREATED);
     }
 }

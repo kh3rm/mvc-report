@@ -1,21 +1,22 @@
-<?php namespace App\PokerPatienceGS;
-use App\Exception\IncorrectGridFormatException;
+<?php
+
+namespace App\PokerPatienceGS;
 
 /**
  * Class EvaluateHands
  *
  * This class evaluates poker hands from a 5x5 grid representing a game state.
  */
-trait HandEvaluationTrait {
-
-
+trait HandEvaluationTrait
+{
     /**
      * Evaluates all hands and returns their scores.
      *
-     * @param array $hands An array of hands to evaluate.
-     * @return array An array with the scores of the evaluated hands.
+     * @param array<int[]> $hands An array of hands to evaluate.
+     * @return array<mixed> An array with the scores of the evaluated hands.
      */
-    private function evaluateHands(array $hands): array {
+    private function evaluateHands(array $hands): array
+    {
         $results = [];
         foreach ($hands as $hand) {
             $results[] = $this->evaluateHand($hand);
@@ -25,19 +26,22 @@ trait HandEvaluationTrait {
 
     /**
      * Evaluates a single hand and returns its score.
+     * @SuppressWarnings("PHPMD.CyclomaticComplexity")
      *
-     * @param array $hand The hand to evaluate.
+     * @param int[] $hand The hand to evaluate.
      * @return int The score of the evaluated hand.
      */
-    private function evaluateHand(array $hand): int {
+    private function evaluateHand(array $hand): int
+    {
         $values = [];
         $suits = [];
+
         foreach ($hand as $card) {
             $cardStr = (string) $card;
 
-            if (strlen($cardStr) >= 2) {
+            if (strlen($cardStr) === 3) {
                 $suit = intval($cardStr[0]);
-                $value = intval(substr($cardStr, 1, strlen($cardStr) - 1));
+                $value = intval(substr($cardStr, 1));
 
                 if ($value >= 2 && $value <= 14) {
                     $values[] = $value;
@@ -50,6 +54,19 @@ trait HandEvaluationTrait {
             return 0;
         }
 
+        return $this->evaluateScore($values, $suits);
+    }
+
+    /**
+     * Evaluates the score based on the hand's combinations.
+     *
+     * @SuppressWarnings("PHPMD.CyclomaticComplexity")
+     * @param int[] $values The values of the hand.
+     * @param int[] $suits The suits of the hand.
+     * @return int The score of the evaluated hand.
+     */
+    private function evaluateScore(array $values, array $suits): int
+    {
         if ($this->handRoyalFlush($values, $suits)) {
             return 150;
         } elseif ($this->handStraightFlush($values, $suits)) {
@@ -72,5 +89,4 @@ trait HandEvaluationTrait {
 
         return 0;
     }
-
 }

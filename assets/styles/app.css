@@ -1753,7 +1753,7 @@ footer {
 }
 
 .cage-about {
-    z-index: 10;
+    z-index: 11000;
 }
 
 
@@ -2034,4 +2034,35 @@ footer {
     position: relative;
     align-items: left;
     margin-right: 35%;
+}
+
+.cat-project-link {
+    position: absolute;
+    font-size: 20px;
+    text-decoration: none;
+    top: 97px;
+    right: -60px;
+}
+
+.cat-project-image {
+    width: 30px;
+    height: auto;
+}
+
+.title a {
+    margin-left: 1rem;
+    text-decoration: none;
+    text-decoration-thickness: 0.12rem;
+    text-transform: none;
+    color: black;
+}
+
+.title a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.advf-image {
+    width: 130px;
+    height: auto;
 }

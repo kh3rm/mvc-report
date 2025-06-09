@@ -26,7 +26,7 @@ class ProjectPokerPCompletePOST extends AbstractController
 
         $playerName = $session->get('player_name_challenge');
 
-        $playerWon= true;
+        $playerWon = true;
 
 
         if ($playerScore <= $catScore) {
@@ -34,9 +34,9 @@ class ProjectPokerPCompletePOST extends AbstractController
         };
 
         $data = [
-            "catscore"=> $catScore,
+            "catscore" => $catScore,
             "playername" => $playerName,
-            "playerscore"=> $playerScore,
+            "playerscore" => $playerScore,
             "playerWon" => $playerWon
         ];
 

@@ -4,6 +4,7 @@ namespace App\Tests\EvaluateHands;
 use App\Tests\EvaluateHands\TestModules\EvaluateHandScoresTest;
 use App\Tests\EvaluateHands\TestModules\EvaluateHandsCreateTest;
 use App\Tests\EvaluateHands\TestModules\EvaluateHandMultipleScoresTest;
+use App\Tests\EvaluateHands\TestModules\EvaluateHandEmptyTest;
 
 use PHPUnit\Framework\TestCase;
 
@@ -16,5 +17,6 @@ class EvaluateHandsTest extends TestCase
     use EvaluateHandsCreateTest;
     use EvaluateHandScoresTest;
     use EvaluateHandMultipleScoresTest;
+    use EvaluateHandEmptyTest;
 
 }
